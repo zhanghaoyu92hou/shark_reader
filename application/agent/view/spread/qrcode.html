@@ -1,0 +1,61 @@
+{extend name="public/base"} 
+{block name="title"}下载二维码{/block} 
+{block name="css"}
+<style type="text/css">
+.qr-div{width:100%;height:200px;}
+.qr-div .img-div{margin:0 auto;border:1px solid #ccc;width:200px;height:200px;overflow:hidden;}
+.qr-div .img-div img{width:100%;height:100%:}
+.pic-div{width:100%;height:auto;}
+.pic-div img{width:100%;}
+.btn-div{margin-top:10px;text-align:right;}
+</style>
+{/block}
+{block name="jsValue"}
+<script type="text/javascript">
+var $path = '{$path}';
+</script>
+{/block}
+{block name="body"}
+<div class="layui-fluid">
+	<div class="layui-card">
+		<div class="layui-tab layui-tab-brief">
+		  <ul class="layui-tab-title">
+		    <li class="layui-this">纯二维码</li>
+		    <li>图文二维码</li>
+		  </ul>
+		  <div class="layui-tab-content">
+		    <div class="layui-tab-item layui-show">
+		    	<div class="layui-row">
+		    		<div class="qr-div">
+						<div class="img-div">
+							<img src="{$path}qrcode.png" />
+						</div>
+					</div>
+		    	</div>
+		    	<div class="layui-row">
+		    		<div class="btn-div">
+		    			<a class="layui-btn layui-btn-primary" href="{$path}qrcode.png" download="qrcode.png">下载纯二维码</a>
+		    		</div>
+		    	</div>
+		    </div>
+		    <div class="layui-tab-item">
+		    	<div class="layui-row">
+		    		<div class="pic-div">
+						<img src="{$path}qrcode_pic_1.png" id="showImg"/>
+					</div>
+		    	</div>
+		    	<div class="layui-row">
+		    		<div class="btn-div">
+		    			<a class="layui-btn layui-btn-primary" id="doChange">切换样式</a>
+	                	<a class="layui-btn layui-btn-primary" href="{$path}qrcode_pic_1.png" download="qrcode_pic_1.png" id="picdownload">下载图文二维码</a>
+		    		</div>
+		    	</div>
+		    </div>
+		  </div>
+		</div>
+	</div>
+</div>
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="__JS__/admin.spread.qrcode.js"></script>
+{/block}

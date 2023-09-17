@@ -1,0 +1,27 @@
+{extend name="public/base"}
+{block name="title"}{$cur.site_title}{/block}
+{block name="jsValue"}
+<link rel="stylesheet" href="/static/index/css/wxpublic.css?wx" />
+<script type="text/javascript">
+    var data = {area: '{$cur.area}', is_hot: '{$cur.is_hot}'};
+</script>
+{/block}
+{block name="body"}
+<div class="hotBanner">
+    <img src="/static/index/images/hotImg.png" alt="">
+    <div class="hotPos">
+        <h3>{$cur.page_title}</h3>
+        <p><em>SELECTION</em> <span></span> </p>
+    </div>
+</div>
+<div class="listCount hotRank">
+    <div class="listBox">
+        <div class="rankCount">
+
+        </div>
+    </div>
+</div>
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="__IJS__/video_more.min.js"></script>
+{/block}

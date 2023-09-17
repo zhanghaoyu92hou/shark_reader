@@ -1,0 +1,175 @@
+{extend name="public/base"} 
+{block name="title"}订单统计{/block} 
+{block name="jsValue"}
+<script type="text/javascript">
+</script>
+{/block}
+{block name="body"}
+<div class="layui-fluid">
+	<div class="layui-card">
+		<div class="layui-card-body">
+			<div class="layui-row layui-col-space20">
+				<div class="layui-col-md3 layui-col-sm3 chart-block">
+					<div class="block-content">
+						<div class="block-content-item">
+							<h4>今日充值</h4>
+							<p class="block-numbers">¥{$today.total_money}</p>
+							<div class="layui-row">
+								<div class="layui-col-md6">
+									<h4 class="sub-title">非VIP充值</h4>
+									<p class="sub-numbers">¥{$today.n_money}</p>
+									<p>已支付：<font class="text-red">{$today.n_pay}</font>笔</p>
+									<p>未支付：<font class="text-red">{$today.n_notpay}</font>笔</p>
+									<p>完成率：<font class="text-red">{$today.n_rate}%</font></p>
+								</div>
+								<div class="layui-col-md6">
+									<h4 class="sub-title">VIP充值</h4>
+									<p class="sub-numbers">¥{$today.p_money}</p>
+									<p>已支付：<font class="text-red">{$today.p_pay}</font>笔</p>
+									<p>未支付：<font class="text-red">{$today.p_notpay}</font>笔</p>
+									<p>完成率：<font class="text-red">{$today.p_rate}%</font></p>
+								</div>
+							</div>
+							<div class="layui-row">
+								<hr>
+								<div class="layui-col-md4">普通充值：<font class="text-red">{$today.type1_money}</font></div>
+								<div class="layui-col-md4">活动充值：<font class="text-red">{$today.type2_money}</font></div>
+								<div class="layui-col-md4">打赏充值：<font class="text-red">{$today.type3_money}</font></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="layui-col-md3 layui-col-sm3 chart-block">
+					<div class="block-content">
+						<div class="block-content-item">
+							<h4>昨日充值</h4>
+							<p class="block-numbers">¥{$yesterday.total_money}</p>
+							<div class="layui-row">
+								<div class="layui-col-md6">
+									<h4 class="sub-title">非VIP充值</h4>
+									<p class="sub-numbers">¥{$yesterday.n_money}</p>
+									<p>已支付：<font class="text-red">{$yesterday.n_pay}</font>笔</p>
+									<p>未支付：<font class="text-red">{$yesterday.n_notpay}</font>笔</p>
+									<p>完成率：<font class="text-red">{$yesterday.n_rate}%</font></p>
+								</div>
+								<div class="layui-col-md6">
+									<h4 class="sub-title">VIP充值</h4>
+									<p class="sub-numbers">¥{$yesterday.p_money}</p>
+									<p>已支付：<font class="text-red">{$yesterday.p_pay}</font>笔</p>
+									<p>未支付：<font class="text-red">{$yesterday.p_notpay}</font>笔</p>
+									<p>完成率：<font class="text-red">{$yesterday.p_rate}%</font></p>
+								</div>
+							</div>
+							<div class="layui-row">
+								<hr>
+								<div class="layui-col-md4">普通充值：<font class="text-red">{$yesterday.type1_money}</font></div>
+								<div class="layui-col-md4">活动充值：<font class="text-red">{$yesterday.type2_money}</font></div>
+								<div class="layui-col-md4">打赏充值：<font class="text-red">{$yesterday.type3_money}</font></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="layui-col-md3 layui-col-sm3 chart-block">
+					<div class="block-content">
+						<div class="block-content-item">
+							<h4>本月充值（不包含今日）</h4>
+							<p class="block-numbers">¥{$month.total_money}</p>
+							<div class="layui-row">
+								<div class="layui-col-md6">
+									<h4 class="sub-title">非VIP充值</h4>
+									<p class="sub-numbers">¥{$month.n_money}</p>
+									<p>已支付：<font class="text-red">{$month.n_pay}</font>笔</p>
+									<p>未支付：<font class="text-red">{$month.n_notpay}</font>笔</p>
+									<p>完成率：<font class="text-red">{$month.n_rate}%</font></p>
+								</div>
+								<div class="layui-col-md6">
+									<h4 class="sub-title">VIP充值</h4>
+									<p class="sub-numbers">¥{$month.p_money}</p>
+									<p>已支付：<font class="text-red">{$month.p_pay}</font>笔</p>
+									<p>未支付：<font class="text-red">{$month.p_notpay}</font>笔</p>
+									<p>完成率：<font class="text-red">{$month.p_rate}%</font></p>
+								</div>
+							</div>
+							<div class="layui-row">
+								<hr>
+								<div class="layui-col-md4">普通充值：<font class="text-red">{$month.type1_money}</font></div>
+								<div class="layui-col-md4">活动充值：<font class="text-red">{$month.type2_money}</font></div>
+								<div class="layui-col-md4">打赏充值：<font class="text-red">{$month.type3_money}</font></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="layui-col-md3 layui-col-sm3 chart-block">
+					<div class="block-content">
+						<div class="block-content-item">
+							<h4>累计充值（不包含今日）</h4>
+							<p class="block-numbers">¥{$total.total_money}</p>
+							<div class="layui-row">
+								<div class="layui-col-md6">
+									<h4 class="sub-title">非VIP充值</h4>
+									<p class="sub-numbers">¥{$total.n_money}</p>
+									<p>已支付：<font class="text-red">{$total.n_pay}</font>笔</p>
+									<p>未支付：<font class="text-red">{$total.n_notpay}</font>笔</p>
+									<p>完成率：<font class="text-red">{$total.n_rate}%</font></p>
+								</div>
+								<div class="layui-col-md6">
+									<h4 class="sub-title">VIP充值</h4>
+									<p class="sub-numbers">¥{$total.p_money}</p>
+									<p>已支付：<font class="text-red">{$total.p_pay}</font>笔</p>
+									<p>未支付：<font class="text-red">{$total.p_notpay}</font>笔</p>
+									<p>完成率：<font class="text-red">{$total.p_rate}%</font></p>
+								</div>
+							</div>
+							<div class="layui-row">
+								<hr>
+								<div class="layui-col-md4">普通充值：<font class="text-red">{$total.type1_money}</font></div>
+								<div class="layui-col-md4">活动充值：<font class="text-red">{$total.type2_money}</font></div>
+								<div class="layui-col-md4">打赏充值：<font class="text-red">{$total.type3_money}</font></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="layui-card">
+		<div class="layui-card-header">近30天订单统计</div>
+		<div class="layui-card-body">
+				<table class="layui-table">
+				  <thead>
+				    <tr>
+				      <th>日期</th>
+				      <th>充值金额</th>
+				      <th>充值概况</th>
+				      <th>非VIP充值</th>
+				      <th>非VIP支付订单数</th>
+				      <th>VIP充值</th>
+				      <th>VIP充值订单数</th>
+				    </tr> 
+				  </thead>
+				  <tbody>
+				  	{volist name="data" id="v"}
+				    <tr>
+				      <td>{$v.create_date}</td>
+				      <td>¥{$v.total_money}</td>
+				      <td>普通充值：¥{$v.type1_money},活动充值：¥{$v.type2_money},打赏：¥{$v.type3_money}</td>
+				      <td>¥{$v.n_money}<br />充值人数：{$v.n_user}人，人均：¥{$v.n_svg}</td>
+				      <td>{$v.n_pay}笔<br />{$v.n_notpay}笔未支付，完成率：{$v.p_rate}%</td>
+				      <td>¥{$v.p_money}<br />充值人数：{$v.p_user}人，人均：¥{$v.p_svg}</td>
+				      <td>{$v.p_pay}笔<br />{$v.p_notpay}笔未支付，完成率：{$v.p_rate}%</td>
+				    </tr>
+				    {/volist}
+				  </tbody>
+				</table>
+		</div>
+	</div>
+</div>
+{/block}
+{block name="footJs"}
+<script type="text/javascript">
+	layui.use(['table','element'],function(){
+		var table = layui.table,
+		element = layui.element;
+	});
+</script>
+{/block}

@@ -1,0 +1,34 @@
+{extend name="public/base"}
+{block name="title"}{$site_title}{/block}
+{block name="css"}
+<link rel="stylesheet" href="/static/index/css/swiper.min.css" />
+<style type="text/css">
+    body {
+        background: #fff url("/static/index//images/rankBg.png") no-repeat ;
+        background-size:100% 100%;
+        overflow: hidden;
+        height: 100vh;
+    }
+</style>
+{/block}
+{block name="body"}
+<div class="commodityNav1 commodityline">
+     <a href="javascript:history.go(-1);" class="back" title="返回"></a>
+    <span class="activeNone" >排行版</span>
+</div>
+<div class="listBindNav">
+    <a href="JavaScript:;" {eq name="gender_type" value="2"}class="active"{/eq}>女生榜</a>
+    <a href="JavaScript:;" {eq name="gender_type" value="1"}class="active"{/eq}>男生榜</a>
+    <a href="JavaScript:;" {eq name="gender_type" value="3"}class="active"{/eq}>总排行榜</a>
+    <div class="listline"></div>
+</div>
+<div class="listCount">
+     <div class="swiper-container swiper-Rank">
+          {:getBlock($block_name,'other')}
+     </div>
+</div>
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="/static/index/js/swiper.min.js"></script>
+<script type="text/javascript" src="__IJS__/book_rank.min.js"></script>
+{/block}

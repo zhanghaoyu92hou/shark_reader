@@ -1,0 +1,12 @@
+{notempty name="area"}
+{volist name="area" id="v"}
+<div>
+    <h4>{$v.name}</h4>
+    <ul>
+        {volist name="v.books" id="val"}
+        <li><a href="/Index/Book/info.html?book_id={$val.id}">{$val.name}</a></li>
+        {/volist}
+    </ul>
+</div>
+{/volist}
+{/notempty}

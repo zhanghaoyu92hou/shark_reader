@@ -1,0 +1,59 @@
+{extend name="public/base"} 
+{block name="title"}更新消息{/block} 
+{block name="jsValue"}
+<script type="text/javascript">
+var $nodeUrl = '{:my_url("Option/getNodeSelectList")}';
+var $role_id = '{$cur.id}';
+var $backUrl = '{$backUrl}';
+</script>
+{/block}
+{block name="body"}
+<div class="layui-fluid">
+	<div class="layui-row">
+		<div class="layui-card">
+			<div class="layui-card-header">
+				公告信息 
+			</div>
+			<div class="layui-card-body">
+				<div class="layui-form">
+					<div class="layui-form-item">
+						<div class="layui-col-lg5">
+							<label class="layui-form-label">公告1标题：</label>
+							<div class="layui-input-block">
+								<input type="text" name="title" value="{$cur.title}" class="layui-input" />
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">公告类型：</label>
+							<div class="layui-input-block">
+								{:createRadioHtml($type,$cur['type']);}
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg6">
+							<label class="layui-form-label">公告内容：</label>
+							<div class="layui-input-block">
+								<textarea class="layui-textarea" id="content">{$cur.content}</textarea>
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+		                <div class="layui-input-block">
+		                	<input type="hidden" value="{$cur.id}" name="id" />
+		                  	<a class="layui-btn" lay-submit lay-filter="dosubmit">发布</a>
+		                  	<a class="layui-btn layui-btn-primary" href="{$backUrl}">返回</a>
+		                </div>
+		            </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="/static/plugins/ace/ace.js"></script>
+<script type="text/javascript" src="__JS__/admin.message.domessage.js"></script>
+{/block}

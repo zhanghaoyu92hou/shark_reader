@@ -1,0 +1,123 @@
+{notempty name="hot"}
+<div class="cartoonHot cartoonTop">
+    <div class="hotTitle">
+        <span>
+            <img src="/static/index/images/cartoon_hot_left.jpg" alt="">&nbsp;
+            热卖商品
+            &nbsp;<img src="/static/index/images/cartoon_hot_right.jpg" alt="">
+        </span>
+    </div><!--/hotTitle-->
+
+    <div class="swiperHot">
+        <div class="swiper-container swiper-Hot">
+            <div class="swiper-wrapper">
+                {volist name="hot" id="hv"}
+                <div class="swiper-slide hotslide">
+                    <a href="/index/product/info.html?pid={$hv.id}">
+                        <div class="sofa">
+                            <div class="mall-sofa">
+                                <img src="{$hv.cover}" alt="">
+                            </div>
+                            <p class="over">{$hv.name}</p>
+                            <p class="orange_p">¥{$hv.money}</p>
+                        </div>
+                    </a>
+                </div><!--/swiper-slide-->
+                {/volist}
+            </div>
+        </div>
+    </div>
+</div>
+<!--<div style="height: 5px;width: 100%;background-color: #ddd"></div>
+<div class="">
+    <div class="">{:htmlspecialchars_decode($text1)}</div>
+</div>-->
+{/notempty}
+{notempty name="area"}
+{volist name="area" id="av"}
+<div class="cartoonChoiceness cartoonTop">
+    <div class="choicenessTitle">
+        <span class="jxStyle">
+            <img src="/static/index/images/cartoon_jx_left.jpg" alt="">
+            {$av.name}
+            <img src="/static/index/images/cartoon_jx_right.jpg" alt="">
+        </span>
+        <a href="{$av.url}" class="blue_a">
+            <em>更多</em>
+            <img src="/static/index/images/arrowRadius_blue.png" alt="">
+        </a>
+    </div><!--/choicenessTitle-->
+
+    <div class="mallList">
+        <ul>
+            {volist name="av.child" id="cv"}
+            <li>
+                <a href="/index/Product/info.html?pid={$cv.id}">
+                    <div>
+                        <img src="{$cv.cover}" alt="">
+                    </div>
+                    <h4 class="over">{$cv.name}</h4>
+                    <p class="over">{$cv.summary} </p>
+                </a>
+
+                <div class="buyMoney">
+                    <span>
+                        <em>¥{$cv.money}</em>
+                        <p>{$cv.buy_num}人购买</p>
+                    </span>
+                    <a href="/index/Product/buy.html?pid={$cv.id}">立即购买</a>
+                </div>
+            </li>
+            {/volist}
+        </ul>
+    </div>
+</div>
+<!--<div style="height: 5px;width: 100%;background-color: #ddd"></div>
+<div class="">
+    <div class="">{:htmlspecialchars_decode($text2)}</div>
+</div>-->
+{/volist}
+{/notempty}
+{notempty name="foot_hot"}    
+<div class="cartoonRecommend cartoonTop">
+    <div class="choicenessTitle ">
+        <span class="tjStyle">
+            <img src="/static/index/images/cartoon_rm_left.jpg" alt="">
+            热门推荐
+            <img src="/static/index/images/cartoon_rm_right.jpg" alt="">
+        </span>
+        <a href="/index/Product/more.html?is_hot=1" class="yellow_a">
+            <em>更多</em>
+            <img src="/static/index/images/arrowRadius_yellow.png" alt="">
+        </a>
+    </div><!--/choicenessTitle-->
+
+    <div class="mallList" style="margin: 15px 10px 10px 10px;">
+        <ul>
+            {volist name="foot_hot" id="fv"}
+            <li>
+                <a href="/index/Product/info.html?pid={$fv.id}">
+                    <div>
+                        <img src="{$fv.cover}" alt="">
+                    </div>
+                    <h4 class="over">{$fv.name}</h4>
+                    <p class="over">{$fv.summary} </p>
+                </a>
+                <div class="buyMoney">
+                    <span>
+                        <em>¥{$fv.money}</em>
+                        <p>{$fv.buy_num}人购买</p>
+                    </span>
+                    <a href="/index/Product/buy.html?pid={$fv.id}">立即购买</a>
+                </div>
+            </li>
+            {/volist}
+        </ul>
+    </div>
+
+</div>
+<!--<div style="height: 5px;width: 100%;background-color: #ddd"></div>
+<div class="">
+    <div class="">{:htmlspecialchars_decode($text3)}</div>
+</div>-->
+{/notempty}

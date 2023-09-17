@@ -1,0 +1,49 @@
+{extend name="public/base"} 
+{block name="title"}更新分享话术{/block}
+{block name="jsValue"}
+<script type="text/javascript">
+var $backUrl = '{$backUrl}';
+</script>
+{/block} 
+{block name="body"}
+<div class="layui-fluid">
+	<div class="layui-row">
+		<div class="layui-card">
+			<div class="layui-card-header">
+				更新分享话术
+			</div>
+			<div class="layui-card-body">
+				<div class="layui-form">
+					
+					<div class="layui-form-item">
+						<div class="layui-col-lg5">
+							<label class="layui-form-label">分享标题：</label>
+							<div class="layui-input-block">
+								<input type="text" name="title" value="{$cur.title}" class="layui-input" />
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg7">
+							<label class="layui-form-label">分享内容：</label>
+							<div class="layui-input-block">
+								<textarea class="layui-textarea" name="content">{$cur.content}</textarea>
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+		                <div class="layui-input-block">
+		                	<input type="hidden" name="book_id" value="{$cur.book_id}" class="layui-input" />
+		                  	<a class="layui-btn" lay-submit lay-filter="dosubmit">提交</a>
+		                  	<a type="reset" class="layui-btn layui-btn-primary" href="{$backUrl}">返回</a>
+		                </div>
+		            </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="__JS__/common.upback.js"></script>
+{/block}

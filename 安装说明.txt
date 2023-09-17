@@ -1,0 +1,35 @@
+服务器配置要求：
+Nginx1.2 mysql5.7  php7.1
+
+使用教程：
+1.将压缩包上传到服务器根目录解压
+
+2.修改运行目录 /public
+
+3.将伪静态为thinkphp
+
+或：	location ~* (runtime|application)/{
+		return 403;
+	}
+	location / {
+		if (!-e $request_filename){
+		rewrite  ^(.*)$  /index.php?s=$1  last;   break;
+		}
+	}
+
+4.新建数据库，导入数据包 shuju.sql
+
+5.修改文件 config/database.php 连接数据库
+
+6.访问后台 /admin 选择基本配置 -> 站点设置 -> 基础信息 ->域名修改为你网站域名
+	后台账号：admin
+	后台密码：123465
+
+确认收货后赠送发布接口和采集规则，如有其他不懂的问题联系QQ：997768636
+
+
+
+
+
+
+

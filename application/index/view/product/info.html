@@ -1,0 +1,43 @@
+{extend name="public/base"}
+{block name="title"}{$site_title}{/block}
+{block name="jsValue"}
+<script type="text/javascript">
+var video_id = '{$cur.id}';
+var $share_data = {$share_data|raw};
+var $jsConfig = {$jsConfig|raw};
+</script>
+{/block}
+{block name="body"}
+<div class="mall_sp">
+     <img src="{$cur.cover}" alt="">
+     <div class="mall_Q">
+          <span class="mall_price"><em>¥</em>{$cur.money} 元</span>
+           <h4>{$cur.name}</h4>
+           <p>{$cur.summary}</p>
+     </div>
+ </div>
+
+ <!--商品详情-->
+ <div class="evaluation cartoonTop" style="padding:2.5% 0">
+     <div class="evaluationTitle details_95" style="font-weight: bold">
+         商品详情
+     </div>
+      <div class="mallDetails">
+          {:getBlock($cur['id'],'product')}
+      </div>
+ </div>
+ <div class="height_45"></div>
+ <div class="footerBook footerMall">
+     <a href="{:my_url('index')}" class="backMall ripple">返回商城</a>
+     <a href="{:my_url('doOrder',['pid'=>$cur['id']])}" class="ripple">立即购买</a>
+ </div>
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="__IJS__/product_info.min.js"></script>
+{notempty name="jsConfig"}
+	{notempty name="share_data"}
+		<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js" ></script>
+		<script type="text/javascript" src="__IJS__/public_share.min.js"></script>
+	{/notempty}
+{/notempty}
+{/block}

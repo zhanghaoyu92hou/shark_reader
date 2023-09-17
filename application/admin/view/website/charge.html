@@ -1,0 +1,172 @@
+{extend name="public/base"} 
+{block name="title"}充值金额信息{/block} 
+{block name="css"}
+<style type="text/css">
+
+</style>
+{/block}
+{block name="body"}
+<div class="layui-fluid">
+	<div class="layui-row">
+		<div class="layui-card">
+			<div class="layui-card-header">
+				充值金额配置 
+			</div>
+			<div class="layui-card-body layui-form">
+				<div class="layui-btn-container">
+		       		<a class="layui-btn layui-btn-sm" id="addInput">添加金额配置</a>
+		       		<a class="layui-btn layui-btn-sm" lay-submit lay-filter="dosubmit">保存金额配置</a>
+		    	</div>
+				<div>
+					<div class="layui-form-item">
+					<table class="layui-table">
+					  <colgroup>
+					    <col width="150">
+					    <col width="150">
+					    <col width="150">
+					    <col width="150">
+					    <col width="150">
+					    <col width="150">
+					    <col width="150">
+					    <col width="150">
+					    <col width="150">
+					    <col>
+					  </colgroup>
+					  <thead>
+					    <tr>
+					      <th style="text-align:center;">充值金额</th>
+					      <th style="text-align:center;">充值书币</th>
+					      <th style="text-align:center;">赠送书币</th>
+					      <th style="text-align:center;">是否热门</th>
+					      <th style="text-align:center;">套餐选择</th>
+					      <th style="text-align:center;">是否启用</th>
+					      <th style="text-align:center;">是否选中</th>
+					      <th style="text-align:center;">操作</th>
+					    </tr> 
+					  </thead>
+					  <tbody id="configBody">
+					  	{notempty name="cur"}
+					  		{volist name="cur" id="v"}
+					  			<tr class="table-input-line">
+							      <td>
+							      	<div class="table-input-div">
+							      		<input type="text" class="layui-input" value="{$v.money}" name="money[]"/>
+							      		<span class="value-unit">元</span>
+							      	</div>
+							      </td>
+							      <td>
+							      	<div class="table-input-div">
+							      		<input type="text" class="layui-input" value="{$v.coin}" name="coin[]"/>
+							      		<span class="value-unit">书币</span>
+							      	</div>
+							      </td>
+							      <td>
+							      	<div class="table-input-div">
+							      		<input type="text" class="layui-input" value="{$v.reward}" name="reward[]"/>
+							      		<span class="value-unit">书币</span>
+							      	</div>
+							      </td>
+							      <td>	
+							      	<select class="layui-select" name="is_hot[]">
+							      		<option value="0">请选择</option>
+							      		<option value="1" {eq name="v.is_hot" value="1"}selected="selected"{/eq}>是</option>
+							      		<option value="2" {eq name="v.is_hot" value="2"}selected="selected"{/eq}>否</option>
+							      	</select>
+							      </td>
+							      <td>
+							      	<select class="layui-select" name="package[]">
+							      		<option value="0">请选择</option>
+							      		<option value="1" {eq name="v.package" value="1"}selected="selected"{/eq}>包日</option>
+							      		<option value="2" {eq name="v.package" value="2"}selected="selected"{/eq}>包月</option>
+							      		<option value="3" {eq name="v.package" value="3"}selected="selected"{/eq}>包季度</option>
+							      		<option value="4" {eq name="v.package" value="4"}selected="selected"{/eq}>包半年</option>
+							      		<option value="5" {eq name="v.package" value="5"}selected="selected"{/eq}>包整年</option>
+							      		<option value="6" {eq name="v.package" value="6"}selected="selected"{/eq}>包终身</option>
+							      	</select>
+							      </td>
+							      <td>
+							      	<select class="layui-select" name="is_on[]">
+							      		<option value="0">请选择</option>
+							      		<option value="1" {eq name="v.is_on" value="1"}selected="selected"{/eq}>是</option>
+							      		<option value="2" {eq name="v.is_on" value="2"}selected="selected"{/eq}>否</option>
+							      	</select>
+							      </td>
+							      <td>
+							      	<select class="layui-select" name="is_checked[]">
+							      		<option value="0">请选择</option>
+							      		<option value="1" {eq name="v.is_checked" value="1"}selected="selected"{/eq}>是</option>
+							      		<option value="2" {eq name="v.is_checked" value="2"}selected="selected"{/eq}>否</option>
+							      	</select>
+							      </td>
+							      <td align="center">
+							      		<a class="layui-btn layui-btn-danger layui-btn-xs deleteline">删除</a>
+							      </td>
+							    </tr>
+					  		{/volist}
+					  	{else /}
+					  	<tr class="table-input-line">
+					      <td>
+					      	<div class="table-input-div">
+					      		<input type="text" class="layui-input" value="0" name="money[]"/>
+					      		<span class="value-unit">元</span>
+					      	</div>
+					      </td>
+					      <td>
+					      	<div class="table-input-div">
+					      		<input type="text" class="layui-input" value="0" name="coin[]"/>
+					      		<span class="value-unit">书币</span>
+					      	</div>
+					      </td>
+					      <td>
+					      	<div class="table-input-div">
+					      		<input type="text" class="layui-input" value="0" name="reward[]"/>
+					      		<span class="value-unit">书币</span>
+					      	</div>
+					      </td>
+					      <td>	
+					      	<select class="layui-select" name="is_hot[]">
+					      		<option value="0">请选择</option>
+					      		<option value="1">是</option>
+					      		<option value="2">否</option>
+					      	</select>
+					      </td>
+					      <td>
+					      	<select class="layui-select" name="package[]">
+					      		<option value="0">请选择</option>
+					      		<option value="1">包半年</option>
+					      		<option value="2">包整年</option>
+					      		<option value="3">包终身</option>
+					      	</select>
+					      </td>
+					      <td>
+					      	<select class="layui-select" name="is_on[]">
+					      		<option value="0">请选择</option>
+					      		<option value="1">是</option>
+					      		<option value="2">否</option>
+					      	</select>
+					      </td>
+					      <td>
+					      	<select class="layui-select" name="is_checked[]">
+					      		<option value="0">请选择</option>
+					      		<option value="1">是</option>
+					      		<option value="2">否</option>
+					      	</select>
+					      </td>
+					      <td align="center">
+					      		<a class="layui-btn layui-btn-danger layui-btn-xs deleteline">删除</a>
+					      </td>
+					    </tr>
+					  	{/notempty}
+					    
+					  </tbody>
+					</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="__JS__/admin.website.charge.js"></script>
+{/block}

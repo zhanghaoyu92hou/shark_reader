@@ -1,0 +1,47 @@
+{extend name="public/base"} 
+{block name="title"}复制链接{/block} 
+{block name="body"}
+<div class="layui-fluid">
+	<div class="layui-row">
+		{notempty name="data.notice"}
+			<blockquote class="layui-elem-quote layui-quote-nm">{$data.notice}</blockquote>
+		{/notempty}
+		{volist name="data.links" id="v"}
+		<div class="layui-card">
+			<div class="layui-card-header">
+				{$v.title}
+			</div>
+			<div class="layui-card-body">
+				<div class="layui-form">
+					<div class="layui-form-item">
+						<div class="text-line">
+							{$v.val}
+						</div>
+					</div>
+					<div class="layui-form-item">
+		                <button class="layui-btn copy" data-clipboard-action="copy" data-clipboard-text="{$v.val}">复制链接</button>
+		            </div>
+				</div>
+			</div>
+		</div>
+		{/volist}
+	</div>
+</div>
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="/static/common/js/clipboard.min.js"></script>
+<script type="text/javascript">
+	layui.use('jquery',function(){
+		var $ = layui.jquery;
+		var clipboard = new Clipboard('.copy');
+		clipboard.on('success', function (e) {
+			layOk("复制成功!");
+			e.clearSelection();
+		});
+		clipboard.on('error', function (e) {
+			console.error('Action:', e.action);
+			console.error('Trigger:', e.trigger);
+		});
+	});
+</script>
+{/block}

@@ -1,0 +1,183 @@
+{extend name="public/base"} 
+{block name="title"}更新关键字{/block} 
+{block name="jsValue"}
+<script type="text/javascript">
+var $material_num = parseInt('{$material.count}');
+var $backUrl = '{$backUrl}';
+var $type = parseInt('{$cur.type}');
+</script>
+{/block}
+{block name="body"}
+<div class="layui-fluid">
+	<div class="layui-row">
+		<div class="layui-card">
+			<div class="layui-card-header">
+				关键字基础信息 
+			</div>
+			<div class="layui-card-body">
+				<blockquote class="layui-elem-quote layui-quote-nm">系统内置关键字：首次关注且无阅读历史回复【<font class="text-red">attention</font>】,您需要更新其回复内容</blockquote>
+				<div class="layui-form">
+					<div class="layui-form-item">
+						<div class="layui-col-lg3">
+							<label class="layui-form-label">关键字：</label>
+							<div class="layui-input-block">
+								<input type="text" name="keyword" value="{$cur.keyword}" class="layui-input" />
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">状态：</label>
+							<div class="layui-input-block">
+								{:createRadioHtml($status,$cur['status'])}
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">回复类型：</label>
+							<div class="layui-input-block">
+								{:createRadioHtml($type,$cur['type'])}
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item" id="textBox">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">文本消息：</label>
+							<div class="layui-input-block">
+								<textarea class="layui-textarea" name="content">{$cur.content}</textarea>
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item layui-hide" id="materialBox">
+						<label class="layui-form-label">图文消息：</label>
+						<div class="layui-input-block">
+							<div class="message-box">
+								<div class="message-main message-item">
+									<img class="message-cover" src="{$cur.material.main.picurl}" />
+									<div class="main-title message-title">{$cur.material.main.title}</div>
+									<div class="message-edit-box main-edit-box">
+										<span class="triangle"></span>
+										<div class="layui-fluid">
+											<div class="layui-card">
+												<div class="layui-card-body">
+													<div class="layui-form-item">
+														<label class="layui-form-label">封面：</label>
+														<div class="layui-input-block mg80">
+															<a href="javascript:void(0);" class="layui-btn layui-btn-sm layui-btn-primary chooseCover">选择素材</a>
+															<a href="javascript:void(0);" class="layui-btn layui-btn-sm layui-btn-primary doUpload" data-size="900x500">重新上传</a>
+															<input type="hidden" class="hide-cover" name="message_cover[]" value="{$cur.material.main.picurl}" />
+														</div>
+													</div>
+													<div class="layui-form-item">
+														<label class="layui-form-label">标题：</label>
+														<div class="layui-input-block mg80 message-title-block">
+															<input type="text" name="message_title[]" value="{$cur.material.main.title}" class="layui-input input-title"/>
+															<a class="layui-btn layui-btn-sm layui-btn-primary chooseTitle">选择</a>
+														</div>
+													</div>
+													<div class="layui-form-item">
+														<label class="layui-form-label">链接：</label>
+														<div class="layui-input-block mg80">
+															<input type="text" name="message_link[]" value="{$cur.material.main.url}" class="layui-input" />
+														</div>
+													</div>
+													<div class="layui-form-item">
+														<label class="layui-form-label">简介：</label>
+														<div class="layui-input-block mg80">
+															<textarea class="layui-textarea" name="message_desc">{$cur.material.main.description}</textarea>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="message-child-box">
+									{notempty name="cur.material.child"}
+										{volist name="cur.material.child" id="v"}
+											<div class="message-child message-item">
+												<a class="layui-btn layui-btn-sm layui-btn-danger img-delete layui-hide" href="javascript:void(0);"><i class="layui-icon layui-icon-delete"></i>删除</a>
+												<div class="child-main message-title">{$v.title}</div>
+												<div class="child-image">
+													<div class="pimg">
+														<img class="message-cover" src="{$v.picurl}" />
+													</div>
+												</div>
+												<div class="message-edit-box child-edit-box layui-hide">
+													<span class="triangle"></span>
+													<div class="layui-fluid">
+														<div class="layui-card">
+															<div class="layui-card-body">
+																<div class="layui-form-item">
+																	<label class="layui-form-label">封面：</label>
+																	<div class="layui-input-block mg80">
+																		<a href="javascript:void(0);" class="layui-btn layui-btn-sm layui-btn-primary chooseCover">选择素材</a>
+																		<a href="javascript:void(0);" class="layui-btn layui-btn-sm layui-btn-primary doUpload" data-size="200x200">重新上传</a>
+																		<input type="hidden" name="message_cover[]" value="{$v.picurl}" />
+																	</div>
+																</div>
+																<div class="layui-form-item">
+																	<label class="layui-form-label">标题：</label>
+																	<div class="layui-input-block mg80 message-title-block">
+																		<input type="text" name="message_title[]" value="{$v.title}" class="layui-input input-title"/>
+																		<a class="layui-btn layui-btn-sm layui-btn-primary chooseTitle">选择</a>
+																	</div>
+																</div>
+																<div class="layui-form-item">
+																	<label class="layui-form-label">链接：</label>
+																	<div class="layui-input-block mg80">
+																		<input type="text" name="message_link[]" class="layui-input" value="{$v.url}" />
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										{/volist}
+									{/notempty}
+								</div>
+								<div class="message-bottom">
+									<a class="layui-btn layui-btn-sm" id="addChild"><i class="layui-icon layui-icon-add-1"></i>添加次条</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+		                <div class="layui-input-block">
+		                	<input type="hidden" value="{$cur.id}" name="id" />
+		                  	<a class="layui-btn" lay-submit lay-filter="dosubmit">保存</a>
+		                  	<a class="layui-btn layui-btn-primary" href="{$backUrl}">返回</a>
+		                </div>
+		            </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="coverLayer layui-hide">
+	<div class="layui-fluid">
+		<div class="cover-main">
+			{volist name="material.cover" id="cv"}
+				<div class="cover-item">
+					<img class="layCover" src="{$cv}">
+				</div>
+			{/volist}
+		</div>
+	</div>
+</div>
+<div class="titleLayer layui-hide">
+	<div class="layui-fluid">
+		<ul>
+			{volist name="material.title" id="tv"}
+				<li class="layTitle">{$tv}</li>
+			{/volist}
+		</ul>
+	</div>
+</div>
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="/static/common/js/material.js"></script>
+<script type="text/javascript" src="__JS__/admin.wechat.doreply.js"></script>
+{/block}

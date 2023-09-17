@@ -1,0 +1,162 @@
+{extend name="public/base"}
+{block name="title"}{$site_title}{/block}
+{block name="jsValue"}
+<link rel="stylesheet" href="/static/index/css/wxpublic.css" />
+<script type="text/javascript">
+    var video_id = '{$cur.id}';
+    var $share_data = {$share_data | raw};
+    var $jsConfig = {$jsConfig | raw};
+    var $type = '{$cur.free_type}';
+    var $is_read = '{$is_read}';</script>
+{/block}
+{block name="body"}
+    <div class="commodityNav commodityline" >
+        <a href="/index/video/index.html" class="back" title="返回"></a>
+        <span class="activeNone" style="font-size: 1.5rem" >{$cur.name}</span>
+    </div>
+<div class="video" id="video">
+
+</div>
+
+<div class="videoName">
+    <div class="wx_videoTitle">
+        <h4>{$cur.name}</h4>
+        <p>
+            <span><em>{$cur.hot_num}</em> </span>
+        </p>
+        <h5 class="wx_videodes" id="des_play">
+            影片简介<img src="/static/index/images/wx_xx.png">
+        </h5>
+        <div class="wx_clear"></div>
+    </div>
+    <div class="synopsis" style="display: none" id="wx_description">
+        <!--<div class="evaluation " style="padding: 0" >-->
+        <!--<div class="evaluationTitle">-->
+        <!--影片简介-->
+        <!--</div>-->
+        <!--</div>-->
+        <p>
+            {$cur.summary}
+        </p>
+        <ul>
+            <li></li>
+        </ul>
+    </div>
+    <div class="synopsis" style="padding:1% 0">
+        <ul class="wx_video_icon">
+            <li>
+                <a href="javascript:void(0)" onclick="dianzan()">
+                    <img src="/static/index/images/wx_zan.png">
+                    <p id="dianzan">{$cur.zan}</p>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:void(0)" onclick="cai()">
+                    <img src="/static/index/images/wx_cai.png">
+                    <p id="cai">{$cur.cai}</p>
+                </a>
+            </li>
+
+            {if condition="$is_collect eq 'yes'"}
+            <li style="width: 3rem">
+                <a href="javascript:void(0)">
+                    <img src="/static/index/images/wx_wxh.png">
+                    <p>已收藏</p>
+                </a>
+            </li>
+            {else /}
+            <li>
+                <a href="javascript:void(0)" onclick="doCollect(this)">
+                    <img src="/static/index/images/wx_xh.png" id="img_collect">
+                    <p id="txt_collect">收藏</p>
+                </a>
+            </li>
+            {/if}
+
+            <li>
+                <a href="javascript:void(0)" onclick="copyurl()">
+                    <img src="/static/index/images/wx_fenx.png">
+                    <p>分享</p>
+                </a>
+            </li>
+            <li>
+                <input type="input" value="{$localurl}" id="localurl" style="width: 0.1px;height: 0.1px;overflow: hidden;border: none;background-color: #fff;color: #fff;-webkit-tap-highlight-color: #fff;">
+            </li>
+        </ul>
+        <div class="wx_clear"></div>
+    </div>
+</div>
+<div class="evaluation cartoonTop">
+    <div class="evaluationTitle">
+        精彩评论 <span id="commentNum">(0)</span>
+        <a href="{:my_url('Com/comments',['pid'=>$cur['id'],'type'=>4])}">全部评论</a>
+    </div>
+    <div class="evaluationList">
+        <ul></ul>
+    </div>
+</div>
+
+<div class="evaluation cartoonTop">
+    <div class="advertisement">{:htmlspecialchars_decode($text)}</div>
+</div>
+<div class="evaluation cartoonTop" style="display:none;">
+    <div class="evaluationTitle">
+        猜你喜欢
+    </div>
+    <div class="choicenessCount">
+        <ul></ul>
+    </div>
+</div>
+
+<div class="height_45"></div>
+<div class="footerBook" >
+    <div class="ds" style="width: 50%" onclick="javascript:rewardLayer();">
+        <span></span>
+        <em>打赏</em>
+    </div>
+    <a href="javascript:;" class="ripple bfAudio" style="width:50%" onclick="javascript:doPlay(this);">
+        {eq name="is_read" value="yes"}
+        <em>立即播放</em>
+        {else /}
+        {eq name="cur.free_type" value="2"}
+        <img src="/static/index/images/listten.png" alt="" style="width: 10px; height: 15px"> <em>{$cur.money}书币观看</em>
+        {else /}
+        <em>立即播放(免费)</em>
+        {/eq}
+        {/eq}
+    </a>
+</div>
+<div class="ds_proup">
+    <div class="reward">
+        <div class="reward_title">
+            <img src="/static/index/images/bookico.jpg" alt="">
+            <em>打赏</em>
+        </div>
+        <div class="reward_money">
+            {notempty name="reward"}
+            {volist name="reward" id="rv" key="rk"}
+            {eq name="rk" value="1"}
+            <a href="javascript:;" class="active" data-val="{$rv}" onclick="javascript:chooseRewardMoney(this);">{$rv}元</a>
+            {else /}
+            <a href="javascript:;" data-val="{$rv}" onclick="javascript:chooseRewardMoney(this);">{$rv}元</a>
+            {/eq}
+            {/volist}
+            {/notempty}
+        </div>
+        <div class="reward_Btn">
+            <a href="javascript:;" class="reward_cancel ripple" onclick="javascript:layer.closeAll();">取消</a>
+            <a href="javascript:;" class="reward_ds ripple" onclick="javascript:doReward();">打赏</a>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="/static/plugins/ckplayer/ckplayer.min.js"></script>
+<script type="text/javascript" src="__IJS__/video_info.min.js?2019092419"></script>
+{notempty name="jsConfig"}
+{notempty name="share_data"}
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js" ></script>
+<script type="text/javascript" src="__IJS__/public_share.min.js"></script>
+{/notempty}
+{/notempty}
+{/block}

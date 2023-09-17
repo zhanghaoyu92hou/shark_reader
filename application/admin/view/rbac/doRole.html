@@ -1,0 +1,67 @@
+{extend name="public/base"} 
+{block name="title"}更新角色{/block} 
+{block name="css"}
+<link rel="stylesheet" href="/static/layadmin/lay_extend/tree/eleTree.css" media="all">
+{/block}
+{block name="jsValue"}
+<script type="text/javascript">
+var $nodeUrl = '{:my_url("Option/getNodeSelectList")}';
+var $role_id = '{$cur.id}';
+var $backUrl = '{$backUrl}';
+</script>
+{/block}
+{block name="body"}
+<div class="layui-fluid">
+	<div class="layui-row">
+		<div class="layui-card">
+			<div class="layui-card-header">
+				角色基础信息 
+			</div>
+			<div class="layui-card-body">
+				<div class="layui-form">
+					<div class="layui-form-item">
+						<div class="layui-col-lg3">
+							<label class="layui-form-label">角色名称：</label>
+							<div class="layui-input-block">
+								<input type="text" name="name" value="{$cur.name}" class="layui-input" />
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item layui-form-text">
+						<label class="layui-form-label">权限节点</label>
+						<div class="layui-input-block">
+							<div class="eleTree treelist" lay-filter="data1"></div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">角色状态：</label>
+							<div class="layui-input-block">
+								{:createRadioHtml($status,$cur['status']);}
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg6">
+							<label class="layui-form-label">角色描述：</label>
+							<div class="layui-input-block">
+								<input type="text" name="summary" value="{$cur.summary}" class="layui-input" />
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+		                <div class="layui-input-block">
+		                	<input type="hidden" value="{$cur.id}" name="id" />
+		                  	<a class="layui-btn" lay-submit lay-filter="dosubmit">保存</a>
+		                  	<a class="layui-btn layui-btn-primary" href="{$backUrl}">返回</a>
+		                </div>
+		            </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="__JS__/admin.rbac.dorole.js"></script>
+{/block}

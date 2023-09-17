@@ -1,0 +1,93 @@
+{extend name="public/base"}
+{block name="title"}我的结算{/block}
+{block name="css"}
+<style type="text/css">
+.block-text{height:60px;line-height:60px;font-size:2.5em;color:#337ab7;}
+</style>
+{/block}
+{block name="jsValue"}
+<script type="text/javascript">
+var $data_url = window.location.href;
+var $do_url = '{:my_url("doAll")}';
+</script>
+{/block}
+{block name="body"}
+<div class="layui-fluid">
+	<div class="layui-row layui-col-space20">
+		<div class="layui-col-md4">
+			<div class="layui-card">
+				<div class="layui-card-header">我的余额</div>
+				<div class="layui-card-body">
+					<div class="block-text">
+						¥{$cur.channel_money}
+					</div>
+					<hr />
+					<div class="layui-row">
+						<div class="layui-col-md6"><a href="{:my_url('setAccount')}">设置账号</a></div>
+						<div class="layui-col-md6"><a href="javascript:void(0);" id="doAll">一键提现</a></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="layui-col-md4">
+			<div class="layui-card">
+				<div class="layui-card-header">累计结算</div>
+				<div class="layui-card-body">
+					<div class="block-text">
+						¥{$cur.channel_done}
+					</div>
+					<hr />
+					<div class="layui-row">
+						<div class="layui-col-md6">结算中：¥{$cur.channel_wait}</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="layui-col-md4">
+			<div class="layui-card">
+				<div class="layui-card-header">代理余额</div>
+				<div class="layui-card-body">
+					<div class="block-text">
+						¥{$cur.agent_money}
+					</div>
+					<hr />
+					<div class="layui-row">
+						<div class="layui-col-md6">已提现：¥{$cur.agent_done}</div>
+						<div class="layui-col-md6">结算中：¥{$cur.agent_wait}</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+    <div class="layui-row layui-col-space15">
+      <div class="layui-col-md12">
+        <div class="layui-card">
+        	<div class="layui-form layui-card-header layuiadmin-card-header-auto">
+	        <div class="layui-form-item">
+	          <div class="layui-inline">
+	          	<label class="layui-form-label">状态</label>
+	            <div class="layui-input-inline">
+	              	  <select name="status">
+		                <option value="">全部</option>
+		                <option value="0">待审核</option>
+		                <option value="1">已通过</option>
+		                <option value="2">未通过</option>
+		              </select>
+	            </div>
+	          </div>
+	          <div class="layui-inline">
+	            <button class="layui-btn layuiadmin-btn-admin" lay-submit lay-filter="table-search"><i class="layui-icon layui-icon-search layuiadmin-button-btn"></i>查找</button>
+	          </div>
+	        </div>
+	      </div>
+          <div class="layui-card-body">
+            	<table class="layui-hide" id="table-block" lay-filter="table-block"></table>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="__JS__/channel.withdraw.mine.js"></script>
+{/block}

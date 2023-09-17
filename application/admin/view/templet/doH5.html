@@ -1,0 +1,40 @@
+{extend name="public/base"} 
+{block name="title"}更新模版{/block} 
+{block name="jsValue"}
+<script type="text/javascript">
+var $backUrl = '{$backUrl}';
+</script>
+{/block}
+{block name="body"}
+<div class="layui-fluid">
+	<div class="layui-row">
+		<div class="layui-card">
+			<div class="layui-card-header">
+				{$cur.name}
+			</div>
+			<div class="layui-card-body">
+				<div class="layui-form">
+					<div class="layui-form-item">
+						<div class="layui-col-lg6">
+							<div class="layui-block">
+								<textarea class="layui-textarea" id="content">{$cur.content}</textarea>
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+		                <div class="layui-block">
+		                	<input type="hidden" value="{$cur.key}" name="key" />
+		                  	<a class="layui-btn" lay-submit lay-filter="dosubmit">保存</a>
+		                  	<a class="layui-btn layui-btn-primary" href="{$backUrl}">返回</a>
+		                </div>
+		            </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="/static/plugins/ace/ace.js"></script>
+<script type="text/javascript" src="__JS__/admin.templet.doh5.js"></script>
+{/block}

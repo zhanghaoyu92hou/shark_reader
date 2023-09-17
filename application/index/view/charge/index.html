@@ -1,0 +1,92 @@
+{extend name="public/base"}
+{block name="title"}{$site_info.name}{/block}
+{block name="css"}
+<style type="text/css">
+    html,body{
+        background: #fff;
+    }
+
+</style>
+{/block}
+{block name="jsValue"}
+<script type="text/javascript">
+    var book_id = '{$get.book_id}';
+    var video_id = '{$get.video_id}';
+    var paytype = '{$paytype}';
+</script>
+{/block}
+{block name="body"}
+<div class="charge">
+    <div>
+        <p> <span>{$member.money}</span>金币</p>
+        <a href="javascript:void(0);">账户余额</a>
+    </div>
+</div>
+<div class="chargeCount">
+    <ul>
+        {:getBlock('charge_config','other')}
+    </ul>
+    <button class="btn_100 ripple" id="doCharge">立即充值</button>
+
+    <div class="hint">
+        <h4>温馨提示</h4>
+        {:getBlock('charge_h5','other')}
+    </div>
+</div>
+<div class="codeBot">
+    <div class="codePos">
+        <div class="code">
+            <img src="{$site_info.qrcode}" alt="">
+            <div class="cartoonPic">
+                <img src="/static/index/images/cartoonPic.png" alt="">
+            </div>
+        </div>
+    </div>
+    <div  class="arrive">
+        <div>
+            {:getBlock('footer_h5','other')}
+        </div>
+    </div>
+</div>
+
+<!--选择支付方式S-->
+<!--<link rel="stylesheet" href="http://t4909157.b1utw9.cn/public/cartoon/paytype/css/paytype.css">-->
+<style>
+
+/*付款方式*/
+	 
+     .payarea{font-size:1.5rem}
+      .paytitle{margin:0px 0 10px 0}
+     .payarea label{font-size:1.5rem;padding: 2px 3px 10px;float: left;max-width: 30%;}
+    .paytype{
+        bottom: 40%
+       
+    }
+    .paytype-header,.paytype li{
+        height: 5rem
+    }
+         .paytype-header span{
+     	   width: 1rem;
+        height: 1rem
+     }
+   .paytype-header span img{
+        width: 10rem;
+        height: 10rem
+    }
+
+    .paytype-container{
+    	z-index: 10000;
+    }
+    .paytype-right img{
+    	 width: 20rem;
+        height: 20rem
+    }
+</style>
+ 
+ 
+<input type="hidden" value="" id="paytype">
+{:getBlock('common_footer','other')}
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="__IJS__/charge_index.min.js"></script>
+{/block}

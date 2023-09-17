@@ -1,0 +1,20 @@
+{extend name="public/base"}
+{block name="title"}{$site_title}{/block}
+{block name="css"}
+<style type="text/css">
+    html,body{ background:#fff}
+</style>
+{/block}
+{block name="body"}
+    <div class="commodityNav commodityline" style="	border-bottom: 1px solid #e8e8e8;">
+        <a href="javascript:history.go(-1);" class="back" title="返回"></a>
+        <span class="activeNone" style="font-size: 1.5rem" >我的消息</span>
+    </div>
+ <div class="messages">
+       <ul></ul>
+ </div>
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="__IJS__/user_message.min.js"></script>
+{/block}
+

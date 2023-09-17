@@ -1,0 +1,23 @@
+{extend name="public/base"}
+{block name="title"}h5模版{/block}
+{block name="jsValue"}
+<script type="text/javascript">
+var data_url = window.location.href;
+</script>
+{/block}
+{block name="body"}
+<div class="layui-fluid">
+    <div class="layui-row layui-col-space15">
+      <div class="layui-col-md12">
+        <div class="layui-card">
+          <div class="layui-card-body">
+            <table class="layui-hide" id="table-block" lay-filter="table-block"></table>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="__JS__/admin.templet.h5.js"></script>
+{/block}

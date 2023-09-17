@@ -1,0 +1,85 @@
+/*wuxiong20190923*/
+.wx_clear{
+    clear: both;
+}
+.wx_dingwei{
+    position: relative;
+}
+.isvip{
+    position: absolute;
+    width: 30%;
+    top: 2px;
+    right: 5px;
+}
+.isvip img{
+    width: 100% !important;
+    height: auto !important;
+}
+@media screen and (max-width: 320px){
+    .isvip img{
+        width: 100% !important;
+        height: auto !important;
+    }
+}
+.wx_videoTitle{
+    padding: 3% 0;
+    border-bottom: 1px solid #e8e8e8;
+}
+.wx_videoTitle h4 {
+    font-size: 1.8rem;
+    line-height:1;
+    color: #2e2e2e;
+    font-weight: bold;
+    float: left;
+    display: block;
+    margin-top: 0.4rem;
+}
+.wx_videoTitle p {
+    background: url(../images/flame3.png) no-repeat center left;
+    background-size: 12px 15px;
+    padding: 0 0 0 13px;
+    margin: 0 0 0 10px;
+    float: left;
+    display: block;
+}
+.wx_videoTitle p span {
+    display: inline-block;
+    padding: 2px 0 0 0;
+    color: #ff6000;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+.wx_videoTitle p span em {
+    font-size: 1.2rem;
+    display: block;
+}
+.wx_videodes{
+    float: right;
+    font-size: 1.5rem;
+}
+.wx_videodes img{
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-left: 0.5rem;
+    margin-top: 0.5rem;
+}
+.wx_video_icon{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.wx_video_icon li{
+    width: 3rem;
+    margin-right: 3rem;
+    margin-top: 0;
+    text-align: center;
+}
+.wx_video_icon li img{
+    width: 90%;
+}
+.wx_video_icon li p{
+    text-align: center;
+    font-size: 1rem;
+    line-height: 2;
+    width: 40px;
+}

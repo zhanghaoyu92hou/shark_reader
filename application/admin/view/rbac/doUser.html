@@ -1,0 +1,88 @@
+{extend name="public/base"} 
+{block name="title"}更新用户{/block} 
+{block name="jsValue"}
+<script type="text/javascript">
+var $backUrl = '{$backUrl}';
+</script>
+{/block}
+{block name="body"}
+<div class="layui-fluid">
+	<div class="layui-row">
+		<div class="layui-card">
+			<div class="layui-card-header">
+				用户基础信息 
+			</div>
+			<div class="layui-card-body">
+				<div class="layui-form">
+					<div class="layui-form-item">
+						<div class="layui-col-lg3">
+							<label class="layui-form-label">用户名称：</label>
+							<div class="layui-input-block">
+								<input type="text" name="name" value="{$cur.name}" class="layui-input" />
+							</div>
+						</div>
+					</div>
+					{empty name="cur.id"}
+					<div class="layui-form-item">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">登录账号：</label>
+							<div class="layui-input-block">
+								<input type="text" name="login_name" value="{$cur.login_name}" class="layui-input" />
+							</div>
+						</div>
+						<div class="layui-form-mid layui-word-aux">登录账号一旦设定后不可更改</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">登录密码：</label>
+							<div class="layui-input-block">
+								<input type="password" name="password" value="" class="layui-input" />
+							</div>
+						</div>
+						<div class="layui-form-mid layui-word-aux">登录密码设定后只能重置或自行登录修改</div>
+					</div>
+					{else /}
+					<div class="layui-form-item">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">登录账号：</label>
+							<div class="layui-input-block">
+								<input type="text" value="{$cur.login_name}" disabled="disabled" class="layui-input" />
+							</div>
+						</div>
+						<div class="layui-form-mid layui-word-aux">登录账号一旦设定后不可更改</div>
+					</div>
+					{/empty}
+					<div class="layui-form-item">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">用户状态：</label>
+							<div class="layui-input-block">
+								{:createRadioHtml($status,$cur['status'])}
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">所属角色：</label>
+							<div class="layui-input-block">
+								<select name="role_id">
+									{:createSelectHtml($role_list,$cur['role_id'],'请选择用户所属角色')}
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+		                <div class="layui-input-block">
+		                	<input type="hidden" value="{$cur.id}" name="id" />
+		                  	<a class="layui-btn" lay-submit lay-filter="dosubmit">保存</a>
+		                  	<a class="layui-btn layui-btn-primary" href="{$backUrl}">返回</a>
+		                </div>
+		            </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="__JS__/common.upback.js"></script>
+{/block}

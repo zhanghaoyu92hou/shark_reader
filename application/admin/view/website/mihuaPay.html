@@ -1,0 +1,57 @@
+{extend name="public/base"} 
+{block name="title"}更新支付配置{/block} 
+{block name="body"}
+<div class="layui-fluid">
+	<div class="layui-row">
+		<div class="layui-card">
+			<div class="layui-card-header">
+				米花支付配置 
+			</div>
+			<div class="layui-card-body">
+				<div class="layui-form">
+					<div class="layui-form-item">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">商户编号：</label>
+							<div class="layui-input-block">
+								<input type="text" name="merNo" value="{$cur.merNo}" lay-verify="required" class="layui-input" />
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">商户标识：</label>
+							<div class="layui-input-block">
+								<input type="text" name="merAccount" value="{$cur.merAccount}" lay-verify="required" class="layui-input" />
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg6">
+							<label class="layui-form-label">私钥：</label>
+							<div class="layui-input-block">
+								<textarea class="layui-textarea" name="privateKey">{$cur.privateKey}</textarea>
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg6">
+							<label class="layui-form-label">公钥：</label>
+							<div class="layui-input-block">
+								<textarea class="layui-textarea" name="publicKey">{$cur.publicKey}</textarea>
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+		                <div class="layui-input-block">
+		                  	<button class="layui-btn" lay-submit lay-filter="dosubmit">保存配置</button>
+		                </div>
+		            </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="__JS__/common.update.js"></script>
+{/block}

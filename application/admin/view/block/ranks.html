@@ -1,0 +1,366 @@
+<div class="swiper-wrapper">
+    <div class="swiper-slide">
+        <div class="listBox">
+            {notempty name="ranks.women"}
+            <div class="rank">
+                <ul>
+                    {notempty name="ranks.women.1"}
+                    <li>
+                        <img src="/static/index/images/number_2.png" alt="" class="rank_25">
+                        <div>
+                            <a href="/index/Book/info.html?book_id={$ranks.women.1.id}">
+                                {empty name="ranks.women.1.cover"}
+                                <img src="/static/templet/default/cover.png" alt="">
+                                {else}
+                                <img src="{$ranks.women.1.cover}" alt="">
+                                {/empty}
+                            </a>
+                            <span>
+                                <img src="/static/index/images/flame2.png" alt="">
+                                <em>{$ranks.women.1.hot_num}</em>
+                            </span>
+                        </div>
+                        <p class="over"><a href="/index/Book/info.html?book_id={$ranks.women.1.id}">{$ranks.women.1.name}</a></p>
+                    </li>
+                    {/notempty}
+                    {notempty name="ranks.women.0"}
+                    <li>
+                        <img src="/static/index/images/number_1.png" alt="" class="rank_30">
+                        <div>
+                            <a href="/index/Book/info.html?book_id={$ranks.women.0.id}">
+                                {empty name="ranks.women.0.cover"}
+                                <img src="/static/templet/default/cover.png" alt="">
+                                {else}
+                                <img src="{$ranks.women.0.cover}" alt="">
+                                {/empty}
+                            </a>
+                            <span>
+                                <img src="/static/index/images/flame2.png" alt="">
+                                <em>{$ranks.women.0.hot_num}</em>
+                            </span>
+                        </div>
+                        <p class="over"><a href="/index/Book/info.html?book_id={$ranks.women.0.id}">{$ranks.women.0.name}</a></p>
+                    </li>
+                    {/notempty}
+                    {notempty name="ranks.women.2"}
+                    <li>
+                        <img src="/static/index/images/number_3.png" alt="" class="rank_25">
+                        <div>
+                            <a href="/index/Book/info.html?book_id={$ranks.women.2.id}">
+                                {empty name="ranks.women.2.cover"}
+                                <img src="/static/templet/default/cover.png" alt="">
+                                {else}
+                                <img src="{$ranks.women.2.cover}" alt="">
+                                {/empty}
+                            </a>
+                            <span>
+                                <img src="/static/index/images/flame2.png" alt="">
+                                <em>{$ranks.women.2.hot_num}</em>
+                            </span>
+                        </div>
+                        <p class="over"><a href="/index/Book/info.html?book_id={$ranks.women.2.id}">{$ranks.women.2.name}</a></p>
+                    </li>
+                    {/notempty}
+                </ul>
+            </div>
+            <div class="rankCount">
+                {volist name="ranks.women" id="wbv" key="wbk"}
+                {gt name="wbk" value="3"}
+                <div class="rankList">
+                    <div class="rankNumber">{$wbk}</div>
+                    <div class="rankNr">
+                        <div class="cartoonRecommend padding1" >
+                            <div class="recommendList margin0">
+                                <ul>
+                                    <li>
+                                        <a href="/index/Book/info.html?book_id={$wbv.id}">
+                                            <div class="recommendPos">
+                                                <div class="recommendHotImg">
+                                                    {empty name="wbv.cover"}
+                                                    <img src="/static/templet/default/cover.png" alt="">
+                                                    {else}
+                                                    <img src="{$wbv.cover}" alt="">
+                                                    {/empty}
+                                                </div>
+                                                <div class="recommendFont">
+                                                    <h4 class="over">{$wbv.name}</h4>
+                                                    <p class="over2">{$wbv.summary}</p>
+                                                    <div class="historyTag">
+                                                        <span class="active_lz">{$wbv.over_type}</span>
+                                                        {notempty name="wbv.category"}
+                                                        <span>{$wbv.category}</span>
+                                                        {/notempty}
+                                                    </div>
+                                                    <div class="historyNumber">
+                                                        <div>
+                                                            <span>
+                                                                <img src="/static/index/images/flame.png" alt="">
+                                                                <em>{$wbv.hot_num}</em>
+                                                            </span>
+                                                        </div>
+                                                        <div>
+                                                            <span>
+                                                                <img src="/static/index/images/cartoon_ico2.jpg" alt="">
+                                                                <em>{$wbv.total_chapter}</em>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {/gt}
+                {/volist}
+            </div>
+            {/notempty}
+        </div>
+    </div>
+    <div class="swiper-slide">
+        <div class="listBox">
+            {notempty name="ranks.man"}
+            <div class="rank">
+                <ul>
+                    {notempty name="ranks.man.1"}
+                    <li>
+                        <img src="/static/index/images/number_2.png" alt="" class="rank_25">
+                        <div>
+                            <a href="/index/Book/info.html?book_id={$ranks.man.1.id}">
+                                {empty name="ranks.man.1.cover"}
+                                <img src="/static/templet/default/cover.png" alt="">
+                                {else}
+                                <img src="{$ranks.man.1.cover}" alt="">
+                                {/empty}
+                            </a>
+                            <span>
+                                <img src="/static/index/images/flame2.png" alt="">
+                                <em>{$ranks.man.1.hot_num}</em>
+                            </span>
+                        </div>
+                        <p class="over"><a href="/index/Book/info.html?book_id={$ranks.man.1.id}">{$ranks.man.1.name}</a></p>
+                    </li>
+                    {/notempty}
+                    {notempty name="ranks.man.0"}
+                    <li>
+                        <img src="/static/index/images/number_1.png" alt="" class="rank_30">
+                        <div>
+                            <a href="/index/Book/info.html?book_id={$ranks.man.0.id}">
+                                {empty name="ranks.man.0.cover"}
+                                <img src="/static/templet/default/cover.png" alt="">
+                                {else}
+                                <img src="{$ranks.man.0.cover}" alt="">
+                                {/empty}
+                            </a>
+                            <span>
+                                <img src="/static/index/images/flame2.png" alt="">
+                                <em>{$ranks.man.0.hot_num}</em>
+                            </span>
+                        </div>
+                        <p class="over"><a href="/index/Book/info.html?book_id={$ranks.man.0.id}">{$ranks.man.0.name}</a></p>
+                    </li>
+                    {/notempty}
+                    {notempty name="ranks.man.2"}
+                    <li>
+                        <img src="/static/index/images/number_3.png" alt="" class="rank_25">
+                        <div>
+                            <a href="/index/Book/info.html?book_id={$ranks.man.2.id}">
+                                {empty name="ranks.man.2.cover"}
+                                <img src="/static/templet/default/cover.png" alt="">
+                                {else}
+                                <img src="{$ranks.man.2.cover}" alt="">
+                                {/empty}
+                            </a>
+                            <span>
+                                <img src="/static/index/images/flame2.png" alt="">
+                                <em>{$ranks.man.2.hot_num}</em>
+                            </span>
+                        </div>
+                        <p class="over"><a href="/index/Book/info.html?book_id={$ranks.man.2.id}">{$ranks.man.2.name}</a></p>
+                    </li>
+                    {/notempty}
+                </ul>
+            </div>
+            <div class="rankCount">
+                {volist name="ranks.man" id="mbv" key="mbk"}
+                {gt name="mbk" value="3"}
+                <div class="rankList">
+                    <div class="rankNumber">{$mbk}</div>
+                    <div class="rankNr">
+                        <div class="cartoonRecommend padding1" >
+                            <div class="recommendList margin0">
+                                <ul>
+                                    <li>
+                                        <a href="/index/Book/info.html?book_id={$mbv.id}">
+                                            <div class="recommendPos">
+                                                <div class="recommendHotImg">
+                                                    {empty name="mbv.cover"}
+                                                    <img src="/static/templet/default/cover.png" alt="">
+                                                    {else}
+                                                    <img src="{$mbv.cover}" alt="">
+                                                    {/empty}
+                                                </div>
+                                                <div class="recommendFont">
+                                                    <h4 class="over">{$mbv.name}</h4>
+                                                    <p class="over2">{$mbv.summary}</p>
+                                                    <div class="historyTag">
+                                                        <span class="active_lz">{$mbv.over_type}</span>
+                                                        {notempty name="mbv.category"}
+                                                        <span>{$mbv.category}</span>
+                                                        {/notempty}
+                                                    </div>
+                                                    <div class="historyNumber">
+                                                        <div>
+                                                            <span>
+                                                                <img src="/static/index/images/flame.png" alt="">
+                                                                <em>{$mbv.hot_num}</em>
+                                                            </span>
+                                                        </div>
+                                                        <div>
+                                                            <span>
+                                                                <img src="/static/index/images/cartoon_ico2.jpg" alt="">
+                                                                <em>{$mbv.total_chapter}</em>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {/gt}
+                {/volist}
+            </div>
+            {/notempty}
+        </div>
+    </div>
+    <div class="swiper-slide">
+        <!--总排行榜-->
+        <div class="listBox">
+            {notempty name="ranks.total"}
+            <div class="rank">
+                <ul>
+                    {notempty name="ranks.total.1"}
+                    <li>
+                        <img src="/static/index/images/number_2.png" alt="" class="rank_25">
+                        <div>
+                            <a href="/index/Book/info.html?book_id={$ranks.total.1.id}">
+                                {empty name="ranks.total.1.cover"}
+                                <img src="/static/templet/default/cover.png" alt="">
+                                {else}
+                                <img src="{$ranks.total.1.cover}" alt="">
+                                {/empty}
+                            </a>
+                            <span>
+                                <img src="/static/index/images/flame2.png" alt="">
+                                <em>{$ranks.total.1.hot_num}</em>
+                            </span>
+                        </div>
+                        <p class="over"><a href="/index/Book/info.html?book_id={$ranks.total.1.id}">{$ranks.total.1.name}</a></p>
+                    </li>
+                    {/notempty}
+                    {notempty name="ranks.total.0"}
+                    <li>
+                        <img src="/static/index/images/number_1.png" alt="" class="rank_30">
+                        <div>
+                            <a href="/index/Book/info.html?book_id={$ranks.total.0.id}">
+                                {empty name="ranks.total.0.cover"}
+                                <img src="/static/templet/default/cover.png" alt="">
+                                {else}
+                                <img src="{$ranks.total.0.cover}" alt="">
+                                {/empty}
+                            </a>
+                            <span>
+                                <img src="/static/index/images/flame2.png" alt="">
+                                <em>{$ranks.total.0.hot_num}</em>
+                            </span>
+                        </div>
+                        <p class="over"><a href="/index/Book/info.html?book_id={$ranks.total.0.id}">{$ranks.total.0.name}</a></p>
+                    </li>
+                    {/notempty}
+                    {notempty name="ranks.total.2"}
+                    <li>
+                        <img src="/static/index/images/number_3.png" alt="" class="rank_25">
+                        <div>
+                            <a href="/index/Book/info.html?book_id={$ranks.total.2.id}">
+                                {empty name="ranks.total.2.cover"}
+                                <img src="/static/templet/default/cover.png" alt="">
+                                {else}
+                                <img src="{$ranks.total.2.cover}" alt="">
+                                {/empty}
+                            </a>
+                            <span>
+                                <img src="/static/index/images/flame2.png" alt="">
+                                <em>{$ranks.total.2.hot_num}</em>
+                            </span>
+                        </div>
+                        <p class="over"><a href="/index/Book/info.html?book_id={$ranks.total.2.id}">{$ranks.total.2.name}</a></p>
+                    </li>
+                    {/notempty}
+                </ul>
+            </div>
+            <div class="rankCount">
+                {volist name="ranks.total" id="tbv" key="tbk"}
+                {gt name="tbk" value="3"}
+                <div class="rankList">
+                    <div class="rankNumber">{$tbk}</div>
+                    <div class="rankNr">
+                        <div class="cartoonRecommend padding1" >
+                            <div class="recommendList margin0">
+                                <ul>
+                                    <li>
+                                        <a href="/index/Book/info.html?book_id={$tbv.id}">
+                                            <div class="recommendPos">
+                                                <div class="recommendHotImg">
+                                                    {empty name="tbv.cover"}
+                                                    <img src="/static/templet/default/cover.png" alt="">
+                                                    {else}
+                                                    <img src="{$tbv.cover}" alt="">
+                                                    {/empty}
+                                                </div>
+                                                <div class="recommendFont">
+                                                    <h4 class="over">{$tbv.name}</h4>
+                                                    <p class="over2">{$tbv.summary}</p>
+                                                    <div class="historyTag">
+                                                        <span class="active_lz">{$tbv.over_type}</span>
+                                                        {notempty name="tbv.category"}
+                                                        <span>{$tbv.category}</span>
+                                                        {/notempty}
+                                                    </div>
+                                                    <div class="historyNumber">
+                                                        <div>
+                                                            <span>
+                                                                <img src="/static/index/images/flame.png" alt="">
+                                                                <em>{$tbv.hot_num}</em>
+                                                            </span>
+                                                        </div>
+                                                        <div>
+                                                            <span>
+                                                                <img src="/static/index/images/cartoon_ico2.jpg" alt="">
+                                                                <em>{$tbv.total_chapter}</em>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {/gt}
+                {/volist}
+            </div>
+            {/notempty}
+        </div>
+    </div>
+</div>

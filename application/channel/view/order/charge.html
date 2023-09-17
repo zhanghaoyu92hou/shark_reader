@@ -1,0 +1,70 @@
+{extend name="public/base"}
+{block name="title"}充值订单{/block}
+{block name="css"}
+<style type="text/css">
+.layui-table-cell {height:auto;line-height: 28px;}
+</style>
+{/block}
+{block name="jsValue"}
+<script type="text/javascript">
+var data_url = window.location.href;
+</script>
+{/block}
+{block name="body"}
+<div class="layui-fluid">
+    <div class="layui-row layui-col-space15">
+      <div class="layui-col-md12">
+        <div class="layui-card">
+          <div class="layui-form layui-card-header layuiadmin-card-header-auto">
+	        <div class="layui-form-item">
+	          <div class="layui-inline">
+	          	<label class="layui-form-label">关键字</label>
+	            <div class="layui-input-inline">
+	              <input type="text" name="keyword" placeholder="粉丝ID,订单号，来源信息" autocomplete="off" class="layui-input">
+	            </div>
+	          </div>
+	          <div class="layui-inline">
+	          	<label class="layui-form-label">来源</label>
+	            <div class="layui-input-inline">
+	              	  <select name="from">
+		                <option value="">全部</option>
+		                <option value="0">直接充值</option>
+		                <option value="1">漫画</option>
+		                <option value="2">小说</option>
+		                <option value="3">听书</option>
+		                <option value="4">视频</option>
+		              </select>
+	            </div>
+	          </div>
+	          <div class="layui-inline">
+	          	<label class="layui-form-label">状态</label>
+	            <div class="layui-input-inline">
+	              	  <select name="status">
+		                <option value="">全部</option>
+		                <option value="1">未支付</option>
+		                <option value="2">已支付</option>
+		              </select>
+	            </div>
+	          </div>
+	          <div class="layui-inline">
+	          	<label class="layui-form-label">下单时间</label>
+	            <div class="layui-input-inline" style="width:240px;">
+	              <input type="text" name="between_time" id="between_time" readonly="readonly" class="layui-input">
+	            </div>
+	          </div>
+	          <div class="layui-inline">
+	            <button class="layui-btn layuiadmin-btn-admin" lay-submit lay-filter="table-search"><i class="layui-icon layui-icon-search layuiadmin-button-btn"></i>查找</button>
+	          </div>
+	        </div>
+	      </div>
+          <div class="layui-card-body">
+            <table class="layui-hide" id="table-block" lay-filter="table-block"></table>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="__JS__/channel.order.charge.js"></script>
+{/block}

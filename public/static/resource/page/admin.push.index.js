@@ -1,0 +1,1 @@
+function doPushState(a,b){layui.use(["jquery"],function(){var d=layui.jquery;var c={type:a,event:b};ajaxPost($stateUrl,c,"",function(e){window.location.reload()})})};

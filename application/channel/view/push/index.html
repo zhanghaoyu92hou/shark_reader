@@ -1,0 +1,118 @@
+{extend name="public/base"} 
+{block name="title"}智能推送{/block} 
+{block name="css"}
+<style type="text/css">
+.message-block{}
+.message-block .message-block-cover{width:100%;overflow:hidden;border:1px solid #e6e6e6;position:relative;}
+.message-block .message-block-cover>img{width:100%;}
+.message-block .message-block-cover .message-block-title{position:absolute;left:0;bottom:0;width:97%;padding-left:3%;height:30px;line-height:30px;color:#fff;position:absolute;left:0;bottom:0;background:rgba(0,0,0,0.5);}
+.message-block .message-block-detail{min-height:60px;line-height:30px;}
+.message-block .message-block-btns{height:40px;line-height:40px;border-top:1px solid #e6e6e6;text-align:right;}
+</style>
+{/block}
+{block name="jsValue"}
+<script type="text/javascript">
+var $stateUrl = '{:my_url("doEvent")}';
+</script>
+{/block}
+{block name="body"}
+<div class="layui-fluid">
+	<div class="layui-row layui-col-space20">
+		<div class="layui-col-md3 layui-col-sm3">
+			<div class="layui-card">
+				<div class="layui-card-header">
+					首冲提醒
+				</div>
+				<div class="layui-card-body">
+					<div class="message-block">
+						<p>开启后系统将在24小时之后对新关注未充值用户自动发送一次首充活动提醒消息: 08:00 至 23:59</p>
+						<div class="message-block-cover">
+							{empty name="type1.content.picurl"}
+								<img src="/static/common/images/detail.png" />
+							{else /}
+								<img src="{$type1.content.picurl}" />
+							{/empty}
+							<p class="message-block-title">{empty name="type1.content.title"}消息标题{else /}{$type1.content.title}{/empty}</p>
+						</div>
+						<div class="message-block-detail">
+							{empty name="type1.content.description"}
+								<p>消息简介<p/>
+							{else /}
+								<p>{$type1.content.description}<p/>
+							{/empty}
+						</div>
+						<div class="message-block-btns">
+							{eq name="type1.status" value="2"}
+								<a class="layui-btn layui-btn-sm layui-btn-primary" onclick="javascript:doPushState(1,'on');">启用</a>
+							{else /}
+								<a class="layui-btn layui-btn-sm layui-btn-danger" onclick="javascript:doPushState(1,'off');">禁用</a>
+							{/eq}
+							<a class="layui-btn layui-btn-sm layui-btn-primary" href="{$type1.dourl}">编辑</a>
+ 						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="layui-col-md3 layui-col-sm3">
+			<div class="layui-card">
+				<div class="layui-card-header">
+					继续阅读提醒
+				</div>
+				<div class="layui-card-body">
+					<div class="message-block">
+						<p>开启后系统将向当日阅读过书籍，并且未阅读时间超过8小时的用户。推送时间: 08:00 至 23:59。</p>
+						<div class="message-block-btns">
+							{eq name="type2.status" value="2"}
+								<a class="layui-btn layui-btn-sm layui-btn-primary" onclick="javascript:doPushState(2,'on');">启用</a>
+							{else /}
+								<a class="layui-btn layui-btn-sm layui-btn-danger" onclick="javascript:doPushState(2,'off');">禁用</a>
+							{/eq}
+ 						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="layui-col-md3 layui-col-sm3">
+			<div class="layui-card">
+				<div class="layui-card-header">
+					未支付提醒
+				</div>
+				<div class="layui-card-body">
+					<div class="message-block">
+						<p>开启后系统将自动向符合条件的用户推送未支付提醒消息；推送时间：在未支付订单生成的半小时后自动发送一次推送提醒。</p>
+						<div class="message-block-btns">
+							{eq name="type3.status" value="2"}
+								<a class="layui-btn layui-btn-sm layui-btn-primary" onclick="javascript:doPushState(3,'on');">启用</a>
+							{else /}
+								<a class="layui-btn layui-btn-sm layui-btn-danger" onclick="javascript:doPushState(3,'off');">禁用</a>
+							{/eq}
+ 						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="layui-col-md3 layui-col-sm3">
+			<div class="layui-card">
+				<div class="layui-card-header">
+					猜你喜欢推送
+				</div>
+				<div class="layui-card-body">
+					<div class="message-block">
+						<p>开启后系统将向24小时未阅读的用户，根据用户喜好筛选不超过3本书籍推送给用户: 08:00 至 23:59</p>
+						<div class="message-block-btns">
+							{eq name="type4.status" value="2"}
+								<a class="layui-btn layui-btn-sm layui-btn-primary" onclick="javascript:doPushState(4,'on');">启用</a>
+							{else /}
+								<a class="layui-btn layui-btn-sm layui-btn-danger" onclick="javascript:doPushState(4,'off');">禁用</a>
+							{/eq}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="__JS__/admin.push.index.js"></script>
+{/block}

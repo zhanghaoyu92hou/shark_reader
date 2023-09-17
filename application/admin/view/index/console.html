@@ -1,0 +1,198 @@
+{extend name="public/base"}
+{block name="jsValue"}
+<script type="text/javascript">
+var $dataUrl = '{:my_url("getUserChartData")}';
+var $feedUrl = '{:my_url("Member/doFeedback")}';
+</script>
+{/block}
+{block name="body"}
+  <div class="layui-fluid">
+    <div class="layui-row layui-col-space15">
+      
+      <div class="layui-col-sm6 layui-col-md3">
+        <div class="layui-card">
+          <div class="layui-card-header">
+            累计充值
+          </div>
+          <div class="layui-card-body layuiadmin-card-list">
+            <p class="layuiadmin-big-font">{$number.order.total}</p>
+            <p>
+              今日充值 
+              <span class="layuiadmin-span-color">{$number.order.today} <i class="layui-inline layui-icon layui-icon-rmb"></i></span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="layui-col-sm6 layui-col-md3">
+        <div class="layui-card">
+          <div class="layui-card-header">
+            累计结算
+          </div>
+          <div class="layui-card-body layuiadmin-card-list">
+            <p class="layuiadmin-big-font">{$number.withdraw.pay}</p>
+            <p>
+              待结算
+              <span class="layuiadmin-span-color">{$number.withdraw.wait} <i class="layui-inline layui-icon layui-icon-rmb"></i></span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="layui-col-sm6 layui-col-md3">
+        <div class="layui-card">
+          <div class="layui-card-header">
+            渠道余额
+          </div>
+          <div class="layui-card-body layuiadmin-card-list">
+
+            <p class="layuiadmin-big-font">{$number.platform.channel}</p>
+            <p>
+              代理余额 
+              <span class="layuiadmin-span-color">{$number.platform.agent} <i class="layui-inline layui-icon layui-icon-rmb"></i></span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="layui-col-sm6 layui-col-md3">
+        <div class="layui-card">
+          <div class="layui-card-header">
+            累计用户
+          </div>
+          <div class="layui-card-body layuiadmin-card-list">
+
+            <p class="layuiadmin-big-font">{$number.member.all}</p>
+            <p>
+              已关注
+              <span class="layuiadmin-span-color">{$number.member.sub} <i class="layui-inline layui-icon layui-icon-user"></i></span>
+            </p>
+          </div>
+        </div>
+      </div>   
+      <div class="layui-col-sm12">
+        <div class="layui-card">
+          <div class="layui-card-header">
+            近30天用户增长趋势
+          </div>
+          <div class="layui-card-body">
+            <div class="layui-row">
+              <div class="layui-col-sm12">
+                  <div  style="width:100%;height:400px;" id="memberCharts">
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="layui-col-sm4">
+        <div class="layui-card">
+          <div class="layui-card-header">用户留言</div>
+          <div class="layui-card-body">
+            <ul class="layuiadmin-card-status layuiadmin-home2-usernote">
+            	{empty name="feedback"}
+            		<li style="text-align:center;">暂无数据</li>
+            	{else /}
+            		{volist name="feedback" id="fv"}
+            			<li>
+			                <h3>{$fv.nickname}</h3>
+			                <p>{$fv.content}</p>
+			                <span>{$fv.create_time}</span>
+			                {eq name="fv.is_reply" value="2"}
+			                	<a href="javascript:;" data-id="{$fv.id}" class="layui-btn layui-btn-xs layuiadmin-reply doReply">回复</a>
+			                {/eq}
+			            </li>
+            		{/volist}
+            	{/empty}
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="layui-col-sm8">
+        <div class="layui-row layui-col-space15">
+          <div class="layui-col-sm6">
+            <div class="layui-card">
+              <div class="layui-card-header">充值用户排行榜（前10名）</div>
+              <div class="layui-card-body">
+                <table class="layui-table layuiadmin-page-table" lay-skin="line">
+                  <thead>
+                    <tr>
+                      <th>序号</th>
+                      <th>用户名</th>
+                      <th>充值金额</th>
+                      <th>注册时间</th>
+                    </tr> 
+                  </thead>
+                  <tbody>
+                  	{empty name="charge_rank"}
+                  		<tr>
+                  			<td colspan="4" align="center">暂无数据</td>
+                  		</tr>
+                  	{else /}
+                  		{volist name="charge_rank" id="v" key="k"}
+	                  		<tr>
+	                  			<td>
+	                  			{switch name="k"}
+	                  				{case value="1"}<span class="first">{$k}</span>{/case}
+	                  				{case value="1"}<span class="second">{$k}</span>{/case}
+	                  				{case value="1"}<span class="third">{$k}</span>{/case}
+	                  				{default /}
+	                  				{$k}
+	                  			{/switch}
+		                      </td>
+		                      <td>{$v.nickname}</td>
+		                      <td>¥{$v.money}</td>
+		                      <td>{$v.create_time}</td>
+		                    </tr>
+	                  	{/volist}
+                  	{/empty}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="layui-col-sm6">
+            <div class="layui-card">
+              <div class="layui-card-header">投诉排行榜（前10名）</div>
+              <div class="layui-card-body">
+                <table class="layui-table layuiadmin-page-table">
+                  <thead>
+                    <tr>
+                      <th>序号</th>
+                      <th>书籍名称</th>
+                      <th>投诉次数</th>
+                    </tr> 
+                  </thead>
+                  <tbody>
+                  	{empty name="complaint_rank"}
+                  		<tr>
+                  			<td colspan="3" align="center">暂无数据</td>
+                  		</tr>
+                  	{else /}
+                  		{volist name="complaint_rank" id="val" key="key"}
+	                  		<tr>
+	                  			<td>
+	                  			{switch name="key"}
+	                  				{case value="1"}<span class="first">{$key}</span>{/case}
+	                  				{case value="1"}<span class="second">{$key}</span>{/case}
+	                  				{case value="1"}<span class="third">{$key}</span>{/case}
+	                  				{default /}
+	                  				{$key}
+	                  			{/switch}
+		                      </td>
+		                      <td>{$val.book_name}</td>
+		                      <td>{$val.count}</td>
+		                    </tr>
+	                  	{/volist}
+                  	{/empty}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="/static/plugins/echarts/echarts-all.js"></script>
+<script type="text/javascript" src="__JS__/admin.index.console.js"></script>
+{/block}

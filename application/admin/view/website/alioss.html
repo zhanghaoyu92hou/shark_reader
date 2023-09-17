@@ -1,0 +1,65 @@
+{extend name="public/base"} 
+{block name="title"}更新阿里云oss配置{/block} 
+{block name="body"}
+<div class="layui-fluid">
+    <div class="layui-row">
+        <div class="layui-card">
+            <div class="layui-card-header">
+                OSS配置【<a href="https://www.aliyun.com/product/oss?spm=5176.8195934.cloudEssentials.18.9b9b30c9xd62cC" target="_blank">点击前往获取配置</a>】 
+            </div>
+            <div class="layui-card-body">
+                <div class="layui-form">
+                    <div class="layui-form-item">
+                        <div class="layui-col-lg4">
+                            <label class="layui-form-label">accessKey：</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="accessKey" value="{$cur.accessKey}" lay-verify="" class="layui-input" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-col-lg4">
+                            <label class="layui-form-label">secretKey：</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="secretKey" value="{$cur.secretKey}" lay-verify="" class="layui-input" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-col-lg4">
+                            <label class="layui-form-label">endpoint：</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="url" value="{$cur.url}" lay-verify="" class="layui-input" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-col-lg4">
+                            <label class="layui-form-label">bucket：</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="bucket" value="{$cur.bucket}" lay-verify="" class="layui-input" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-col-lg4">
+                            <label class="layui-form-label">状态：</label>
+                            <div class="layui-input-block">
+                                {:createRadioHtml($type,$cur['type'])}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                            <button class="layui-btn" lay-submit lay-filter="dosubmit">保存配置</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="__JS__/common.update.js"></script>
+{/block}

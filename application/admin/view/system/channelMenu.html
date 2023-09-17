@@ -1,0 +1,24 @@
+{extend name="public/base"}
+{block name="title"}节点管理{/block}
+{block name="jsValue"}
+<script type="text/javascript">
+var $opt_url = '{:my_url("doChannelMenuEvent")}';
+</script>
+{/block}
+{block name="body"}
+<div class="layui-fluid">   
+    <div class="layui-card">
+    	<div class="layui-card-body">
+	    <div class="layui-btn-container">
+	       <a class="layui-btn layui-btn-primary layui-btn-sm" href="{:my_url('addChannelMenu')}">新增一级菜单</a>
+	       <a class="layui-btn layui-btn-primary layui-btn-sm" id="openAll">全部展开</a>
+	       <a class="layui-btn layui-btn-primary layui-btn-sm" id="hideAll">全部隐藏</a>
+	    </div>
+        <table class="layui-hidden layui-table" id="table-block" lay-filter="table-block"></table>
+    </div>
+  </div>
+ </div>
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="__JS__/admin.system.channelmenu.js"></script>
+{/block}

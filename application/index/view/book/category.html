@@ -1,0 +1,58 @@
+{extend name="public/base"} 
+{block name="title"}{$site_title}{/block}
+{block name="css"}
+<style type="text/css">
+html,body{background:#fff;}
+</style>
+{/block}
+{block name="body"}
+<div class="commodityNav commodityline" >
+    <a href="javascript:history.go(-1);" class="back" title="返回"></a>
+    <span class="activeNone" style="font-size: 1.5rem" >分类页</span>
+</div>
+
+<div class="classify">
+        <div  class="classifyList">
+             <span>分类</span>
+             <div class="classifyTag">
+                 <div class="flex category">
+                     {:createCategoryHtml($category)}
+                 </div>
+             </div>
+        </div>
+     <div  class="classifyList">
+         <span>频道</span>
+         <div class="classifyTag">
+             <div class="flex gender_type">
+                 {:createCategoryHtml($gender_type)}
+             </div>
+         </div>
+     </div>
+     <div  class="classifyList">
+         <span>状态</span>
+         <div class="classifyTag">
+             <div class="flex over_type">
+                 {:createCategoryHtml($over_type)}
+             </div>
+         </div>
+     </div>
+     <div  class="classifyList">
+         <span>属性</span>
+         <div class="classifyTag">
+             <div class="flex free_type">
+                 {:createCategoryHtml($free_type)}
+             </div>
+         </div>
+     </div>
+     <input type="hidden" value="{$get_type}" class="book_type" />
+ </div>
+ <div class="cartoonRecommend cartoonTop ">
+     <div class="recommendList">
+         <ul id="searchBox"></ul>
+     </div>
+ </div>
+{:getBlock('common_footer','other')}
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="__IJS__/book_category.min.js"></script>
+{/block}

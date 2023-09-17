@@ -1,0 +1,45 @@
+{extend name="public/base"} 
+{block name="title"}{$site_title}{/block}
+{block name="css"}
+<link rel="stylesheet" href="/static/index/css/wxpublic.css" />
+<style type="text/css">
+    html,body{background:#fff;}
+</style>
+{/block}
+{block name="body"}
+<div class="commodityNav commodityline" >
+    <a href="javascript:history.go(-1);" class="back" title="返回"></a>
+    <span class="activeNone" style="font-size: 1.5rem" >分类页</span>
+   <!-- <a href="javascript:void(0);" class="complete" onclick="javascript:toDir();">全集</a>-->
+</div>
+<div class="classify">
+    <div  class="classifyList"> 
+        <span>分类</span>
+        <div class="classifyTag">
+            <div class="flex category">
+                {:createCategoryHtml($category)}
+            </div>
+        </div>
+    </div><!--/classifyList-->
+
+    <div  class="classifyList">
+        <span>属性</span>
+        <div class="classifyTag">
+            <div class="flex free_type">
+                {:createCategoryHtml($free_type)}
+            </div>
+        </div>
+    </div><!--/classifyList-->
+</div><!--/classify-->
+
+<div class="cartoonRecommend cartoonTop ">
+    <div class="recommendList">
+        <ul id="searchBox"></ul>
+    </div>
+</div>
+{:getBlock('common_footer','other')}
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="/static/plugins/layer_mobile/layer.js"></script>
+<script type="text/javascript" src="__IJS__/video_category.min.js?wx"></script>
+{/block}

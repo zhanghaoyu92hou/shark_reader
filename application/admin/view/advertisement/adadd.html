@@ -1,0 +1,58 @@
+{extend name="public/base"} 
+{block name="title"}{$title}{/block}
+{block name="jsValue"}
+<script type="text/javascript">
+    var $backUrl = '{$backUrl}';
+</script>
+{/block} 
+{block name="body"}
+<div class="layui-fluid">
+    <div class="layui-row">
+        <div class="layui-card">
+            <div class="layui-card-header">
+                {$title}
+            </div>
+            <div class="layui-card-body">
+                <div class="layui-form">
+                    <div class="layui-form-item">
+                        <div class="layui-col-lg4">
+                            <label class="layui-form-label">广告位名称：</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="name"   class="layui-input" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <div class="layui-col-lg4">
+                            <label class="layui-form-label">状态：</label>
+                            <div class="layui-input-block">
+                                {:createRadioHtml($status,'1')}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-col-lg3">
+                            <label class="layui-form-label">排序：</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="sort" value="99" class="layui-input" />
+                            </div>
+                        </div>
+                        <div class="layui-form-mid layui-word-aux">由大到小排列</div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+
+                            <a class="layui-btn" lay-submit lay-filter="dosubmit">保存</a>
+                            <a type="reset" class="layui-btn layui-btn-primary" href="{$backUrl}">返回</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="__JS__/admin.advertisement.adadd.js"></script>
+{/block}

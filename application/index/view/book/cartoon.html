@@ -1,0 +1,52 @@
+{extend name="public/base"} 
+{block name="title"}{$site_info.name}{/block}
+{block name="css"}
+<link rel="stylesheet" href="/static/index/css/swiper.min.css" />
+<style type="text/css">
+.hotslide {width: 31%;margin-right:3%;}
+</style>
+{/block}
+{block name="body"}
+<div class="cartoonWapper">
+    <div class="cartoonNav">
+    	{:createWebBlock($web_block,'cartoon')}
+    </div>
+    <div class="cartoonSearch">
+        <a href="{:my_url('Search/index')}"><img src="/static/index/images/search.png" alt=""></a>
+    </div>
+</div>
+<div class="height_45"></div>
+<div class="cartoonSwiper">
+    <div class="swiper-container cartoon-Swiper">
+         <div class="swiper-wrapper">
+             {:getBlock('cartoon_banner','other')}
+         </div>
+        <div class="swiper-pagination cartoonRight"></div>
+    </div>
+    <div class="listNav">
+        {:getBlock('cartoon_nav','other')}
+    </div>
+</div>
+{:getBlock('cartoon_content','other')}
+<div class="codeBot">
+    <div class="codePos">
+        <div class="code">
+            <img src="{$site_info.qrcode}" alt="">
+            <div class="cartoonPic">
+                <img src="/static/index/images/cartoonPic.png" alt="">
+            </div>
+        </div>
+    </div>
+    <div  class="arrive">
+        <div>
+            {:getBlock('footer_h5','other')}
+        </div>
+    </div>
+</div>
+{:getBlock('cartoon_footer','other')}
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="/static/index/js/swiper.min.js"></script>
+<script type="text/javascript" src="__IJS__/book_index.min.js"></script>
+{/block}
+

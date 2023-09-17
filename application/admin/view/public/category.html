@@ -1,0 +1,42 @@
+{extend name="public/base"} 
+{block name="title"}{$title}{/block} 
+{block name="body"}
+<div class="layui-fluid">
+	<div class="layui-row">
+		<div class="layui-card">
+			<div class="layui-card-header">
+				{$title}
+			</div>
+			<div class="layui-card-body">
+				<div class="layui-btn-container">
+		       		<a class="layui-btn layui-btn-sm" id="addInput">添加类型</a>
+		    	</div>
+				<div class="layui-form">
+					<div class="layui-form-item block-item-box">
+						{empty name="cur"}
+						<div class="block-input">
+							<input type="text" name="category[]" />
+							<span class="delete"></span>
+						</div>
+						{else /}
+							{volist name="cur" id="v"}
+								<div class="block-input">
+									<input type="text" name="category[]" value="{$v}"/>
+									<span class="delete"></span>
+								</div>
+							{/volist}
+						{/empty}
+					</div>
+					<div class="layui-form-item">
+		                  	<a class="layui-btn" lay-submit lay-filter="dosubmit">保存配置</a>
+		                  	<a type="reset" class="layui-btn layui-btn-primary" href="{$backUrl}">返回列表</a>
+		            </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="__JS__/admin.public.category.js"></script>
+{/block}

@@ -1,0 +1,63 @@
+{extend name="public/base"} 
+{block name="title"}更新广告{/block} 
+{block name="body"}
+<div class="layui-fluid">
+    <div class="layui-row">
+        <div class="layui-card">
+            <div class="layui-card-header">
+                广告信息 
+            </div>
+            <div class="layui-card-body">
+                <div class="layui-form">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">广告图片：</label>
+                        <div class="layui-input-block">
+                            <div class="image-div">
+                                <div class="image-box size-120x170" title="点击上传广告图片" onclick="javascript:cropImage('上传广告图片', '210x290', this);">
+
+                                    <img src="/static/common/images/240x340.png" class="showimg"/>
+
+                                    <input type="hidden" class="hideval" name="img" value=""/>
+                                </div>
+                                <div class="image-remark">点击可更换广告图片</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-form-item layui-form-text">
+                        <label class="layui-form-label">广告链接:</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="url"  class="layui-input" />
+                            节点url地址，外部地址请补全http或https
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">排序：</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="sort" value="99" class="layui-input" />
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-col-lg4">
+                            <label class="layui-form-label">状态：</label>
+                            <div class="layui-input-block">
+                                {:createRadioHtml($status,1)}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                            <input type="hidden" value="{$cid['cid']}" name="cid" />
+                            <button class="layui-btn" lay-submit lay-filter="dosubmit">保存</button>
+                            <button type="reset" class="layui-btn layui-btn-primary" onclick="javascript:location.href = '{:my_url('index')}';">返回</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="/static/plugins/ace/ace.js"></script>
+<script type="text/javascript" src="__JS__/admin.advertisement.doedit.js"></script>
+{/block}

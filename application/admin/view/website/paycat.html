@@ -1,0 +1,49 @@
+{extend name="public/base"} 
+{block name="title"}更新支付配置{/block} 
+{block name="body"}
+<div class="layui-fluid">
+    <div class="layui-row">
+        <div class="layui-card">
+            <div class="layui-card-header">
+                易支付配置 
+            </div>
+            <div class="layui-card-body">
+                <div class="layui-form">
+                    <div class="layui-form-item">
+                        <div class="layui-col-lg4">
+                            <label class="layui-form-label">商户uid：</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="uid" value="{$cur.uid}" lay-verify="required" class="layui-input" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-col-lg4">
+                            <label class="layui-form-label">商户Token：</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="token" value="{$cur.token}" lay-verify="required" class="layui-input" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-col-lg4">
+                            <label class="layui-form-label">支付网关：</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="gateway" value="{$cur.gateway}" lay-verify="required" class="layui-input" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                            <button class="layui-btn" lay-submit lay-filter="dosubmit">保存配置</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="__JS__/common.update.js"></script>
+{/block}

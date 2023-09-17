@@ -1,0 +1,53 @@
+{extend name="public/base"} 
+{block name="title"}更新代理{/block} 
+{block name="jsValue"}
+<script type="text/javascript">
+var $backUrl = '{$backUrl}';
+</script>
+{/block}
+{block name="body"}
+<div class="layui-fluid">
+	<div class="layui-row layui-form">
+		<div class="layui-card">
+			<div class="layui-card-header">
+				结算收款信息 
+			</div>
+			<div class="layui-card-body">
+				<div class="layui-form-item">
+					<div class="layui-col-lg4">
+						<label class="layui-form-label">开户人：</label>
+						<div class="layui-input-block">
+							<input type="text" name="bank_user" value="{$cur.bank_user}" class="layui-input" />
+						</div>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<div class="layui-col-lg5">
+						<label class="layui-form-label">开户银行：</label>
+						<div class="layui-input-block">
+							<input type="text" name="bank_name" value="{$cur.bank_name}" class="layui-input" />
+						</div>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<div class="layui-col-lg5">
+						<label class="layui-form-label">银行卡号：</label>
+						<div class="layui-input-block">
+							<input type="text" name="bank_no" value="{$cur.bank_no}" class="layui-input" />
+						</div>
+					</div>
+				</div>
+				<div class="layui-form-item">
+	                <div class="layui-input-block">
+	                  	<a class="layui-btn" lay-submit lay-filter="dosubmit">保存</a>
+	                  	<a class="layui-btn layui-btn-primary" href="{$backUrl}">返回</a>
+	                </div>
+	            </div>
+			</div>
+		</div>
+	</div>
+</div>
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="__JS__/common.upback.js"></script>
+{/block}

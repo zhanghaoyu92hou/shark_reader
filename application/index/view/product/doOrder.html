@@ -1,0 +1,101 @@
+{extend name="public/base"}
+{block name="title"}{$site_title}{/block}
+{block name="css"}{/block}
+{block name="jsValue"}
+<script type="text/javascript">
+var money = parseFloat('{$cur.money}');
+var pid = '{$cur.id}';
+</script>
+{/block}
+{block name="body"}
+<div class="commodityNav botLine" >
+     <a href="javascript:void(0);" class="back" title="返回" onclick="javascript:history.go(-1);"></a>
+     <span>订单信息</span>
+ </div>
+
+ <div class="orderCount">
+       <div class="orderPos">
+             <div class="orderImg" >
+                 <a href="javascript:void(0);">
+                     <img src="{$cur.cover}" alt="">
+                 </a>
+             </div>
+             <div class="orderFont">
+                      <h4>
+                          <a href="javascript:void(0);">{$cur.name}</a>
+                      </h4>
+                      <p>{$cur.summary}</p>
+                     <div class="orderBot">
+                           <span>¥<em>{$cur.money}</em></span>
+                             <div class="gw_num">
+                                 <em class="jian">-</em>
+                                 <input type="text" id="pcount" value="1" class="num"/>
+                                 <em class="add">+</em>
+                             </div>
+                     </div>
+             </div>
+       </div>
+ </div>
+
+ <div class="orderAdress cartoonTop">
+         <ul>
+             <li>
+                 <div class="orderWrite">
+                     <span>姓名:</span>
+                      <div>
+                          <input type="text" id="username" placeholder="请输入姓名" maxlength="6">
+                      </div>
+                 </div>
+             </li>
+
+             <li>
+                 <div class="orderWrite ">
+                     <span>手机号:</span>
+                     <div>
+                         <input type="text" id="phone" placeholder="请输入手机号" maxlength="11">
+                     </div>
+                 </div>
+             </li>
+
+             <li>
+                 <div class="orderWrite orderWriteMargin">
+                     <span>验证码:</span>
+                     <div style="width: 60%">
+                         <input type="text" id="verify_code" placeholder="请输入验证码" maxlength="6">
+                     </div>
+                 </div>
+                 <a href="javascript:;" onclick="javascript:getCode(this);">发送验证码</a>
+             </li>
+
+             <li>
+                 <div class="orderWrite">
+                     <span>留言信息:</span>
+                     <div>
+                         <input type="text" id="remark" placeholder="请输入留言信息" maxlength="200">
+                     </div>
+                 </div>
+             </li>
+
+             <li>
+                 <div class="orderWrite">
+                     <span>详细地址:</span>
+                     <div>
+                         <input type="text" id="address" placeholder="请输入详细地址" maxlength="200">
+                     </div>
+                 </div>
+             </li>
+         </ul>
+ </div><!--/orderAdress-->
+
+
+ <div class="height_45"></div>
+ <div class="footerBook">
+     <div class="orderHj">
+         共<font id="showCount">1</font>件，合计 <em>¥</em> <span id="total_money">{$cur.money}</span>
+     </div>
+     <a href="javascript:;" class="ripple" onclick="javascript:doOrder();">立即下单</a>
+ </div>
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="__IJS__/product_doorder.min.js"></script>
+{/block}

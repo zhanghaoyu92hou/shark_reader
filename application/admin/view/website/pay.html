@@ -1,0 +1,49 @@
+{extend name="public/base"} 
+{block name="title"}更新支付配置{/block} 
+{block name="body"}
+<div class="layui-fluid">
+	<div class="layui-row">
+		<div class="layui-card">
+			<div class="layui-card-header">
+				官方微信支付配置 （公众号支付）
+			</div>
+			<div class="layui-card-body">
+				<div class="layui-form">
+					<div class="layui-form-item">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">APPID：</label>
+							<div class="layui-input-block">
+								<input type="text" name="APPID" value="{$cur.APPID}" lay-verify="required" class="layui-input" />
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">商户ID：</label>
+							<div class="layui-input-block">
+								<input type="text" name="MCHID" value="{$cur.MCHID}" lay-verify="required" class="layui-input" />
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg5">
+							<label class="layui-form-label">商户KEY：</label>
+							<div class="layui-input-block">
+								<input type="text" name="APIKEY" value="{$cur.APIKEY}" lay-verify="required" class="layui-input" />
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+		                <div class="layui-input-block">
+		                  	<button class="layui-btn" lay-submit lay-filter="dosubmit">保存配置</button>
+		                </div>
+		            </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="__JS__/common.update.js"></script>
+{/block}

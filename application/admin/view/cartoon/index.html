@@ -1,0 +1,62 @@
+{extend name="public/base"}
+{block name="title"}漫画管理{/block}
+{block name="css"}
+<style type="text/css">
+.layui-table-cell {height:auto;line-height: 28px;}
+</style>
+{/block}
+{block name="jsValue"}
+<script type="text/javascript">
+var data_url = window.location.href;
+var do_url = '{:my_url("doBookEvent")}';
+var refresh_url = '{:my_url("refreshCache")}';
+</script>
+{/block}
+{block name="body"}
+<div class="layui-fluid">
+    <div class="layui-row layui-col-space15">
+      <div class="layui-col-md12">
+        <div class="layui-card">
+          <div class="layui-form layui-card-header layuiadmin-card-header-auto">
+	        <div class="layui-form-item">
+	          <div class="layui-inline">
+	          	<label class="layui-form-label">漫画名称</label>
+	            <div class="layui-input-inline">
+	              <input type="text" name="keyword" placeholder="请输入" autocomplete="off" class="layui-input">
+	            </div>
+	          </div>
+	          <div class="layui-inline">
+	          	<label class="layui-form-label">状态</label>
+	            <div class="layui-input-inline">
+	              	  <select name="status">
+		                <option value="">全部</option>
+		                <option value="1">已上架</option>
+		                <option value="2">已下架</option>
+		              </select>
+	            </div>
+	          </div>
+	          <div class="layui-inline">
+	            <button class="layui-btn layuiadmin-btn-admin" lay-submit lay-filter="table-search"><i class="layui-icon layui-icon-search layuiadmin-button-btn"></i>查找</button>
+	          </div>
+	        </div>
+	      </div>
+          <div class="layui-card-body">
+	          	<div class="layui-btn-container">
+			       <a class="layui-btn layui-btn-sm" href="{:my_url('addBook')}">新增漫画</a>
+			       <a class="layui-btn layui-btn-sm" href="{:my_url('area')}">发布区域配置</a>
+			       <a class="layui-btn layui-btn-sm" href="{:my_url('category')}">漫画类型配置</a>
+			       <a class="layui-btn layui-btn-sm" href="{:my_url('banners')}">轮播图片配置</a>
+			       <a class="layui-btn layui-btn-sm" href="{:my_url('footer')}">底部导航配置</a>
+			       <a class="layui-btn layui-btn-sm" href="{:my_url('nav')}">导航菜单配置</a>
+			       <a class="layui-btn layui-btn-sm" id="refresh">更新缓存</a>
+			    </div>
+            <table class="layui-hide" id="table-block" lay-filter="table-block"></table>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="__JS__/admin.cartoon.index.js?d=20190715"></script>
+{/block}

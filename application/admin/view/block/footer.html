@@ -1,0 +1,13 @@
+{notempty name="list"}
+<div class="height_50"></div>
+<div class="footer">
+    {volist name="list" id="v"}
+    {notempty name="v.src"}
+    <a href="{$v.link}" >
+        <div class="footImg "><img src="{$v.src}" alt=""> </div>
+        <p>{$v.text}</p>
+    </a>
+    {/notempty}
+    {/volist}
+</div>
+{/notempty}

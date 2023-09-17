@@ -1,0 +1,69 @@
+{extend name="public/base"} 
+{block name="title"}{$site_info.name}{/block}
+{block name="css"}
+<link rel="stylesheet" href="/static/index/css/swiper.min.css" />
+<style type="text/css">
+.hotslide {width: 31%;margin-right:3%;}
+</style>
+{/block}
+{block name="body"}
+<div class="cartoonWapper">
+    <div class="cartoonNav">
+    	{:createWebBlock($web_block,'novel')}
+    </div>
+    <div class="cartoonSearch">
+        <a href="{:my_url('Search/index')}"><img src="/static/index/images/search.png" alt=""></a>
+    </div>
+</div>
+<div class="height_45"></div>
+<div class="cartoonRecommend">
+     <div class="recommendList" style="margin-top:0;"></div>
+</div>
+<div class="cartoonSwiper hot-book">
+    <div class="swiper-container cartoon-Swiper">
+         <div class="swiper-wrapper">
+             {:getBlock('novel_banner','other')}
+         </div>
+        <div class="swiper-pagination cartoonRight"></div>
+    </div>
+    <div class="listNav">
+        {:getBlock('novel_nav','other')}
+    </div>
+</div>
+{:getBlock('novel_content','other')}
+<div class="codeBot">
+    <div class="codePos">
+        <div class="code">
+            <img src="{$site_info.qrcode}" alt="">
+            <div class="cartoonPic">
+                <img src="/static/index/images/cartoonPic.png" alt="">
+            </div>
+        </div>
+    </div>
+    <div  class="arrive">
+        <div>
+            {:getBlock('footer_h5','other')}
+        </div>
+    </div>
+</div>
+{:getBlock('novel_footer','other')}
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="/static/index/js/swiper.min.js"></script>
+<script>
+    function doSearch(a){
+        if(!a){
+            a=$("#keyword").val()
+        }
+        if(a.length==0){
+            layMsg("请输入搜索关键字");
+            return false
+        }
+        var url=U("booksearch");
+        window.location.href=url+"?keyword="+a;
+    }
+</script>
+<script type="text/javascript" src="__IJS__/book_index.min.js"></script>
+<!--<script type="text/javascript" src="__IJS__/search_index.min.js"></script>-->
+{/block}
+

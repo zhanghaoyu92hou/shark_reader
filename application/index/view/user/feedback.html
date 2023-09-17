@@ -1,0 +1,22 @@
+{extend name="public/base"}
+{block name="title"}{$site_title}{/block}
+{block name="css"}
+<style type="text/css">
+    html,body{ background:#fff}
+</style>
+{/block}
+{block name="body"}
+    <div class="commodityNav commodityline" style="	border-bottom: 1px solid #e8e8e8;">
+        <a href="javascript:history.go(-1);" class="back" title="返回"></a>
+        <span class="activeNone" style="font-size: 1.5rem" >反馈意见</span>
+    </div>
+ <div class="feedback">
+      <ul></ul>
+ </div>
+ <div class="promptly" style="margin: 10% auto">
+     <a href="{:my_url('doFeedback')}" class="ripple">反馈意见</a>
+ </div>
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="__IJS__/user_feedback.min.js"></script>
+{/block}

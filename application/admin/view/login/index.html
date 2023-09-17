@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>总站后台登录</title>
+	<link rel="stylesheet" href="/static/login/css/login.min.css">
+	<link rel="stylesheet" href="/static/layadmin/layui/css/layui.css">
+</head>
+
+<body>
+	<div class="lowin">
+		<div class="lowin-wrapper">
+			<div class="lowin-box lowin-login">
+				<div class="lowin-box-inner layui-form">
+						<p>总站后台登录</p>
+						<div class="lowin-group">
+							<label>登录名</label>
+							<input type="text" name="login_name" class="lowin-input" lay-verify="required" />
+						</div>
+						<div class="lowin-group password-group">
+							<label>登录密码</label>
+							<input type="password" name="password" class="lowin-input" lay-verify="required" />
+						</div>
+						<div class="lowin-group verify-group">
+							<label>验证码</label>
+							<input type="text" name="verify_code" class="lowin-input"  lay-verify="required" maxlength="4" />
+							<div class="verify-img">
+								<img id="cur_img" src="{:my_url('verify')}" onclick="javascript:this.src='{:my_url('verify')}?t='+Math.random();"/>
+							</div>
+						</div>
+						<button class="lowin-btn login-btn" type="button" lay-submit lay-filter="dologin">登录</button>
+				</div>
+			</div>
+		</div>
+	</div>
+<script type="text/javascript" src="/static/layadmin/layui/layui.js"></script>
+<script type="text/javascript" src="/static/login/js/login.js"></script>
+</body>
+</html>

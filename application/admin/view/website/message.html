@@ -1,0 +1,58 @@
+{extend name="public/base"} 
+{block name="title"}更新短信配置{/block} 
+{block name="body"}
+<div class="layui-fluid">
+	<div class="layui-row">
+		<div class="layui-card">
+			<div class="layui-card-header">
+				短信配置【<a href="https://www.mysubmail.com/" target="_blank">点击前往获取配置</a>】 
+			</div>
+			<div class="layui-card-body">
+				<div class="layui-form">
+					<div class="layui-form-item">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">appid：</label>
+							<div class="layui-input-block">
+								<input type="text" name="appid" value="{$cur.appid}" lay-verify="required" class="layui-input" />
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">appkey：</label>
+							<div class="layui-input-block">
+								<input type="text" name="appkey" value="{$cur.appkey}" lay-verify="required" class="layui-input" />
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">短信签名：</label>
+							<div class="layui-input-block">
+								<input type="text" name="sign" value="{$cur.sign}" lay-verify="required" class="layui-input" />
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">模版内容：</label>
+							<div class="layui-input-block">
+								<textarea class="layui-textarea" name="content">{empty name="cur.content"}您的验证码为CODE,无论如何也不要告诉别人喔{else /}{$cur.content}{/empty}</textarea>
+							</div>
+						</div>
+						<div class="layui-form-mid layui-word-aux">CODE为短信验证码变量，且为必填</div>
+					</div>
+					<div class="layui-form-item">
+		                <div class="layui-input-block">
+		                  	<button class="layui-btn" lay-submit lay-filter="dosubmit">保存配置</button>
+		                </div>
+		            </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="__JS__/common.update.js"></script>
+{/block}

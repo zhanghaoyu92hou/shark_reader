@@ -1,0 +1,54 @@
+{extend name="public/base"} 
+{block name="title"}{$title}{/block} 
+{block name="body"}
+<div class="layui-fluid">
+	<div class="layui-row">
+		<div class="layui-card">
+			<div class="layui-card-header">
+				{$title}
+			</div>
+			<div class="layui-card-body">
+				<div class="layui-btn-container">
+		       		<a class="layui-btn layui-btn-sm" id="addBox">添加轮播图</a>
+		    	</div>
+				<div class="layui-form">
+					<div class="layui-form-item" id="imgbox">
+						{empty name="cur"}
+						<div class="imgbox-list">
+							<a class="layui-btn layui-btn-sm layui-btn-danger img-delete layui-hide" href="javascript:void(0);"><i class="layui-icon layui-icon-delete"></i>删除</a>
+					        <div class="child-item img-item" title="点击上传图片" onclick="cropImage('上传轮播图','870x390',this);">
+					        	<img class="showimg" src="/static/common/images/435x195.png" />
+					        	<input type="hidden" class="hideval" name="src[]" value="" />
+					        </div>
+					        <div class="child-item input-item">
+					        	<textarea name="link[]" placeholder="请输入跳转链接"></textarea>
+					        </div>
+					    </div>
+					    {else /}
+					    	{volist name="cur" id="v"}
+					    		<div class="imgbox-list">
+									<a class="layui-btn layui-btn-sm layui-btn-danger img-delete layui-hide" href="javascript:void(0);"><i class="layui-icon layui-icon-delete"></i>删除</a>
+							        <div class="child-item img-item" title="点击上传图片" onclick="cropImage('上传轮播图','870x390',this);">
+							        	<img class="showimg" src="{$v.src}" />
+							        	<input type="hidden" class="hideval" name="src[]" value="{$v.src}" />
+							        </div>
+							        <div class="child-item input-item">
+							        	<textarea name="link[]" placeholder="请输入跳转链接">{$v.link}</textarea>
+							        </div>
+							    </div>
+					    	{/volist}
+					    {/empty}
+					</div>
+					<div class="layui-form-item">
+		                  	<a class="layui-btn" lay-submit lay-filter="dosubmit">保存配置</a>
+		                  	<a type="reset" class="layui-btn layui-btn-primary" href="{$backUrl}">返回列表</a>
+		            </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="__JS__/admin.public.banners.js"></script>
+{/block}

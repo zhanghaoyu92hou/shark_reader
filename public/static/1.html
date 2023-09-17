@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>播放示例-chplayer</title>
+		<meta name="keywords" content="flv,mp4,rtmp,html5,m3u8,播放器,视频流,网页视频播放器,dkvplayer,chplayer官网" />
+		<meta name="description" content="chplayer支持的视频格式：http协议的flv,mp4,m3u8及rtmp协议 " />
+		<meta name="author" content="chplayer" />
+		<meta name="copyright" content="http://www.chplayer.com" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<script type="text/javascript" src="http://www.chplayer.com/res/js/jquery.js"></script>
+		<script type="text/javascript" src="http://www.chplayer.com/down/v1.0/chplayer/chplayer.js"></script>
+	</head>
+
+	<body>
+		<div class="video" style="width: 600px; height: 400px;"></div>
+		<script type="text/javascript">
+	 
+ 
+		   var videoUrl='http://www.flashls.org/playlists/test_001/stream_1000k_48k_640x360.m3u8';
+			var videoObject = {
+				container: 'video',
+				variable:'player',
+				video: videoUrl,
+				autoplay:true
+			};
+		 
+				videoObject['html5m3u8']=true;
+	 
+			var player=new chplayer(videoObject);
+		</script>
+ 
+	</body>
+
+</html>

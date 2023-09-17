@@ -1,0 +1,66 @@
+{extend name="public/base"} 
+{block name="title"}充值统计{/block} 
+{block name="jsValue"}
+<script type="text/javascript">
+var $dataUrl = '{:my_url("charge")}';
+</script>
+{/block}
+{block name="body"}
+<div class="layui-fluid">
+	<div class="layui-row layui-col-space20">
+		<div class="layui-col-md6">
+			<div class="layui-card">
+				<div class="layui-card-header">直接充值</div>
+				<div class="layui-card-body">
+					<div class="layui-row">
+						<div class="layui-col-md6">充值笔数：<font class="text-red">{$data.charge.count}笔</font></div>
+						<div class="layui-col-md6">充值金额：<font class="text-red">¥{$data.charge.money}</font></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="layui-col-md6">
+			<div class="layui-card">
+				<div class="layui-card-header">引导充值 【通过书籍&视频相关充值】</div>
+				<div class="layui-card-body">
+					<div class="layui-row">
+						<div class="layui-col-md6">充值笔数：<font class="text-red">{$data.guide.count}笔</font></div>
+						<div class="layui-col-md6">充值金额：<font class="text-red">¥{$data.guide.money}</font></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="layui-row">
+		<div class="layui-card">
+			<div class="layui-card-body">
+				<div class="layui-tab">
+					  <ul class="layui-tab-title">
+					    <li class="layui-this">漫画充值</li>
+					    <li>小说充值</li>
+					    <li>听书充值</li>
+					    <li>视频充值</li>
+					  </ul>
+					  <div class="layui-tab-content">
+					    <div class="layui-tab-item layui-show">
+					    	<table class="layui-hide" id="cartoon-table" lay-filter="cartoon-table"></table>
+					    </div>
+					    <div class="layui-tab-item">
+					    	<table class="layui-hide" id="novel-table" lay-filter="novel-table"></table>
+					    </div>
+					    <div class="layui-tab-item">
+					    	<table class="layui-hide" id="music-table" lay-filter="music-table"></table>
+					    </div>
+					    <div class="layui-tab-item">
+					    	<table class="layui-hide" id="video-table" lay-filter="video-table"></table>
+					    </div>
+					  </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="__JS__/admin.chart.charge.js"></script>
+{/block}

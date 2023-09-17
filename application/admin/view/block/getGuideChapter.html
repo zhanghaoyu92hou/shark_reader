@@ -1,0 +1,33 @@
+{notempty name="list"}
+{volist name="list" id="v"}
+<section>
+    <section style="max-width: 100%;margin: 0.8em 0px 0.5em; overflow: hidden; ">
+        <section style="box-sizing: border-box !important; height:36px;display: inline-block;color: #FFF; font-size: 16px;font-weight:bold; padding:0 10px;line-height: 36px;float: left; vertical-align: top; background-color: rgb(249, 110, 87); "></section>
+        <section style="box-sizing: border-box !important; height:36px;display: inline-block;color: #FFF; font-size: 16px;font-weight:bold; padding:0 10px;line-height: 36px;float: left; vertical-align: top; background-color: rgb(249, 110, 87); "></section>
+        <section style="box-sizing: border-box !important; height:36px;display: inline-block;color: #FFF; font-size: 16px;font-weight:bold; padding:0 10px;line-height: 36px;float: left; vertical-align: top; background-color: rgb(249, 110, 87);overflow: hidden;text-overflow: ellipsis;white-space: nowrap;max-width: 79%!important; ">
+            <span style="color: rgb(254, 255, 253); font-size: 15.6px; text-align: center;" class="ztitle" _chaps="{$v['number']}" _title="{$v['name']}">{$v.name}</span>
+        </section>
+        <section style="box-sizing: border-box !important; height:36px;display: inline-block;color: #FFF; font-size: 16px;font-weight:bold; padding:0 10px;line-height: 36px;float: left; vertical-align: top; background-color: rgb(249, 110, 87); "></section>
+        <section style="box-sizing: border-box !important; display: inline-block;height:36px; vertical-align: top; border-left-width: 9px; border-left-style: solid; border-left-color: rgb(249, 110, 87); border-top-width: 18px !important; border-top-style: solid !important; border-top-color: transparent !important; border-bottom-width: 18px !important; border-bottom-style: solid !important; border-bottom-color: transparent !important;"></section>
+    </section>
+    <fieldset style="border: 0px; margin: 5px 0px; box-sizing: border-box; padding: 0px;">
+        <section style="height: 1em; box-sizing: border-box;">
+            <section style="height: 100%; width: 1.5em; float: left; border-top-width: 0.4em; border-top-style: solid; border-color: rgb(249, 110, 87); border-left-width: 0.4em; border-left-style: solid; box-sizing: border-box;"></section>
+            <section style="height: 100%; width: 1.5em; float: right; border-top-width: 0.4em; border-top-style: solid; border-color: rgb(249, 110, 87); border-right-width: 0.4em; border-right-style: solid; box-sizing: border-box;"></section>
+            <section style="display: inline-block; color: transparent; clear: both; box-sizing: border-box;"></section>
+        </section>
+        <section style="margin: -0.8em 0.1em -0.8em 0.2em; padding: 0.8em; border: 1px solid rgb(249, 110, 87); border-radius: 0.3em; box-sizing: border-box;">
+            <section style="color: rgb(51, 51, 51);line-height: 1.7em; word-break: break-all; word-wrap: break-word;" class="wweibrush">
+                <div class="cartoon-div" style="color: rgb(110, 101, 95); font-size: 16px; text-align: justify; text-indent: 2em; background-color: rgb(255, 255, 255);overflow:hidden;">
+                    {$v.content}
+                </div>
+            </section>
+        </section>
+        <section style="height: 1em; box-sizing: border-box;">
+            <section style="height: 100%; width: 1.5em; float: left; border-bottom-width: 0.4em; border-bottom-style: solid; border-color: rgb(249, 110, 87); border-left-width: 0.4em; border-left-style: solid; box-sizing: border-box;"></section>
+            <section style="height: 100%; width: 1.5em; float: right; border-bottom-width: 0.4em; border-bottom-style: solid; border-color: rgb(249, 110, 87); border-right-width: 0.4em; border-right-style: solid; box-sizing: border-box;"></section>
+        </section>
+    </fieldset>
+</section>
+{/volist}
+{/notempty}

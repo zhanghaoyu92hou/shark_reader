@@ -1,0 +1,152 @@
+{extend name="public/base"} 
+{block name="title"}更新代理{/block} 
+{block name="jsValue"}
+<script type="text/javascript">
+var $backUrl = '{$backUrl}';
+</script>
+{/block}
+{block name="body"}
+<div class="layui-fluid">
+	<div class="layui-row layui-form">
+		<div class="layui-card">
+			<div class="layui-card-header">
+				代理基础信息 
+			</div>
+			<div class="layui-card-body">
+					<div class="layui-form-item">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">代理名称：</label>
+							<div class="layui-input-block">
+								<input type="text" name="name" value="{$cur.name}" class="layui-input" />
+							</div>
+						</div>
+					</div>
+					{empty name="cur.id"}
+					<div class="layui-form-item">
+						<div class="layui-col-lg5">
+							<label class="layui-form-label">登录账号：</label>
+							<div class="layui-input-block">
+								<input type="text" name="login_name" value="{$cur.login_name}" class="layui-input" />
+							</div>
+						</div>
+						<div class="layui-form-mid layui-word-aux">登录账号一旦设定后不可更改</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg5">
+							<label class="layui-form-label">登录密码：</label>
+							<div class="layui-input-block">
+								<input type="password" name="password" value="" class="layui-input" />
+							</div>
+						</div>
+						<div class="layui-form-mid layui-word-aux">登录密码设定后只能重置或自行登录修改</div>
+					</div>
+					{else /}
+					<div class="layui-form-item">
+						<div class="layui-col-lg5">
+							<label class="layui-form-label">登录账号：</label>
+							<div class="layui-input-block">
+								<input type="text" value="{$cur.login_name}" disabled="disabled" class="layui-input" />
+							</div>
+						</div>
+						<div class="layui-form-mid layui-word-aux">登录账号一旦设定后不可更改</div>
+					</div>
+					{/empty}
+					<div class="layui-form-item">
+						<div class="layui-col-lg5">
+							<label class="layui-form-label">状态：</label>
+							<div class="layui-input-block">
+								{:createRadioHtml($status,$cur['status'])}
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg5">
+							<label class="layui-form-label">绑定域名：</label>
+							<div class="layui-input-block">
+								<input type="text" name="url" value="{$cur.url}" class="layui-input" />
+							</div>
+						</div>
+						<div class="layui-form-mid layui-word-aux">代理绑定域名后，代理推广外链都将为该域名</div>
+					</div>
+			</div>
+		</div>
+		<div class="layui-card">
+			<div class="layui-card-header">
+				结算相关信息 
+			</div>
+			<div class="layui-card-body">
+				<div class="layui-form-item">
+					<div class="layui-col-lg4">
+						<label class="layui-form-label">代理福利时长：</label>
+						<div class="layui-input-block">
+							<input type="text" name="wefare_days" value="{$cur.wefare_days}" class="layui-input" />
+						</div>
+					</div>
+					<div class="layui-form-mid layui-word-aux">单位：天，代理福利时长内,代理订单参与分佣，超出后订单归渠道所有，如该参数为0，则代理始终参与分佣</div>
+				</div>
+				<div class="layui-form-item">
+					<div class="layui-col-lg4">
+						<label class="layui-form-label">距扣量：</label>
+						<div class="layui-input-block">
+							<input type="text" name="deduct_min" value="{$cur.deduct_min}" class="layui-input" />
+						</div>
+					</div>
+					<div class="layui-form-mid layui-word-aux">单位：单，渠道&代理已支付订单超出该配置后开始扣量</div>
+				</div>
+				<div class="layui-form-item">
+					<div class="layui-col-lg4">
+						<label class="layui-form-label">扣量周期：</label>
+						<div class="layui-input-block">
+							<input type="text" name="deduct_num" value="{$cur.deduct_num}" class="layui-input" />
+						</div>
+					</div>
+					<div class="layui-form-mid layui-word-aux">单位：单，渠道&代理已支付订单在该配置周期内随机扣1单,如该参数为0,则扣量关闭，如该参数为1，则始终扣量</div>
+				</div>
+				<div class="layui-form-item">
+					<div class="layui-col-lg4">
+						<label class="layui-form-label">返佣比例：</label>
+						<div class="layui-input-block">
+							<input type="text" name="ratio" value="{$cur.ratio}" class="layui-input" />
+						</div>
+					</div>
+					<div class="layui-form-mid layui-word-aux">单位：%，填写 0 到 100 之间的数字，设置比例不能超过100%</div>
+				</div>
+				<div class="layui-form-item">
+					<div class="layui-col-lg4">
+						<label class="layui-form-label">开户人：</label>
+						<div class="layui-input-block">
+							<input type="text" name="bank_user" value="{$cur.bank_user}" class="layui-input" />
+						</div>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<div class="layui-col-lg5">
+						<label class="layui-form-label">开户银行：</label>
+						<div class="layui-input-block">
+							<input type="text" name="bank_name" value="{$cur.bank_name}" class="layui-input" />
+						</div>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<div class="layui-col-lg5">
+						<label class="layui-form-label">银行卡号：</label>
+						<div class="layui-input-block">
+							<input type="text" name="bank_no" value="{$cur.bank_no}" class="layui-input" />
+						</div>
+					</div>
+				</div>
+				<div class="layui-form-item">
+	                <div class="layui-input-block">
+	                	<input type="hidden" value="{$cur.id}" name="id" />
+	                  	<a class="layui-btn" lay-submit lay-filter="dosubmit">保存</a>
+	                  	<a class="layui-btn layui-btn-primary" href="{$backUrl}">返回</a>
+	                </div>
+	            </div>
+			</div>
+		</div>
+	</div>
+</div>
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="__JS__/common.upback.js"></script>
+{/block}

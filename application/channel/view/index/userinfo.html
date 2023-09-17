@@ -1,0 +1,89 @@
+{extend name="public/base"} 
+{block name="title"}用户信息{/block} 
+{block name="body"}
+<div class="layui-fluid">
+	<div class="layui-row">
+		<div class="layui-card">
+			<div class="layui-card-header">
+				用户基础信息 
+			</div>
+			<div class="layui-card-body">
+				<div class="layui-form">
+					<div class="layui-form-item">
+						<div class="layui-col-lg3">
+							<label class="layui-form-label">站点名称：</label>
+							<div class="layui-input-block">
+								<input type="text" value="{$cur.name}" name="name" lay-verify="required" class="layui-input" />
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">登录账号：</label>
+							<div class="layui-input-block">
+								<div class="text-line">
+									{notempty name="cur.login_name"}
+										{$cur['login_name']}
+									{else /}
+										--
+									{/notempty}
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">用户状态：</label>
+							<div class="layui-input-block">
+								<div class="text-line">
+									{switch name="cur.status"}
+										{case value="1"}启用{/case}
+										{case value="2"}禁用{/case}
+										{case value="3"}审核不通过{/case}
+									{/switch}
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">登录ip：</label>
+							<div class="layui-input-block">
+								<div class="text-line">
+									{notempty name="cur.login_ip"}
+										{$cur['login_ip']}
+									{else /}
+										--
+									{/notempty}
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">登录时间：</label>
+							<div class="layui-input-block">
+								<div class="text-line">
+									{notempty name="cur.login_time"}
+										{:date('Y-m-d H:i:s',$cur['login_time'])}
+									{else /}
+										--
+									{/notempty}
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+		                <div class="layui-input-block">
+		                  	<button class="layui-btn" lay-submit lay-filter="dosubmit">保存</button>
+		                </div>
+		            </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="__JS__/channel.index.userinfo.js"></script>
+{/block}

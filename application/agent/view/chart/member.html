@@ -1,0 +1,106 @@
+{extend name="public/base"} 
+{block name="title"}用户统计{/block} 
+{block name="jsValue"}
+<script type="text/javascript">
+</script>
+{/block}
+{block name="body"}
+<div class="layui-fluid">
+	<div class="layui-card">
+		<div class="layui-card-body">
+			<div class="layui-row layui-col-space20">
+				<div class="layui-col-md3 layui-col-sm3 chart-block">
+					<div class="block-content">
+						<div class="block-content-item">
+							<h4>今日新增</h4>
+							<p class="block-numbers">{$today.add_num}人</p>
+							<p>今日已关注：<font class="text-red">{$today.sub_num}</font>人</p>
+							<p>男性<font class="text-red">{$today.sex1}</font>人 , 女性<font class="text-red">{$today.sex2}</font>人 , 未知<font class="text-red">{$today.sex0}</font>人</p>
+							<p>今日充值人数：<font class="text-red">{$today.charge_nums}</font>人</p>
+							<p>今日充值金额：<font class="text-red">{$today.charge_money}</font>元</p>
+						</div>
+					</div>
+				</div>
+				<div class="layui-col-md3 layui-col-sm3 chart-block">
+					<div class="block-content">
+						<div class="block-content-item">
+							<h4>昨日新增</h4>
+							<p class="block-numbers">{$yesterday.add_num}人</p>
+							<p>昨日已关注：<font class="text-red">{$yesterday.sub_num}</font>人</p>
+							<p>男性<font class="text-red">{$yesterday.sex1}</font>人 , 女性<font class="text-red">{$yesterday.sex2}</font>人 , 未知<font class="text-red">{$yesterday.sex0}</font>人</p>
+							<p>昨日充值人数：<font class="text-red">{$yesterday.charge_nums}</font>人</p>
+							<p>昨日充值金额：<font class="text-red">{$yesterday.charge_money}</font>元</p>
+						</div>
+					</div>
+				</div>
+				<div class="layui-col-md3 layui-col-sm3 chart-block">
+					<div class="block-content">
+						<div class="block-content-item">
+							<h4>本月新增（不包含今日）</h4>
+							<p class="block-numbers">{$month.add_num}人</p>
+							<p>本月已关注：<font class="text-red">{$month.sub_num}</font>人</p>
+							<p>男性<font class="text-red">{$month.sex1}</font>人 , 女性<font class="text-red">{$month.sex2}</font>人 , 未知<font class="text-red">{$month.sex0}</font>人</p>
+							<p>本月充值人数：<font class="text-red">{$month.charge_nums}</font>人</p>
+							<p>本月充值金额：<font class="text-red">{$month.charge_money}</font>元</p>
+						</div>
+					</div>
+				</div>
+				<div class="layui-col-md3 layui-col-sm3 chart-block">
+					<div class="block-content">
+						<div class="block-content-item">
+							<h4>所有用户（不包含今日）</h4>
+							<p class="block-numbers">{$total.add_num}人</p>
+							<p>已关注：<font class="text-red">{$total.sub_num}</font>人</p>
+							<p>男性<font class="text-red">{$total.sex1}</font>人 , 女性<font class="text-red">{$total.sex2}</font>人 , 未知<font class="text-red">{$total.sex0}</font>人</p>
+							<p>充值人数：<font class="text-red">{$total.charge_nums}</font>人</p>
+							<p>充值金额：<font class="text-red">{$total.charge_money}</font>元</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="layui-card">
+		<div class="layui-card-header">近30天用户统计</div>
+		<div class="layui-card-body">
+				<table class="layui-table">
+				  <thead>
+				    <tr>
+				      <th>日期</th>
+				      <th>新增加</th>
+				      <th>新关注</th>
+				      <th>男性</th>
+				      <th>女性</th>
+				      <th>未知性别</th>
+				      <th>充值人数</th>
+				      <th>充值金额</th>
+				    </tr> 
+				  </thead>
+				  <tbody>
+				  	{volist name="data" id="v"}
+				    <tr>
+				      <td>{$v.create_date}</td>
+				      <td>{$v.add_num}</td>
+				      <td>{$v.sub_num}</td>
+				      <td>{$v.sex1}</td>
+				      <td>{$v.sex2}</td>
+				      <td>{$v.sex0}</td>
+				      <td>{$v.charge_nums}</td>
+				      <td>{$v.charge_money}</td>
+				    </tr>
+				    {/volist}
+				  </tbody>
+				</table>
+		</div>
+	</div>
+</div>
+{/block}
+{block name="footJs"}
+<script type="text/javascript">
+	layui.use(['table','element'],function(){
+		var table = layui.table,
+		element = layui.element;
+		
+	});
+</script>
+{/block}

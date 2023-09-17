@@ -1,0 +1,161 @@
+{extend name="public/base"} 
+{block name="title"}站点基础信息{/block} 
+{block name="jsValue"}
+<script type="text/javascript">
+var $is_location = parseInt('{$cur.is_location}');
+var $is_sign = parseInt('{$cur.is_sign}');
+</script>
+{/block}
+{block name="body"}
+<div class="layui-fluid">
+	<div class="layui-row">
+		<div class="layui-card">
+			<div class="layui-card-header">
+				站点基础信息 
+			</div>
+			<div class="layui-card-body">
+				<div class="layui-form">
+					<div class="layui-form-item">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">站点名称：</label>
+							<div class="layui-input-block">
+								<input type="text" name="name" value="{$cur.name}" class="layui-input" />
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">安全域名：</label>
+							<div class="layui-input-block">
+								<input type="text" name="url" value="{$cur.url}" class="layui-input" />
+							</div>
+						</div>
+						<div class="layui-form-mid layui-word-aux">安全域名必须与微信绑定域名一致</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">域名跳转开关：</label>
+						<div class="layui-input-block">
+							{:createRadioHtml($is_location,$cur['is_location'])}
+						</div>
+					</div>
+					<div class="layui-form-item" id="locationUrlBox">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">跳转域名：</label>
+							<div class="layui-input-block">
+								<input type="text" name="location_url" value="{$cur.location_url}" class="layui-input" />
+							</div>
+						</div>
+						<div class="layui-form-mid layui-word-aux">跳转域名开启后，分享赠书币功能将关闭</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">开启签到：</label>
+						<div class="layui-input-block">
+							{:createRadioHtml($sign,$cur['is_sign'])}
+						</div>
+					</div>
+					<div class="layui-form-item layui-hide" id="signBox">
+							<div class="layui-input-block">
+								<div class="layui-form-item">
+									<label class="layui-form-label">第一天：</label>
+									<div class="layui-inline">
+										<input type="text" name="sign_day1" class="layui-input" value="{$cur.sign_config.day1}" />
+									</div>
+									书币
+								</div>
+								<div class="layui-form-item">
+									<label class="layui-form-label">第二天：</label>
+									<div class="layui-inline">
+										<input type="text" name="sign_day2" class="layui-input" value="{$cur.sign_config.day2}" />
+									</div>
+									书币
+								</div>
+								<div class="layui-form-item">
+									<label class="layui-form-label">第三天：</label>
+									<div class="layui-inline">
+										<input type="text" name="sign_day3" class="layui-input" value="{$cur.sign_config.day3}" />
+									</div>
+									书币
+								</div>
+								<div class="layui-form-item">
+									<label class="layui-form-label">第四天：</label>
+									<div class="layui-inline">
+										<input type="text" name="sign_day4" class="layui-input" value="{$cur.sign_config.day4}" />
+									</div>
+									书币
+								</div>
+								<div class="layui-form-item">
+									<label class="layui-form-label">第五天：</label>
+									<div class="layui-inline">
+										<input type="text" name="sign_day5" class="layui-input" value="{$cur.sign_config.day5}" />
+									</div>
+									书币
+								</div>
+								<div class="layui-form-item">
+									<label class="layui-form-label">第六天：</label>
+									<div class="layui-inline">
+										<input type="text" name="sign_day6" class="layui-input" value="{$cur.sign_config.day6}" />
+									</div>
+									书币
+								</div>
+								<div class="layui-form-item">
+									<label class="layui-form-label">第七天：</label>
+									<div class="layui-inline">
+										<input type="text" name="sign_day7" class="layui-input" value="{$cur.sign_config.day7}" />
+									</div>
+									书币
+								</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">分享赠送书币：</label>
+							<div class="layui-input-block">
+								<input type="text" name="share_money" value="{$cur.share_money}" class="layui-input" />
+							</div>
+						</div>
+						<div class="layui-form-mid layui-word-aux">确保域名跳转关闭，用户分享后，有人点开页面即赠送奖励</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">支付方式：</label>
+						<div class="layui-input-block">
+							{:createRadioHtml($pay_type,$cur['pay_type'])}
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">客服qq：</label>
+							<div class="layui-input-block">
+								<input type="text" name="contactQQ" value="{$cur.contactQQ}" class="layui-input" />
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">客服微信：</label>
+							<div class="layui-input-block">
+								<input type="text" name="contactWx" value="{$cur.contactWx}" class="layui-input" />
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">客服电话：</label>
+							<div class="layui-input-block">
+								<input type="text" name="contactTel" value="{$cur.contactTel}" class="layui-input" />
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+		                <div class="layui-input-block">
+		                  	<button class="layui-btn" lay-submit lay-filter="dosubmit">保存</button>
+		                </div>
+		            </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="__JS__/admin.website.info.js"></script>
+{/block}

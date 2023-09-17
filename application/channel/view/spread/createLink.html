@@ -1,0 +1,90 @@
+{extend name="public/base"} 
+{block name="title"}生成推广链接{/block} 
+{block name="jsValue"}
+<script type="text/javascript">
+var $backUrl = '{:my_url("Spread/index")}';
+</script>
+{/block}
+{block name="body"}
+<div class="layui-fluid">
+	<div class="layui-row">
+		<div class="layui-card">
+			<div class="layui-card-header">
+				推广链接信息 
+			</div>
+			<div class="layui-card-body">
+				<div class="layui-form">
+					<div class="layui-form-item">
+						<label class="layui-form-label">书籍名称：</label>
+						<div class="layui-input-block">
+							<div class="text-line">{$book.name}</div>
+						</div>
+					</div>
+					
+					<div class="layui-form-item">
+						<div class="layui-col-lg5">
+							<label class="layui-form-label">推广章节：</label>
+							<div class="layui-input-block">
+								<select class="layui-select" name="chapter_id">
+									{:createSelectHtml($book['chapter'],$cur['chapter_id'])}
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg5">
+							<label class="layui-form-label">推广名称：</label>
+							<div class="layui-input-block">
+								<input type="text" class="layui-input" name="name" value="{$cur.name}" lay-verify="required" />
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">强制关注：</label>
+							<div class="layui-input-block">
+								{:createRadioHtml($radio,$cur['is_sub'])}
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item" id="subnumber">
+						<div class="layui-col-lg5">
+							<label class="layui-form-label">强制关注章节：</label>
+							<div class="layui-input-block">
+								<input type="text" class="layui-input" name="number" value="{$cur.number}" />
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg5">
+							<label class="layui-form-label">备注：</label>
+							<div class="layui-input-block">
+								<input type="hidden" value="{$cur.id}" name="id" />
+			                	<input type="hidden" value="{$book.id}" name="book_id" />
+								<textarea class="layui-textarea" name="remark">{$cur.remark}</textarea>
+							</div>
+						</div>
+					</div>
+					{empty name="cur.id"}
+						<div class="layui-form-item layui-hide">
+			                <div class="layui-input-block">
+			                  	<button class="layui-btn" id="pageSubmit" lay-submit lay-filter="pageSubmit">保存</button>
+			                </div>
+			            </div>
+					{else /}
+						<div class="layui-form-item">
+			                <div class="layui-input-block">
+			                  	<a class="layui-btn" lay-submit lay-filter="dosubmit">保存</a>
+			                  	<a class="layui-btn layui-btn-primary" href="{:my_url('Spread/index')}">返回</a>
+			                </div>
+			            </div>
+					{/empty}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="__JS__/admin.spread.createlink.js"></script>
+{/block}

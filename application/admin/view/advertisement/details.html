@@ -1,0 +1,57 @@
+{extend name="public/base"}
+{block name="title"}分集管理{/block}
+{block name="jsValue"}
+<script type="text/javascript">
+    var data_url = window.location.href,
+            file_url = '{:my_url("Upload/doUploadFile")}',
+            decode_url = '{:my_url("doDecodeZip")}',
+            check_url = '{:my_url("checkChapter")}',
+            del_all_url = '{:my_url("delAll")}',
+            cid = '{$id}';
+
+    var do_url = '{:my_url("dostatu")}';
+    var spread_url = '{:my_url("Spread/index",["from"=>2])}';
+    var refresh_url = '{:my_url("refreshCache")}';
+</script>
+{/block}
+{block name="body"}
+<div class="layui-fluid">
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-body">
+                    <div class="layui-btn-container">
+                        <a class="layui-btn layui-btn-sm" href="{:my_url('doadd',['cid'=>$id])}">新增广告</a>
+                        <a class="layui-btn layui-btn-sm layui-btn-danger" id="delAll">清空所有广告</a>
+                        <a class="layui-btn layui-btn-sm layui-btn-primary" href="{:my_url('index')}">返回广告位列表</a>
+                    </div>
+                    <table class="layui-hide" id="table-block" lay-filter="table-block"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="listLayer" style="display:none;"></div>
+<div class="zipLayer" style="display:none;">
+    <div class="layui-fluid">
+        <div class="zip-div">
+            <div class="zip-main">
+                <div class="zip-btn-div" id="doneUploadZip">
+                    <img src="/static/common/images/upload.png" style="width:100%;" />
+                </div>
+                <p class="upload-remark">请选择小于20M的zip文件</p>
+                <div class="upload-loading">
+                    <div class="upload-state-div">
+                        <span></span>
+                        <font>文件处理中...</font>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="/static/plugins/plupload/plupload.full.min.js"></script>
+<script type="text/javascript" src="__JS__/admin.advertisement.details.js"></script>
+{/block}

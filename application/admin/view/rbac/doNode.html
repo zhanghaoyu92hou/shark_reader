@@ -1,0 +1,84 @@
+{extend name="public/base"} 
+{block name="title"}更新节点{/block} 
+{block name="jsValue"}
+<script type="text/javascript">
+var $backUrl = '{$backUrl}';
+</script>
+{/block}
+{block name="body"}
+<div class="layui-fluid">
+	<div class="layui-row">
+		<div class="layui-card">
+			<div class="layui-card-header">
+				节点基础信息 
+			</div>
+			<div class="layui-card-body">
+				<div class="layui-form">
+					<div class="layui-form-item">
+						<div class="layui-col-lg3">
+							<label class="layui-form-label">所属节点：</label>
+							<div class="layui-input-block">
+								<input type="text" value="{$cur.parent_name}" disabled="disabled" class="layui-input" />
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg3">
+							<label class="layui-form-label">节点名称：</label>
+							<div class="layui-input-block">
+								<input type="text" name="name" value="{$cur.name}" class="layui-input" />
+							</div>
+						</div>
+						<div class="layui-form-mid layui-word-aux">如果该节点为菜单，则菜单将显示该名称</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">节点链接：</label>
+							<div class="layui-input-block">
+								<input type="text" name="url" value="{$cur.url}" class="layui-input" />
+							</div>
+						</div>
+						<div class="layui-form-mid layui-word-aux">节点url地址，外部地址请补全http或https</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">节点图标：</label>
+							<div class="layui-input-block">
+								<input type="text" name="icon" value="{$cur.icon}" class="layui-input" />
+							</div>
+						</div>
+						<div class="layui-form-mid layui-word-aux">仅一级菜单需要图标，由开发人员输入</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">节点类型：</label>
+							<div class="layui-input-block">
+								{:createRadioHtml($is_menu,$cur['is_menu']);}
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg6">
+							<label class="layui-form-label">附属节点：</label>
+							<div class="layui-input-block">
+								<input type="text" name="child_nodes" value="{$cur.child_nodes}" class="layui-input" />
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+		                <div class="layui-input-block">
+		                	<input type="hidden" value="{$cur.pid}" name="pid" />
+		                	<input type="hidden" value="{$cur.id}" name="id" />
+		                  	<a class="layui-btn" lay-submit lay-filter="dosubmit">保存</a>
+		                  	<a class="layui-btn layui-btn-primary" href="{$backUrl}">返回</a>
+		                </div>
+		            </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="__JS__/common.upback.js"></script>
+{/block}

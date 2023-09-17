@@ -1,0 +1,57 @@
+{extend name="public/base"} 
+{block name="title"}获取链接{/block} 
+{block name="jsValue"}
+<script type="text/javascript">
+</script>
+{/block}
+{block name="body"}
+<div class="layui-fluid">
+	<div class="layui-card">
+		<div class="layui-card-body">
+			<blockquote class="layui-elem-quote layui-quote-nm">温馨提示：内部链接只能在应用页面中跳转，如轮播图、导航链接等，渠道公众号点击不会跳转到总站，外部链接可放到任何地方，如公众号菜单等。</blockquote>
+		</div>
+	</div>
+	{volist name="list" id="v"}
+		<div class="layui-card">
+			<div class="layui-card-header">{$v.name}</div>
+			<div class="layui-card-body">
+				<table class="layui-table">
+				  <thead>
+				    <tr>
+				    	<th>所属页面</th>
+				      	<th>内部链接</th>
+				      	<th>外部链接</th>
+				    </tr> 
+				  </thead>
+				  <tbody>
+				  	{volist name="v.links" id="val"}
+				    <tr>
+				      	<td>{$val.summary}</td>
+				      	<td>{$val.url}&nbsp;&nbsp;<a class="layui-btn layui-btn-xs layui-btn-primary copy"  data-clipboard-action="copy" data-clipboard-text="{$val.url}"><i class="layui-icon layui-icon-link"></i></a></td>
+				      	<td>{$val.long_url}&nbsp;&nbsp;<a class="layui-btn layui-btn-xs layui-btn-primary copy" data-clipboard-action="copy" data-clipboard-text="{$val.long_url}"><i class="layui-icon layui-icon-link"></i></a></td>
+				    </tr>
+				    {/volist}
+				  </tbody>
+			</table>
+		</div>
+		</div>
+	{/volist}
+</div>
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="/static/common/js/clipboard.min.js"></script>
+<script type="text/javascript">
+	layui.use(['jquery'],function(){
+		var $ = layui.jquery;
+		var clipboard = new Clipboard('.copy');
+		clipboard.on('success', function (e) {
+			layOk("复制成功!");
+			e.clearSelection();
+		});
+		clipboard.on('error', function (e) {
+			console.error('Action:', e.action);
+			console.error('Trigger:', e.trigger);
+		});
+	});
+</script>
+{/block}

@@ -1,0 +1,120 @@
+{notempty name="list"}
+{volist name="list" id="v"}
+{gt name="v.money" value="0"}
+<li {eq name="v.is_checked" value="1"}class="active"{/eq}>
+    <input type="hidden" value="{$v.money}" class="charge_money" />
+    {switch name="v.package"}
+    {case value="0"}
+    <p class="charge_black">
+        <img src="/static/index/images/currency.png" alt="">
+        <span>{$v.money} 元</span>
+    </p>
+    <p class="charge_grey">{$v.coin}书币</p>
+    {gt name="v.reward" value="0"}
+    <p class="charge_red">送{$v.reward}书币</p>
+    {/gt}
+    {/case}
+    {case value="1"}
+    <p class="charge_black">
+        <img src="/static/index/images/currency.png" alt="">
+        <span>{$v.money} 元</span>
+    </p>
+    <p>获得包日VIP特权</p>
+    <p class="charge_golden">日会员</p>
+<!--
+    <p class="charge_black">
+        <img src="/static/index/images/currency.png" alt="">
+        <span>日会员</span>
+    </p>
+    <p>{$v.money}元</p>
+    <p class="charge_red">24小时免费看</p>
+-->
+    {/case}
+    {case value="2"}
+    <p class="charge_black">
+        <img src="/static/index/images/currency.png" alt="">
+        <span>{$v.money} 元</span>
+    </p>
+    <p>获得包月VIP特权</p>
+    <p class="charge_golden">包月VIP</p>
+<!--
+    <p class="charge_black">
+        <img src="/static/index/images/currency.png" alt="">
+        <span>月会员</span>
+    </p>
+    <p>{$v.money}元</p>
+    <p class="charge_red">一个月内免费看</p>
+-->
+    {/case}
+    {case value="3"}
+    <p class="charge_black">
+        <img src="/static/index/images/currency.png" alt="">
+        <span>{$v.money} 元</span>
+    </p>
+    <p>获得包季VIP特权</p>
+    <p class="charge_golden">包季VIP</p>
+<!--
+    <p class="charge_black">
+        <img src="/static/index/images/currency.png" alt="">
+        <span>季度会员</span>
+    </p>
+    <p>{$v.money}元</p>
+    <p class="charge_red">三个月内免费看</p>
+-->
+    {/case}
+    {case value="4"}
+    <p class="charge_black">
+        <img src="/static/index/images/currency.png" alt="">
+        <span>{$v.money} 元</span>
+    </p>
+    <p>获得半年VIP特权</p>
+    <p class="charge_golden">半年VIP</p>
+<!--
+    <p class="charge_black">
+        <img src="/static/index/images/currency.png" alt="">
+        <span>半年会员</span>
+    </p>
+    <p>{$v.money}元</p>
+    <p class="charge_red">半年内免费看</p>
+-->
+    {/case}
+    {case value="5"}
+    <p class="charge_black">
+        <img src="/static/index/images/currency.png" alt="">
+        <span>{$v.money} 元</span>
+    </p>
+    <p>获得包年VIP特权</p>
+    <p class="charge_golden">包年VIP</p>
+<!--
+    <p class="charge_black">
+        <img src="/static/index/images/currency.png" alt="">
+        <span>年费会员</span>
+    </p>
+    <p>{$v.money}元</p>
+    <p class="charge_red">一年内免费看</p>
+-->
+    {/case}
+    {case value="6"}
+    <p class="charge_black">
+        <img src="/static/index/images/currency.png" alt="">
+        <span>{$v.money} 元</span>
+    </p>
+    <p>获得终身VIP特权</p>
+    <p class="charge_golden">终身VIP</p>
+<!--
+    <p class="charge_black">
+        <img src="/static/index/images/currency.png" alt="">
+        <span>终身会员</span>
+    </p>
+    <p>{$v.money}元</p>
+    <p class="charge_red">终身免费看</p>
+-->
+    {/case}
+    {/switch}
+    {eq name="v.is_hot" value="1"}
+    <div class="hotYear">Hot</div>
+    {/eq}
+</li>
+{/gt}
+{/volist}
+{/notempty}

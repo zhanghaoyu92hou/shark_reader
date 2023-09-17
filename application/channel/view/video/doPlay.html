@@ -1,0 +1,21 @@
+{extend name="public/base"} 
+{block name="title"}播放视频{/block} 
+{block name="css"}
+<style type="text/css">
+.video{height:400px;}
+</style>
+{/block}
+{block name="body"}
+<div class="layui-fluid">
+	<div class="layui-row">
+		<div class="layui-card">
+			<div class="layui-card-body">
+				<div class="video" id="video" data-url="{$cur.url}"></div>
+			</div>
+		</div>
+	</div>
+</div>
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="__JS__/admin.video.doplay.js"></script>
+{/block}

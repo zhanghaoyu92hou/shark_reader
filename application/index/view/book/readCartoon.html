@@ -1,0 +1,107 @@
+{extend name="public/base"}
+{block name="title"}{$site_info.name}{/block}
+{block name="css"}
+<style type="text/css">
+     html,body{background: #fff; -webkit-overflow-scrolling: touch;}
+</style>
+{/block}
+{block name="jsValue"}
+<script type="text/javascript">
+var book_id = '{$book.id}';
+var cur_number = parseInt('{$number}');
+var $share_data = {$share_data|raw};
+var $jsConfig = {$jsConfig|raw};
+</script>
+{/block}
+{block name="body"}
+<style>
+    .readtop {
+       background-color:rgba(1,3,5,0.7) !important;
+    }
+    .readtop a,.readtop span {
+        color: #fff !important;
+    }
+    .readback {
+        border-top: 1px solid #ffffff !important;
+        border-right: 1px solid #ffffff !important;
+    }
+</style>
+<div class="fixedScrool">
+    <div class="commodityNav commodityline readtop" >
+        <a href="javascript:history.go(-1);" class="back readback" title="返回"></a>
+        <span class="activeNone" style="font-size: 1.5rem" >{$chapter_title}</span>
+        <a href="javascript:void(0);" class="complete" onclick="javascript:toDir();">全集</a>
+    </div>
+</div>
+
+<div class="cartoonCount">
+    <div class="imgCount">
+        {:getBlock($number,$dir)}
+    </div>
+</div>
+<div class="height_50"></div>
+<div class="menuFooter menuFooterFixed">
+   	     <div class="collect" style="background-color:rgba(1,3,5,0.7) !important;">
+	         <div style="margin-left:20px">
+	             <img src="/static/index/images/star.png" alt="收藏">
+	             <a href="javascript:;" class="collectSc" onclick="javascript:doCollect(this);">收藏</a>
+	         </div>
+	         <div>
+	             <img src="/static/index/images/prev.png" alt="上一章">
+	            <a href="javascript:;" onclick="javascript:checkPrev();">上一章</a>
+	         </div>
+	         <div>
+	             <img src="/static/index/images/next.png" alt="下一章">
+	             <a href="javascript:;" onclick="javascript:checkNext();">下一章</a>
+	         </div>
+	         <div style="margin-right:20px">
+	             <img src="/static/index/images/mulu.png" alt="目录">
+	              <a href="javascript:;" onclick="javascript:toDir();">目录</a>
+	        </div>
+    </div>
+</div>
+<div class="chase">
+    <a href="JavaScript:;" onclick="javascript:followBook();">
+        <img src="/static/index/images/shuben.png" alt="">
+        <p>追书</p>
+    </a>
+    <a href="{:my_url('Com/complaint',['book_id'=>$book['id']])}">
+        <img src="/static/index/images/gth.png" alt="">
+        <p>举报</p>
+    </a>
+</div>
+<div class="chaseBook-prop followbook_dom">
+   <div class="chaseBook">
+         <div class="chaseBookTop">
+             <h5>如何追书？</h5>
+             <p class="chaseORange">关注作者授权公众号，方便下次阅读</p>
+             <div class="greyEWM"><img src="{$site_info.qrcode}" alt=""> </div>
+             <p class="chaseBlack">长按识别上方二维码关注</p>
+         </div>
+        <div class="today">
+            <a href="javascript:;" onclick="javascript:layer.closeAll();">明天再说啦</a>
+        </div>
+   </div>
+</div>
+<div class="chaseBook-prop attention_dom">
+   <div class="chaseBook">
+         <div class="chaseBookTop">
+             <p class="chaseORange">关注后继续阅读</p>
+             <div class="greyEWM"><img src="{$site_info.qrcode}" alt=""> </div>
+             <p class="chaseBlack">长按识别上方二维码关注</p>
+         </div>
+        <div class="today">
+            <a href="javascript:;" onclick="javascript:layer.closeAll();">暂不关注</a>
+        </div>
+   </div>
+</div>
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="__IJS__/book_readcartoon.min.js"></script>
+{notempty name="jsConfig"}
+	{notempty name="share_data"}
+		<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js" ></script>
+		<script type="text/javascript" src="__IJS__/public_share.min.js"></script>
+	{/notempty}
+{/notempty}
+{/block}

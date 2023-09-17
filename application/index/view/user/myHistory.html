@@ -1,0 +1,38 @@
+{extend name="public/base"}
+{block name="title"}{$site_title}{/block}
+{block name="body"}
+<div class="cartoonWapper cartoonflex">
+    <a href="javascript:;" class="active">历史</a>
+    <a href="{:my_url('myCollect')}">收藏</a>
+    <span class="select_sc">管理</span>
+    <div class="historyLine"></div>
+</div>
+<div class="height_30"></div>
+<div class="swiper-container swiper-history">
+     <div class="swiper-wrapper">
+          <div class="swiper-slide">
+              <div class="cartoonRecommend">
+                  <div class="recommendList">
+                      <ul id="listBox">
+                          
+                      </ul>
+                  </div>
+              </div>
+          </div>
+     </div>
+</div>
+<div class="bootomDetele">
+     <div class="allSelectBox">
+         <div class="allSelect">
+             <input type="checkbox" />
+             <span></span>
+             <em>全选</em>
+         </div>
+     </div>
+    <a href="JavaScript:;" class="ripple">确定删除(0)</a>
+</div>
+{:getBlock('common_footer','other')}
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="__IJS__/user_myhistory.min.js?v=1"></script>
+{/block}

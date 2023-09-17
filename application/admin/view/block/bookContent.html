@@ -1,0 +1,122 @@
+{notempty name="hot"}
+<div class="cartoonHot cartoonTop">
+    <div class="hotTitle">
+        <span>
+            <img src="/static/index/images/cartoon_hot_left.jpg" alt="">&nbsp;
+            热门{$title}
+            &nbsp;<img src="/static/index/images/cartoon_hot_right.jpg" alt="">
+        </span>
+    </div><!--/hotTitle-->
+    <div class="swiperHot">
+        <div class="swiper-container swiper-Hot">
+            <div class="swiper-wrapper">
+                {volist name="hot" id="hv"}
+                <div class="swiper-slide hotslide">
+                    <a href="/index/Book/info.html?book_id={$hv.id}">
+                        {empty name="hv.cover"}
+                        <img src="/static/templet/default/cover.png" alt="">
+                        {else}
+                        <img src="{$hv.cover}" alt="">
+                        {/empty}
+                        <p>{$hv.name}</p>
+                    </a>
+                </div>
+                {/volist}
+            </div>
+        </div>
+    </div>
+</div>
+{/notempty}
+{notempty name="area"}
+{volist name="area" id="av"}
+<div class="cartoonChoiceness cartoonTop">
+    <div class="choicenessTitle">
+        <span class="jxStyle">
+            <img src="/static/index/images/cartoon_jx_left.jpg" alt="">
+            {$av.name}
+            <img src="/static/index/images/cartoon_jx_right.jpg" alt="">
+        </span>
+
+        <a href="{$av.url}" class="blue_a">
+            <em>更多</em>
+            <img src="/static/index/images/arrowRadius_blue.png" alt="">
+        </a>
+    </div>
+
+    <div class="choicenessCount">
+        <ul>
+            {volist name="av.child" id="cv"}
+            <li>
+                <a href="/index/Book/info.html?book_id={$cv.id}">
+                    <div>
+                        {empty name="cv.cover"}
+                        <img src="/static/templet/default/cover.png" alt="">
+                        {else}
+                        <img src="{$cv.cover}" alt="">
+                        {/empty}
+                    </div>
+                    <h4>{$cv.name}</h4>
+                    <p>{$cv.summary}</p>
+                </a>
+            </li>
+            {/volist}
+        </ul>
+    </div>
+</div>
+{/volist}
+{/notempty}
+{notempty name="foot_hot.list"}
+<div class="cartoonRecommend cartoonTop">
+    <div class="choicenessTitle ">
+        <span class="tjStyle">
+            <img src="/static/index/images/cartoon_rm_left.jpg" alt="">
+            热门推荐
+            <img src="/static/index/images/cartoon_rm_right.jpg" alt="">
+        </span>
+        <a href="{$foot_hot.url}" class="yellow_a">
+            <em>更多</em>
+            <img src="/static/index/images/arrowRadius_yellow.png" alt="">
+        </a>
+    </div>
+    <div class="recommendList">
+        <ul>
+            {volist name="foot_hot.list" id="fv"}
+            <li>
+                <a href="/index/Book/info.html?book_id={$fv.id}">
+                    <div class="recommendPos">
+                        <div class="recommendHotImg">
+                            {empty name="fv.cover"}
+                            <img src="/static/templet/default/cover.png" alt="">
+                            {else}
+                            <img src="{$fv.cover}" alt="">
+                            {/empty}
+                        </div>
+                        <div class="recommendFont">
+                            <h4 class="over">{$fv.name}</h4>
+                            <p class="over2">{$fv.summary}</p>
+                            <div class="recommendTag">
+                                <div class="recommendTagFl">
+                                    <span class="active_lz">{$fv.over_type}</span>
+                                    {notempty name="fv.category"}
+                                    <span>{$fv.category}</span>
+                                    {/notempty}
+                                </div>
+                                <div  class="recommendTagNumber">
+                                    <img src="/static/index/images/cartoon_ico1.jpg" alt="">
+                                    <span>{$fv.hot_num}</span>
+                                </div>
+
+                                <div class="recommendTagNumber postag">
+                                    <img src="/static/index/images/cartoon_ico2.jpg" alt="">
+                                    <span>{$fv.count}集</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            {/volist}
+        </ul>
+    </div>
+</div>
+{/notempty}

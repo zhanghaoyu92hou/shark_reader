@@ -1,0 +1,21 @@
+{extend name="public/base"} 
+{block name="title"}查看漫画{/block} 
+{block name="css"}
+<style type="text/css">
+.book-main{}
+.book-main img{width:90%;margin-left:5%;float:left;}
+</style>
+{/block}
+{block name="body"}
+<div class="layui-fluid">
+	<div class="layui-row">
+		<div class="layui-card">
+			<div class="layui-card-body" style="overflow:hidden;">
+				<div class="book-main">
+					{$cur.content|raw}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{/block}

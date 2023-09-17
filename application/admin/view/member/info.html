@@ -1,0 +1,114 @@
+{extend name="public/base"} 
+{block name="title"}用户详情{/block} 
+{block name="css"}
+<style type="text/css">
+.info-head{height:150px;}
+.info-head .info-content{width:100%;height:100%;background-color:#f5f5f5;border:1px solid #e6e6e6;border-radius:3px;}
+.info-head .info-content .info-img{float:left;width:120px;height:120px;margin:5px;border:1px solid #ccc;overflow:hidden;}
+.info-head .info-content .info-img > img{width:100%;}
+.info-head .info-content .info-detail{float:left;width: calc(100% - 150px);height:100px;margin:5px 0 0 10px;}
+.info-head .info-content .info-detail>p{height:30px;line-height:30px;}
+.info-head .info-content .info-count{width:100%;height:100%;text-align:center;}
+.info-head .info-content .info-count .info-title{font-weight:bold;font-size:18px;margin:30px 0 10px 0;}
+.info-head .info-content .info-count .info-number{font-size:26px;color:#337ab7;}
+</style>
+{/block}
+{block name="jsValue"}
+<script type="text/javascript">
+var chargeUrl = '{$url.charge|raw}',
+activityUrl = '{$url.activity|raw}',
+rewardUrl = '{$url.reward|raw}',
+signUrl = '{$url.sign|raw}',
+consumeUrl = '{$url.consume|raw}';
+</script>
+{/block}
+{block name="body"}
+<div class="layui-fluid">
+	<div class="layui-card">
+		<div class="layui-card-header">用户信息概览</div>
+		<div class="layui-card-body">
+			<div class="layui-row layui-col-space20">
+				<div class="layui-col-md4 layui-col-sm4 info-head">
+					<div class="info-content">
+						<div class="info-img">
+							<img src="{$cur.headimgurl}" />
+						</div>
+						<div class="info-detail">
+							<p>{$cur.nickname}【{eq name="cur.subscribe" value="1"}已关注{else /}未关注{/eq}】</p>
+							<p>会员ID：{$cur.id}</p>
+							<p>VIP：{gt name="cur.viptime" value="0"}{:date('Y-m-d H:i',$cur['viptime'])}{else /}N/A{/gt}</p>
+							<p>注册时间：{:date('Y-m-d H:i',$cur['create_time'])}</p>
+						</div>
+					</div>
+				</div>
+				<div class="layui-col-md2 layui-col-sm2 info-head">
+					<div class="info-content">
+						<div class="info-count">
+							<h4 class="info-title">总充值</h4>
+							<span class="info-number">{$cur.charge_money}</span>
+						</div>
+					</div>
+				</div>
+				<div class="layui-col-md2 layui-col-sm2 info-head">
+					<div class="info-content">
+						<div class="info-count">
+							<h4 class="info-title">书币余额</h4>
+							<span class="info-number">{$cur.money}</span>
+						</div>
+					</div>
+				</div>
+				<div class="layui-col-md2 layui-col-sm2 info-head">
+					<div class="info-content">
+						<div class="info-count">
+							<h4 class="info-title">累计书币</h4>
+							<span class="info-number">{$cur.total_money}</span>
+						</div>
+					</div>
+				</div>
+				<div class="layui-col-md2 layui-col-sm2 info-head">
+					<div class="info-content">
+						<div class="info-count">
+							<h4 class="info-title">消费书币</h4>
+							<span class="info-number">{$cur.consume_money}</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="layui-card">
+		<div class="layui-card-header">用户相关记录</div>
+		<div class="layui-card-body">
+			<div class="layui-tab">
+				  <ul class="layui-tab-title">
+				    <li class="layui-this">充值记录</li>
+				    <li>活动充值记录</li>
+				    <li>打赏记录</li>
+				    <li>签到记录</li>
+				    <li>消费记录</li>
+				  </ul>
+				  <div class="layui-tab-content">
+				    <div class="layui-tab-item layui-show">
+				    	<table class="layui-hide" id="charge-table" lay-filter="charge-table"></table>
+				    </div>
+				    <div class="layui-tab-item">
+				    	<table class="layui-hide" id="activity-table" lay-filter="activity-table"></table>
+				    </div>
+				    <div class="layui-tab-item">
+				    	<table class="layui-hide" id="reward-table" lay-filter="reward-table"></table>
+				    </div>
+				    <div class="layui-tab-item">
+				    	<table class="layui-hide" id="sign-table" lay-filter="sign-table"></table>
+				    </div>
+				    <div class="layui-tab-item">
+				    	<table class="layui-hide" id="consume-table" lay-filter="consume-table"></table>
+				    </div>
+				  </div>
+				</div>
+		</div>
+	</div>
+</div>
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="__JS__/channel.member.info.js"></script>
+{/block}

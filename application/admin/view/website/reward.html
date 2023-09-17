@@ -1,0 +1,39 @@
+{extend name="public/base"} 
+{block name="title"}打赏金额信息{/block} 
+{block name="body"}
+<div class="layui-fluid">
+	<div class="layui-row">
+		<div class="layui-card">
+			<div class="layui-card-header">
+				打赏金额配置 
+			</div>
+			<div class="layui-card-body layui-form">
+				<div class="layui-btn-container">
+		       		<a class="layui-btn layui-btn-sm" id="addInput">添加金额配置</a>
+		       		<a class="layui-btn layui-btn-sm" lay-submit lay-filter="dosubmit">保存金额配置</a>
+		    	</div>
+				<div>
+					<div class="layui-form-item block-item-box">
+						{empty name="cur"}
+						<div class="block-input">
+							<input type="text" name="reward_money[]" />
+							<span class="delete"></span>
+						</div>
+						{else /}
+							{volist name="cur" id="v"}
+								<div class="block-input">
+									<input type="text" name="reward_money[]" value="{$v}"/>
+									<span class="delete"></span>
+								</div>
+							{/volist}
+						{/empty}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="__JS__/admin.website.reward.js"></script>
+{/block}

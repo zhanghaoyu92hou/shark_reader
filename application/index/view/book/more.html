@@ -1,0 +1,30 @@
+{extend name="public/base"}
+{block name="title"}{$cur.site_title}{/block}
+{block name="jsValue"}
+<script type="text/javascript">
+var data = {
+	is_hot : '{$cur.is_hot}',
+	area : '{$cur.area}',
+	type : '{$cur.type}'
+};
+</script>
+{/block}
+{block name="body"}
+ <div class="hotBanner">
+     <img src="/static/index/images/hotImg.png" alt="">
+      <div class="hotPos">
+          <h3>{$cur.page_title}</h3>
+          <p><em>SELECTION</em> <span></span> </p>
+      </div>
+ </div>
+ <div class="listCount hotRank">
+     <div class="listBox">
+         <div class="rankCount"></div>
+     </div>
+ </div>
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="__IJS__/book_more.min.js"></script>
+
+{/block}
+

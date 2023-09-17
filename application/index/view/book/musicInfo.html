@@ -1,0 +1,164 @@
+{extend name="public/base"}
+{block name="title"}{$site_info.name}{/block}
+{block name="css"}
+<link rel="stylesheet" href="/static/index/css/swiper.min.css" />
+{/block}
+{block name="jsValue"}
+<script type="text/javascript">
+var book_id = '{$book.id}';
+var book_type = '{$book.type}';
+var is_dir = parseInt('{$is_dir}');
+</script>
+{/block}
+{block name="body"}
+    <div class="commodityNav commodityline" >
+    	{switch name="book.type" }
+    	{case value="1"}
+        <a href="/index/Book/cartoon.html" class="back" title="返回"></a>
+        {/case}
+    	{case value="2"}
+        <a href="/index/Book/novel.html" class="back" title="返回"></a>
+        {/case}
+    	{case value="3"}
+        <a href="/index/Book/music.html" class="back" title="返回"></a>
+        {/case}
+        {/switch}
+        <span class="activeNone" style="font-size: 1.5rem" >{$book.name}</span>
+    </div>
+<div class="bookImg">
+    <img src="{$book.detail_img}" alt="">
+     <div class="bookTag">
+         <p class="over">{$book.name}</p>
+         <a href="javascript:void(0);" class="active_wj">{eq name="book.over_type" value="1"}连载{else /}完结{/eq}</a>
+        {notempty name="book.category"}
+        	{volist name="book.category" id="cv"}
+        		<a href="javascript:void(0);">{$cv}</a>
+        	{/volist}
+        {/notempty}
+         <div class="Music" style="display:none;">
+             <div class="MusciAuto">
+                 <div class="MusicCenter">
+                     <audio id="MusicAudio"  preload="auto" controls>
+                         <source src="" type="audio/mpeg"/>
+                     </audio>
+                 </div>
+             </div>
+         </div>
+     </div>
+</div>
+<div class="directoryCount">
+     <div class="directoryNav">
+         <a href="javascript:void(0);" class="active">详情</a>
+         <a href="javascript:void(0);">目录</a>
+     </div>
+    <div class="swiper-container swiperBook swiper-no-swiping" >
+         <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                  <div class="directoryXq">
+                      <p>
+                          {notempty name="book.summary"}
+                          	{$book.summary}
+                          {else /}
+                          	暂无简介
+                          {/notempty}
+                      </p>
+                      <div class="directoryNumber">
+		              <span>
+			                <img src="/static/index/images/flame.png" alt="">
+			                <em>{$book.hot_num}</em>
+			          </span>
+                      <span>
+		                    <img src="/static/index/images/cartoon_ico2.jpg" alt="">
+		                    <em>{$book.total_chapter}章</em>
+		              </span>
+                      </div>
+                  </div>
+              </div>
+              <div class="swiper-slide">
+                  <div class="directoryMl">
+                      <div class="directory_two"></div>
+                      <div class="lookMore">
+                          <a href="javascript:;" onclick="javascript:getChapters();">···查看更多章节 <span></span> ···</a>
+                      </div>
+                  </div>
+              </div>
+         </div>
+    </div>
+    <div class="exceptional" >
+        <img src="/static/index/images/bookico.jpg" alt="">
+        <p id="reward-str">
+            本书已收到
+            <em>0</em>
+            元打赏，共0人打赏
+        </p>
+    </div>
+</div><!--/directoryCount-->
+
+
+<!--精彩评论-->
+<!--<div class="evaluation cartoonTop" >
+    <div class="evaluationTitle">
+         精彩评论 <span id="commentNum">(0)</span>
+         <a href="{:my_url('Com/comments',['pid'=>$book['id'],'type'=>$book['type']])}">全部评论</a>
+    </div>
+    <div class="evaluationList">
+         <ul></ul>
+    </div>
+</div>-->
+<div class="evaluation cartoonTop">
+    <div class="advertisement">{:htmlspecialchars_decode($text)}</div>
+
+</div>
+<div class="evaluation cartoonTop" style="display:none;" >
+    <div class="evaluationTitle">
+        猜你喜欢
+    </div>
+    <div class="choicenessCount">
+        <ul></ul>
+    </div>
+</div>
+
+ <div class="height_45"></div>
+ <div class="footerBook" >
+      <div class="sc book-collect" onclick="javascript:doCollect(this);">
+             <span></span>
+            <em>加入收藏</em>
+      </div>
+
+     <div class="ds" onclick="javascript:rewardLayer();">
+         <span></span>
+         <em>打赏</em>
+     </div>
+     <a href="javascript:;" class="ripple bfAudio" onclick="javascript:buttonPlay(this);"><img src="/static/index/images/pause_w.png" alt=""><em>第1章</em></a>
+</div>
+<div class="ds_proup">
+       <div class="reward">
+            <div class="reward_title">
+                <img src="/static/index/images/bookico.jpg" alt="">
+                <em>打赏</em>
+            </div>
+
+            <div class="reward_money">
+                {notempty name="reward"}
+            		{volist name="reward" id="rv" key="rk"}
+            			{eq name="rk" value="1"}
+            				<a href="javascript:;" class="active" data-val="{$rv}" onclick="javascript:chooseRewardMoney(this);">{$rv}元</a>
+            			{else /}
+            				<a href="javascript:;" data-val="{$rv}" onclick="javascript:chooseRewardMoney(this);">{$rv}元</a>
+            			{/eq}
+            		{/volist}
+            	{/notempty}
+            </div>
+
+            <div class="reward_Btn">
+                <a href="javascript:;" class="reward_cancel ripple" onclick="javascript:layer.closeAll();">取消</a>
+                <a href="javascript:;" class="reward_ds ripple" onclick="javascript:doReward();">打赏</a>
+            </div>
+       </div>
+ </div><!--/ds_proup-->
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="/static/index/js/swiper.min.js"></script>
+<script type="text/javascript" src="/static/index/js/audioplayerNew.min.js"></script>
+<script type="text/javascript" src="__IJS__/book_musicinfo.min.js"></script>
+{/block}

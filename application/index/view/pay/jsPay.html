@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>微信支付</title>
+    <link rel="stylesheet" href="/static/index/css/base.min.css" />
+    <style type="text/css">
+         html,body{background: #fff;}
+    </style>
+    <script type="text/javascript">
+    	var $paymsg = {$paymsg|raw};
+    	var $backurl = '{$back_url}';
+    </script>
+</head>
+<body>
+ <div class="commodityNav botLine" >
+     <a href="javascript:void(0);" class="back" title="返回" onclick="javascript:history.go(-1);"></a>
+     <span>在线充值安全支付</span>
+ </div>
+<div class="defeated">
+     <img src="/static/index/images/pay.png"/>
+     <h3>正在支付</h3>
+     <h2>¥{$cur.money}</h2>
+     <p>在线充值支付金额</p>
+     <p>订单编号：{$cur.order_no}</p>
+     <div class="pay-repay" style="display:none;">
+         <a href="javascript:;" class="ripple" onclick="javascript:callpay();">重新支付</a>
+     </div>
+</div>
+<script type="text/javascript" src="/static/index/js/jquery.min.js"></script>
+<script type="text/javascript" src="/static/plugins/layer_mobile/layer.js"></script>
+<script type="text/javascript" src="__IJS__/pay_jspay.min.js"></script>
+</body>
+</html>

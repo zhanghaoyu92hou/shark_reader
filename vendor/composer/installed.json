@@ -1,0 +1,1784 @@
+[
+    {
+        "name": "adbario/php-dot-notation",
+        "version": "2.2.0",
+        "version_normalized": "2.2.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/adbario/php-dot-notation.git",
+            "reference": "eee4fc81296531e6aafba4c2bbccfc5adab1676e"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/adbario/php-dot-notation/zipball/eee4fc81296531e6aafba4c2bbccfc5adab1676e",
+            "reference": "eee4fc81296531e6aafba4c2bbccfc5adab1676e",
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "require": {
+            "ext-json": "*",
+            "php": ">=5.5"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^4.0|^5.0|^6.0",
+            "squizlabs/php_codesniffer": "^3.0"
+        },
+        "time": "2019-01-01T23:59:15+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "files": [
+                "src/helpers.php"
+            ],
+            "psr-4": {
+                "Adbar\\": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Riku Särkinen",
+                "email": "riku@adbar.io"
+            }
+        ],
+        "description": "PHP dot notation access to arrays",
+        "homepage": "https://github.com/adbario/php-dot-notation",
+        "keywords": [
+            "ArrayAccess",
+            "dotnotation"
+        ]
+    },
+    {
+        "name": "alibabacloud/client",
+        "version": "1.5.3",
+        "version_normalized": "1.5.3.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/aliyun/openapi-sdk-php-client.git",
+            "reference": "e6c9e9a4a5c622ac81aa651e950946e0da1dbe92"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/aliyun/openapi-sdk-php-client/zipball/e6c9e9a4a5c622ac81aa651e950946e0da1dbe92",
+            "reference": "e6c9e9a4a5c622ac81aa651e950946e0da1dbe92",
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "require": {
+            "adbario/php-dot-notation": "^2.2",
+            "clagiordano/weblibs-configmanager": "^1.0",
+            "danielstjules/stringy": "^3.1",
+            "ext-curl": "*",
+            "ext-json": "*",
+            "ext-libxml": "*",
+            "ext-mbstring": "*",
+            "ext-openssl": "*",
+            "ext-simplexml": "*",
+            "ext-xmlwriter": "*",
+            "guzzlehttp/guzzle": "^6.3",
+            "moontoast/math": "^1.1",
+            "mtdowling/jmespath.php": "^2.4",
+            "php": ">=5.5",
+            "ramsey/uuid": "^3.5"
+        },
+        "require-dev": {
+            "composer/composer": "^1.8",
+            "drupal/coder": "^8.3",
+            "ext-dom": "*",
+            "ext-pcre": "*",
+            "ext-sockets": "*",
+            "ext-spl": "*",
+            "league/climate": "^3.2.4",
+            "mikey179/vfsstream": "^1.6",
+            "monolog/monolog": "^1.24",
+            "phpunit/phpunit": "^4.8.35|^5.4.3",
+            "psr/cache": "^1.0",
+            "symfony/dotenv": "^3.4",
+            "symfony/var-dumper": "^3.4"
+        },
+        "suggest": {
+            "ext-sockets": "To use client-side monitoring"
+        },
+        "time": "2019-05-13T12:43:42+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "AlibabaCloud\\Client\\": "src"
+            },
+            "files": [
+                "src/Functions.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "authors": [
+            {
+                "name": "Alibaba Cloud SDK",
+                "email": "sdk-team@alibabacloud.com",
+                "homepage": "http://www.alibabacloud.com"
+            }
+        ],
+        "description": "Alibaba Cloud Client for PHP - Use Alibaba Cloud in your PHP project",
+        "homepage": "https://www.alibabacloud.com/",
+        "keywords": [
+            "alibaba",
+            "alibabacloud",
+            "aliyun",
+            "client",
+            "cloud",
+            "library",
+            "sdk",
+            "tool"
+        ]
+    },
+    {
+        "name": "aliyuncs/oss-sdk-php",
+        "version": "v2.3.0",
+        "version_normalized": "2.3.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/aliyun/aliyun-oss-php-sdk.git",
+            "reference": "e69f57916678458642ac9d2fd341ae78a56996c8"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/aliyun/aliyun-oss-php-sdk/zipball/e69f57916678458642ac9d2fd341ae78a56996c8",
+            "reference": "e69f57916678458642ac9d2fd341ae78a56996c8",
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "require": {
+            "php": ">=5.3"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "~4.0",
+            "satooshi/php-coveralls": "~1.0"
+        },
+        "time": "2018-01-08T06:59:35+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "OSS\\": "src/OSS"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Aliyuncs",
+                "homepage": "http://www.aliyun.com"
+            }
+        ],
+        "description": "Aliyun OSS SDK for PHP",
+        "homepage": "http://www.aliyun.com/product/oss/"
+    },
+    {
+        "name": "bacon/bacon-qr-code",
+        "version": "2.0.0",
+        "version_normalized": "2.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Bacon/BaconQrCode.git",
+            "reference": "eaac909da3ccc32b748a65b127acd8918f58d9b0"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Bacon/BaconQrCode/zipball/eaac909da3ccc32b748a65b127acd8918f58d9b0",
+            "reference": "eaac909da3ccc32b748a65b127acd8918f58d9b0",
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "require": {
+            "dasprid/enum": "^1.0",
+            "ext-iconv": "*",
+            "php": "^7.1"
+        },
+        "require-dev": {
+            "phly/keep-a-changelog": "^1.4",
+            "phpunit/phpunit": "^6.4",
+            "squizlabs/php_codesniffer": "^3.1"
+        },
+        "suggest": {
+            "ext-imagick": "to generate QR code images"
+        },
+        "time": "2018-04-25T17:53:56+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "BaconQrCode\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-2-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Ben Scholzen 'DASPRiD'",
+                "email": "mail@dasprids.de",
+                "homepage": "http://www.dasprids.de",
+                "role": "Developer"
+            }
+        ],
+        "description": "BaconQrCode is a QR code generator for PHP.",
+        "homepage": "https://github.com/Bacon/BaconQrCode"
+    },
+    {
+        "name": "clagiordano/weblibs-configmanager",
+        "version": "v1.0.6",
+        "version_normalized": "1.0.6.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/clagiordano/weblibs-configmanager.git",
+            "reference": "d1869310b9f57812581ff56cf4b456cbcc0d0516"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/clagiordano/weblibs-configmanager/zipball/d1869310b9f57812581ff56cf4b456cbcc0d0516",
+            "reference": "d1869310b9f57812581ff56cf4b456cbcc0d0516",
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "require": {
+            "php": ">=5.4"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "*"
+        },
+        "time": "2016-08-23T19:11:20+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "clagiordano\\weblibs\\configmanager\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "LGPL-3.0"
+        ],
+        "authors": [
+            {
+                "name": "Claudio Giordano",
+                "email": "claudio.giordano@autistici.org",
+                "role": "Developer"
+            }
+        ],
+        "description": "weblibs-configmanager is a tool library for easily read and access to php config array file and direct read/write configuration file / object",
+        "keywords": [
+            "clagiordano",
+            "configuration",
+            "manager",
+            "tool",
+            "weblibs"
+        ]
+    },
+    {
+        "name": "danielstjules/stringy",
+        "version": "3.1.0",
+        "version_normalized": "3.1.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/danielstjules/Stringy.git",
+            "reference": "df24ab62d2d8213bbbe88cc36fc35a4503b4bd7e"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/danielstjules/Stringy/zipball/df24ab62d2d8213bbbe88cc36fc35a4503b4bd7e",
+            "reference": "df24ab62d2d8213bbbe88cc36fc35a4503b4bd7e",
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "require": {
+            "php": ">=5.4.0",
+            "symfony/polyfill-mbstring": "~1.1"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "~4.0"
+        },
+        "time": "2017-06-12T01:10:27+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Stringy\\": "src/"
+            },
+            "files": [
+                "src/Create.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Daniel St. Jules",
+                "email": "danielst.jules@gmail.com",
+                "homepage": "http://www.danielstjules.com"
+            }
+        ],
+        "description": "A string manipulation library with multibyte support",
+        "homepage": "https://github.com/danielstjules/Stringy",
+        "keywords": [
+            "UTF",
+            "helpers",
+            "manipulation",
+            "methods",
+            "multibyte",
+            "string",
+            "utf-8",
+            "utility",
+            "utils"
+        ]
+    },
+    {
+        "name": "dasprid/enum",
+        "version": "1.0.0",
+        "version_normalized": "1.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/DASPRiD/Enum.git",
+            "reference": "631ef6e638e9494b0310837fa531bedd908fc22b"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/DASPRiD/Enum/zipball/631ef6e638e9494b0310837fa531bedd908fc22b",
+            "reference": "631ef6e638e9494b0310837fa531bedd908fc22b",
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^6.4",
+            "squizlabs/php_codesniffer": "^3.1"
+        },
+        "time": "2017-10-25T22:45:27+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "DASPRiD\\Enum\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-2-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Ben Scholzen 'DASPRiD'",
+                "email": "mail@dasprids.de",
+                "homepage": "https://dasprids.de/"
+            }
+        ],
+        "description": "PHP 7.1 enum implementation",
+        "keywords": [
+            "enum",
+            "map"
+        ]
+    },
+    {
+        "name": "endroid/installer",
+        "version": "1.1.3",
+        "version_normalized": "1.1.3.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/endroid/installer.git",
+            "reference": "0d56857e0687837bead9933048a9cc8d4ce85fd7"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/endroid/installer/zipball/0d56857e0687837bead9933048a9cc8d4ce85fd7",
+            "reference": "0d56857e0687837bead9933048a9cc8d4ce85fd7",
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "require": {
+            "composer-plugin-api": "^1.1",
+            "php": ">=7.1"
+        },
+        "time": "2019-03-30T20:54:26+00:00",
+        "type": "composer-plugin",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.x-dev"
+            },
+            "class": "Endroid\\Installer\\Installer"
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Endroid\\Installer\\": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Jeroen van den Enden",
+                "email": "info@endroid.nl"
+            }
+        ]
+    },
+    {
+        "name": "endroid/qrcode",
+        "version": "3.5.8",
+        "version_normalized": "3.5.8.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/endroid/qr-code.git",
+            "reference": "7823badf59402f31e8f9b33ce1e3161a1ba89866"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/endroid/qr-code/zipball/7823badf59402f31e8f9b33ce1e3161a1ba89866",
+            "reference": "7823badf59402f31e8f9b33ce1e3161a1ba89866",
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "require": {
+            "bacon/bacon-qr-code": "^2.0",
+            "endroid/installer": "^1.0.3",
+            "ext-gd": "*",
+            "khanamiryan/qrcode-detector-decoder": "^1.0.2",
+            "myclabs/php-enum": "^1.5",
+            "php": ">=7.1",
+            "symfony/options-resolver": "^2.7|^3.0|^4.0",
+            "symfony/property-access": "^2.7|^3.0|^4.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^5.7|^6.0"
+        },
+        "suggest": {
+            "symfony/http-foundation": "Install if you want to use QrCodeResponse"
+        },
+        "time": "2019-04-03T21:14:10+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "3.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Endroid\\QrCode\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Jeroen van den Enden",
+                "email": "info@endroid.nl"
+            }
+        ],
+        "description": "Endroid QR Code",
+        "homepage": "https://github.com/endroid/qr-code",
+        "keywords": [
+            "bundle",
+            "code",
+            "endroid",
+            "php",
+            "qr",
+            "qrcode"
+        ],
+        "abandoned": "endroid/qr-code"
+    },
+    {
+        "name": "guzzlehttp/guzzle",
+        "version": "6.3.3",
+        "version_normalized": "6.3.3.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/guzzle/guzzle.git",
+            "reference": "407b0cb880ace85c9b63c5f9551db498cb2d50ba"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/guzzle/guzzle/zipball/407b0cb880ace85c9b63c5f9551db498cb2d50ba",
+            "reference": "407b0cb880ace85c9b63c5f9551db498cb2d50ba",
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "require": {
+            "guzzlehttp/promises": "^1.0",
+            "guzzlehttp/psr7": "^1.4",
+            "php": ">=5.5"
+        },
+        "require-dev": {
+            "ext-curl": "*",
+            "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.4 || ^7.0",
+            "psr/log": "^1.0"
+        },
+        "suggest": {
+            "psr/log": "Required for using the Log middleware"
+        },
+        "time": "2018-04-22T15:46:56+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "6.3-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "files": [
+                "src/functions_include.php"
+            ],
+            "psr-4": {
+                "GuzzleHttp\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Michael Dowling",
+                "email": "mtdowling@gmail.com",
+                "homepage": "https://github.com/mtdowling"
+            }
+        ],
+        "description": "Guzzle is a PHP HTTP client library",
+        "homepage": "http://guzzlephp.org/",
+        "keywords": [
+            "client",
+            "curl",
+            "framework",
+            "http",
+            "http client",
+            "rest",
+            "web service"
+        ]
+    },
+    {
+        "name": "guzzlehttp/promises",
+        "version": "v1.3.1",
+        "version_normalized": "1.3.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/guzzle/promises.git",
+            "reference": "a59da6cf61d80060647ff4d3eb2c03a2bc694646"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/guzzle/promises/zipball/a59da6cf61d80060647ff4d3eb2c03a2bc694646",
+            "reference": "a59da6cf61d80060647ff4d3eb2c03a2bc694646",
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "require": {
+            "php": ">=5.5.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^4.0"
+        },
+        "time": "2016-12-20T10:07:11+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.4-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "GuzzleHttp\\Promise\\": "src/"
+            },
+            "files": [
+                "src/functions_include.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Michael Dowling",
+                "email": "mtdowling@gmail.com",
+                "homepage": "https://github.com/mtdowling"
+            }
+        ],
+        "description": "Guzzle promises library",
+        "keywords": [
+            "promise"
+        ]
+    },
+    {
+        "name": "guzzlehttp/psr7",
+        "version": "1.5.2",
+        "version_normalized": "1.5.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/guzzle/psr7.git",
+            "reference": "9f83dded91781a01c63574e387eaa769be769115"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/guzzle/psr7/zipball/9f83dded91781a01c63574e387eaa769be769115",
+            "reference": "9f83dded91781a01c63574e387eaa769be769115",
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "require": {
+            "php": ">=5.4.0",
+            "psr/http-message": "~1.0",
+            "ralouphie/getallheaders": "^2.0.5"
+        },
+        "provide": {
+            "psr/http-message-implementation": "1.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "~4.8.36 || ^5.7.27 || ^6.5.8"
+        },
+        "time": "2018-12-04T20:46:45+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.5-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "GuzzleHttp\\Psr7\\": "src/"
+            },
+            "files": [
+                "src/functions_include.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Michael Dowling",
+                "email": "mtdowling@gmail.com",
+                "homepage": "https://github.com/mtdowling"
+            },
+            {
+                "name": "Tobias Schultze",
+                "homepage": "https://github.com/Tobion"
+            }
+        ],
+        "description": "PSR-7 message implementation that also provides common utility methods",
+        "keywords": [
+            "http",
+            "message",
+            "psr-7",
+            "request",
+            "response",
+            "stream",
+            "uri",
+            "url"
+        ]
+    },
+    {
+        "name": "khanamiryan/qrcode-detector-decoder",
+        "version": "1.0.2",
+        "version_normalized": "1.0.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/khanamiryan/php-qrcode-detector-decoder.git",
+            "reference": "a75482d3bc804e3f6702332bfda6cccbb0dfaa76"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/khanamiryan/php-qrcode-detector-decoder/zipball/a75482d3bc804e3f6702332bfda6cccbb0dfaa76",
+            "reference": "a75482d3bc804e3f6702332bfda6cccbb0dfaa76",
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "require": {
+            "php": "^5.6|^7.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^5.7"
+        },
+        "time": "2018-04-26T11:41:33+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Zxing\\": "lib/"
+            },
+            "files": [
+                "lib/Common/customFunctions.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Ashot Khanamiryan",
+                "email": "a.khanamiryan@gmail.com",
+                "homepage": "https://github.com/khanamiryan",
+                "role": "Developer"
+            }
+        ],
+        "description": "QR code decoder / reader",
+        "homepage": "https://github.com/khanamiryan/php-qrcode-detector-decoder/",
+        "keywords": [
+            "barcode",
+            "qr",
+            "zxing"
+        ]
+    },
+    {
+        "name": "moontoast/math",
+        "version": "1.1.2",
+        "version_normalized": "1.1.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/ramsey/moontoast-math.git",
+            "reference": "c2792a25df5cad4ff3d760dd37078fc5b6fccc79"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/ramsey/moontoast-math/zipball/c2792a25df5cad4ff3d760dd37078fc5b6fccc79",
+            "reference": "c2792a25df5cad4ff3d760dd37078fc5b6fccc79",
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "require": {
+            "ext-bcmath": "*",
+            "php": ">=5.3.3"
+        },
+        "require-dev": {
+            "jakub-onderka/php-parallel-lint": "^0.9.0",
+            "phpunit/phpunit": "^4.7|>=5.0 <5.4",
+            "satooshi/php-coveralls": "^0.6.1",
+            "squizlabs/php_codesniffer": "^2.3"
+        },
+        "time": "2017-02-16T16:54:46+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Moontoast\\Math\\": "src/Moontoast/Math/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "authors": [
+            {
+                "name": "Ben Ramsey",
+                "email": "ben@benramsey.com",
+                "homepage": "https://benramsey.com"
+            }
+        ],
+        "description": "A mathematics library, providing functionality for large numbers",
+        "homepage": "https://github.com/ramsey/moontoast-math",
+        "keywords": [
+            "bcmath",
+            "math"
+        ]
+    },
+    {
+        "name": "mtdowling/jmespath.php",
+        "version": "2.4.0",
+        "version_normalized": "2.4.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/jmespath/jmespath.php.git",
+            "reference": "adcc9531682cf87dfda21e1fd5d0e7a41d292fac"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/jmespath/jmespath.php/zipball/adcc9531682cf87dfda21e1fd5d0e7a41d292fac",
+            "reference": "adcc9531682cf87dfda21e1fd5d0e7a41d292fac",
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "require": {
+            "php": ">=5.4.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "~4.0"
+        },
+        "time": "2016-12-03T22:08:25+00:00",
+        "bin": [
+            "bin/jp.php"
+        ],
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "JmesPath\\": "src/"
+            },
+            "files": [
+                "src/JmesPath.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Michael Dowling",
+                "email": "mtdowling@gmail.com",
+                "homepage": "https://github.com/mtdowling"
+            }
+        ],
+        "description": "Declaratively specify how to extract elements from a JSON document",
+        "keywords": [
+            "json",
+            "jsonpath"
+        ]
+    },
+    {
+        "name": "myclabs/php-enum",
+        "version": "1.7.1",
+        "version_normalized": "1.7.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/myclabs/php-enum.git",
+            "reference": "f46847626b8739de22e4ebc6b56010f317d4448d"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/myclabs/php-enum/zipball/f46847626b8739de22e4ebc6b56010f317d4448d",
+            "reference": "f46847626b8739de22e4ebc6b56010f317d4448d",
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "require": {
+            "ext-json": "*",
+            "php": ">=7.1"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^4.8.35|^5.7|^6.0",
+            "squizlabs/php_codesniffer": "1.*"
+        },
+        "time": "2019-05-05T10:12:03+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "MyCLabs\\Enum\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "PHP Enum contributors",
+                "homepage": "https://github.com/myclabs/php-enum/graphs/contributors"
+            }
+        ],
+        "description": "PHP Enum implementation",
+        "homepage": "http://github.com/myclabs/php-enum",
+        "keywords": [
+            "enum"
+        ]
+    },
+    {
+        "name": "paragonie/random_compat",
+        "version": "v9.99.99",
+        "version_normalized": "9.99.99.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/paragonie/random_compat.git",
+            "reference": "84b4dfb120c6f9b4ff7b3685f9b8f1aa365a0c95"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/paragonie/random_compat/zipball/84b4dfb120c6f9b4ff7b3685f9b8f1aa365a0c95",
+            "reference": "84b4dfb120c6f9b4ff7b3685f9b8f1aa365a0c95",
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "require": {
+            "php": "^7"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "4.*|5.*",
+            "vimeo/psalm": "^1"
+        },
+        "suggest": {
+            "ext-libsodium": "Provides a modern crypto API that can be used to generate random bytes."
+        },
+        "time": "2018-07-02T15:55:56+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Paragon Initiative Enterprises",
+                "email": "security@paragonie.com",
+                "homepage": "https://paragonie.com"
+            }
+        ],
+        "description": "PHP 5.x polyfill for random_bytes() and random_int() from PHP 7",
+        "keywords": [
+            "csprng",
+            "polyfill",
+            "pseudorandom",
+            "random"
+        ]
+    },
+    {
+        "name": "psr/http-message",
+        "version": "1.0.1",
+        "version_normalized": "1.0.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/php-fig/http-message.git",
+            "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/php-fig/http-message/zipball/f6561bf28d520154e4b0ec72be95418abe6d9363",
+            "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363",
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "time": "2016-08-06T14:39:51+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Psr\\Http\\Message\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "PHP-FIG",
+                "homepage": "http://www.php-fig.org/"
+            }
+        ],
+        "description": "Common interface for HTTP messages",
+        "homepage": "https://github.com/php-fig/http-message",
+        "keywords": [
+            "http",
+            "http-message",
+            "psr",
+            "psr-7",
+            "request",
+            "response"
+        ]
+    },
+    {
+        "name": "qiniu/php-sdk",
+        "version": "v7.2.7",
+        "version_normalized": "7.2.7.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/qiniu/php-sdk.git",
+            "reference": "88d11a5857ebc6871204e9be6ceec54bf5f381e6"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/qiniu/php-sdk/zipball/88d11a5857ebc6871204e9be6ceec54bf5f381e6",
+            "reference": "88d11a5857ebc6871204e9be6ceec54bf5f381e6",
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "require": {
+            "php": ">=5.3.3"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "~4.0",
+            "squizlabs/php_codesniffer": "~2.3"
+        },
+        "time": "2018-11-06T13:34:32+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Qiniu\\": "src/Qiniu"
+            },
+            "files": [
+                "src/Qiniu/functions.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Qiniu",
+                "email": "sdk@qiniu.com",
+                "homepage": "http://www.qiniu.com"
+            }
+        ],
+        "description": "Qiniu Resource (Cloud) Storage SDK for PHP",
+        "homepage": "http://developer.qiniu.com/",
+        "keywords": [
+            "cloud",
+            "qiniu",
+            "sdk",
+            "storage"
+        ]
+    },
+    {
+        "name": "ralouphie/getallheaders",
+        "version": "2.0.5",
+        "version_normalized": "2.0.5.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/ralouphie/getallheaders.git",
+            "reference": "5601c8a83fbba7ef674a7369456d12f1e0d0eafa"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/ralouphie/getallheaders/zipball/5601c8a83fbba7ef674a7369456d12f1e0d0eafa",
+            "reference": "5601c8a83fbba7ef674a7369456d12f1e0d0eafa",
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "require": {
+            "php": ">=5.3"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "~3.7.0",
+            "satooshi/php-coveralls": ">=1.0"
+        },
+        "time": "2016-02-11T07:05:27+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "files": [
+                "src/getallheaders.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Ralph Khattar",
+                "email": "ralph.khattar@gmail.com"
+            }
+        ],
+        "description": "A polyfill for getallheaders."
+    },
+    {
+        "name": "ramsey/uuid",
+        "version": "3.8.0",
+        "version_normalized": "3.8.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/ramsey/uuid.git",
+            "reference": "d09ea80159c1929d75b3f9c60504d613aeb4a1e3"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/ramsey/uuid/zipball/d09ea80159c1929d75b3f9c60504d613aeb4a1e3",
+            "reference": "d09ea80159c1929d75b3f9c60504d613aeb4a1e3",
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "require": {
+            "paragonie/random_compat": "^1.0|^2.0|9.99.99",
+            "php": "^5.4 || ^7.0",
+            "symfony/polyfill-ctype": "^1.8"
+        },
+        "replace": {
+            "rhumsaa/uuid": "self.version"
+        },
+        "require-dev": {
+            "codeception/aspect-mock": "^1.0 | ~2.0.0",
+            "doctrine/annotations": "~1.2.0",
+            "goaop/framework": "1.0.0-alpha.2 | ^1.0 | ~2.1.0",
+            "ircmaxell/random-lib": "^1.1",
+            "jakub-onderka/php-parallel-lint": "^0.9.0",
+            "mockery/mockery": "^0.9.9",
+            "moontoast/math": "^1.1",
+            "php-mock/php-mock-phpunit": "^0.3|^1.1",
+            "phpunit/phpunit": "^4.7|^5.0|^6.5",
+            "squizlabs/php_codesniffer": "^2.3"
+        },
+        "suggest": {
+            "ext-ctype": "Provides support for PHP Ctype functions",
+            "ext-libsodium": "Provides the PECL libsodium extension for use with the SodiumRandomGenerator",
+            "ext-uuid": "Provides the PECL UUID extension for use with the PeclUuidTimeGenerator and PeclUuidRandomGenerator",
+            "ircmaxell/random-lib": "Provides RandomLib for use with the RandomLibAdapter",
+            "moontoast/math": "Provides support for converting UUID to 128-bit integer (in string form).",
+            "ramsey/uuid-console": "A console application for generating UUIDs with ramsey/uuid",
+            "ramsey/uuid-doctrine": "Allows the use of Ramsey\\Uuid\\Uuid as Doctrine field type."
+        },
+        "time": "2018-07-19T23:38:55+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "3.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Ramsey\\Uuid\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Marijn Huizendveld",
+                "email": "marijn.huizendveld@gmail.com"
+            },
+            {
+                "name": "Thibaud Fabre",
+                "email": "thibaud@aztech.io"
+            },
+            {
+                "name": "Ben Ramsey",
+                "email": "ben@benramsey.com",
+                "homepage": "https://benramsey.com"
+            }
+        ],
+        "description": "Formerly rhumsaa/uuid. A PHP 5.4+ library for generating RFC 4122 version 1, 3, 4, and 5 universally unique identifiers (UUID).",
+        "homepage": "https://github.com/ramsey/uuid",
+        "keywords": [
+            "guid",
+            "identifier",
+            "uuid"
+        ]
+    },
+    {
+        "name": "symfony/inflector",
+        "version": "v4.2.8",
+        "version_normalized": "4.2.8.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/inflector.git",
+            "reference": "275e54941a4f17a471c68d2a00e2513fc1fd4a78"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/inflector/zipball/275e54941a4f17a471c68d2a00e2513fc1fd4a78",
+            "reference": "275e54941a4f17a471c68d2a00e2513fc1fd4a78",
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "require": {
+            "php": "^7.1.3",
+            "symfony/polyfill-ctype": "~1.8"
+        },
+        "time": "2019-01-16T20:31:39+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "4.2-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Symfony\\Component\\Inflector\\": ""
+            },
+            "exclude-from-classmap": [
+                "/Tests/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Bernhard Schussek",
+                "email": "bschussek@gmail.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony Inflector Component",
+        "homepage": "https://symfony.com",
+        "keywords": [
+            "inflection",
+            "pluralize",
+            "singularize",
+            "string",
+            "symfony",
+            "words"
+        ]
+    },
+    {
+        "name": "symfony/options-resolver",
+        "version": "v4.2.8",
+        "version_normalized": "4.2.8.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/options-resolver.git",
+            "reference": "fd4a5f27b7cd085b489247b9890ebca9f3e10044"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/options-resolver/zipball/fd4a5f27b7cd085b489247b9890ebca9f3e10044",
+            "reference": "fd4a5f27b7cd085b489247b9890ebca9f3e10044",
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "require": {
+            "php": "^7.1.3"
+        },
+        "time": "2019-04-10T16:20:36+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "4.2-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Symfony\\Component\\OptionsResolver\\": ""
+            },
+            "exclude-from-classmap": [
+                "/Tests/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony OptionsResolver Component",
+        "homepage": "https://symfony.com",
+        "keywords": [
+            "config",
+            "configuration",
+            "options"
+        ]
+    },
+    {
+        "name": "symfony/polyfill-ctype",
+        "version": "v1.11.0",
+        "version_normalized": "1.11.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/polyfill-ctype.git",
+            "reference": "82ebae02209c21113908c229e9883c419720738a"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/82ebae02209c21113908c229e9883c419720738a",
+            "reference": "82ebae02209c21113908c229e9883c419720738a",
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "require": {
+            "php": ">=5.3.3"
+        },
+        "suggest": {
+            "ext-ctype": "For best performance"
+        },
+        "time": "2019-02-06T07:57:58+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.11-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Symfony\\Polyfill\\Ctype\\": ""
+            },
+            "files": [
+                "bootstrap.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            },
+            {
+                "name": "Gert de Pagter",
+                "email": "BackEndTea@gmail.com"
+            }
+        ],
+        "description": "Symfony polyfill for ctype functions",
+        "homepage": "https://symfony.com",
+        "keywords": [
+            "compatibility",
+            "ctype",
+            "polyfill",
+            "portable"
+        ]
+    },
+    {
+        "name": "symfony/polyfill-mbstring",
+        "version": "v1.11.0",
+        "version_normalized": "1.11.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/polyfill-mbstring.git",
+            "reference": "fe5e94c604826c35a32fa832f35bd036b6799609"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/fe5e94c604826c35a32fa832f35bd036b6799609",
+            "reference": "fe5e94c604826c35a32fa832f35bd036b6799609",
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "require": {
+            "php": ">=5.3.3"
+        },
+        "suggest": {
+            "ext-mbstring": "For best performance"
+        },
+        "time": "2019-02-06T07:57:58+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.11-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Symfony\\Polyfill\\Mbstring\\": ""
+            },
+            "files": [
+                "bootstrap.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Nicolas Grekas",
+                "email": "p@tchwork.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony polyfill for the Mbstring extension",
+        "homepage": "https://symfony.com",
+        "keywords": [
+            "compatibility",
+            "mbstring",
+            "polyfill",
+            "portable",
+            "shim"
+        ]
+    },
+    {
+        "name": "symfony/property-access",
+        "version": "v4.2.8",
+        "version_normalized": "4.2.8.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/property-access.git",
+            "reference": "5440dd2b5373073beee051bd978b58a0f543b192"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/property-access/zipball/5440dd2b5373073beee051bd978b58a0f543b192",
+            "reference": "5440dd2b5373073beee051bd978b58a0f543b192",
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "require": {
+            "php": "^7.1.3",
+            "symfony/inflector": "~3.4|~4.0"
+        },
+        "require-dev": {
+            "symfony/cache": "~3.4|~4.0"
+        },
+        "suggest": {
+            "psr/cache-implementation": "To cache access methods."
+        },
+        "time": "2019-03-04T09:16:25+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "4.2-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Symfony\\Component\\PropertyAccess\\": ""
+            },
+            "exclude-from-classmap": [
+                "/Tests/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony PropertyAccess Component",
+        "homepage": "https://symfony.com",
+        "keywords": [
+            "access",
+            "array",
+            "extraction",
+            "index",
+            "injection",
+            "object",
+            "property",
+            "property path",
+            "reflection"
+        ]
+    },
+    {
+        "name": "topthink/framework",
+        "version": "v5.1.36",
+        "version_normalized": "5.1.36.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/top-think/framework.git",
+            "reference": "135eee67ce9ee0b07da201f743d7dd88ec431abb"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/top-think/framework/zipball/135eee67ce9ee0b07da201f743d7dd88ec431abb",
+            "reference": "135eee67ce9ee0b07da201f743d7dd88ec431abb",
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "require": {
+            "php": ">=5.6.0",
+            "topthink/think-installer": "2.*"
+        },
+        "require-dev": {
+            "johnkary/phpunit-speedtrap": "^1.0",
+            "mikey179/vfsstream": "~1.6",
+            "phpdocumentor/reflection-docblock": "^2.0",
+            "phploc/phploc": "2.*",
+            "phpunit/phpunit": "^5.0|^6.0",
+            "sebastian/phpcpd": "2.*",
+            "squizlabs/php_codesniffer": "2.*"
+        },
+        "time": "2019-04-28T08:56:58+00:00",
+        "type": "think-framework",
+        "installation-source": "dist",
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "authors": [
+            {
+                "name": "liu21st",
+                "email": "liu21st@gmail.com"
+            },
+            {
+                "name": "yunwuxin",
+                "email": "448901948@qq.com"
+            }
+        ],
+        "description": "the new thinkphp framework",
+        "homepage": "http://thinkphp.cn/",
+        "keywords": [
+            "framework",
+            "orm",
+            "thinkphp"
+        ]
+    },
+    {
+        "name": "topthink/think-captcha",
+        "version": "v2.0.2",
+        "version_normalized": "2.0.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/top-think/think-captcha.git",
+            "reference": "54c8a51552f99ff9ea89ea9c272383a8f738ceee"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/top-think/think-captcha/zipball/54c8a51552f99ff9ea89ea9c272383a8f738ceee",
+            "reference": "54c8a51552f99ff9ea89ea9c272383a8f738ceee",
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "require": {
+            "topthink/framework": "5.1.*"
+        },
+        "time": "2017-12-31T16:37:49+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "think\\captcha\\": "src/"
+            },
+            "files": [
+                "src/helper.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "authors": [
+            {
+                "name": "yunwuxin",
+                "email": "448901948@qq.com"
+            }
+        ],
+        "description": "captcha package for thinkphp5"
+    },
+    {
+        "name": "topthink/think-installer",
+        "version": "v2.0.0",
+        "version_normalized": "2.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/top-think/think-installer.git",
+            "reference": "f5400a12c60e513911aef41fe443fa6920952675"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/top-think/think-installer/zipball/f5400a12c60e513911aef41fe443fa6920952675",
+            "reference": "f5400a12c60e513911aef41fe443fa6920952675",
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "require": {
+            "composer-plugin-api": "^1.0"
+        },
+        "require-dev": {
+            "composer/composer": "1.0.*@dev"
+        },
+        "time": "2018-05-11T06:45:42+00:00",
+        "type": "composer-plugin",
+        "extra": {
+            "class": "think\\composer\\Plugin"
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "think\\composer\\": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "authors": [
+            {
+                "name": "yunwuxin",
+                "email": "448901948@qq.com"
+            }
+        ]
+    }
+]

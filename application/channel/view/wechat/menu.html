@@ -1,0 +1,28 @@
+{extend name="public/base"}
+{block name="title"}微信菜单管理{/block}
+{block name="jsValue"}
+<script type="text/javascript">
+var $opt_url = '{:my_url("doMenuEvent")}';
+var $push_url = '{:my_url("pushMenu")}';
+var $reset_url = '{:my_url("createDefaultMenu")}';
+</script>
+{/block}
+{block name="body"}
+<div class="layui-fluid">   
+    <div class="layui-card">
+    	<div class="layui-card-body">
+	    <div class="layui-btn-container">
+	       <a class="layui-btn layui-btn-primary layui-btn-sm" href="{:my_url('addMenu')}">新增顶级菜单</a>
+	       <a class="layui-btn layui-btn-primary layui-btn-sm" id="openAll">全部展开</a>
+	       <a class="layui-btn layui-btn-primary layui-btn-sm" id="hideAll">全部隐藏</a>
+	       <a class="layui-btn layui-btn-primary layui-btn-sm" id="pushMenu">发布菜单</a>
+	       <a class="layui-btn layui-btn-primary layui-btn-sm" id="createMenu">默认菜单</a>
+	    </div>
+        <table class="layui-hidden layui-table" id="table-block" lay-filter="table-block"></table>
+    </div>
+  </div>
+ </div>
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="__JS__/admin.wechat.menu.js"></script>
+{/block}

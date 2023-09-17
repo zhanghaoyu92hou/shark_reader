@@ -1,0 +1,53 @@
+{extend name="public/base"}
+{block name="title"}代理管理{/block}
+{block name="jsValue"}
+<script type="text/javascript">
+var data_url = window.location.href;
+var do_url = '{:my_url("doAgentEvent")}';
+var $location_url = '{:my_url("intoBackstage")}';
+</script>
+{/block}
+{block name="body"}
+<div class="layui-fluid">
+    <div class="layui-row layui-col-space15">
+      <div class="layui-col-md12">
+        <div class="layui-card">
+          <div class="layui-form layui-card-header layuiadmin-card-header-auto">
+	        <div class="layui-form-item">
+	          <div class="layui-inline">
+	          	<label class="layui-form-label">代理名称</label>
+	            <div class="layui-input-inline">
+	              <input type="text" name="keyword" placeholder="请输入" autocomplete="off" class="layui-input">
+	            </div>
+	          </div>
+	          <div class="layui-inline">
+	          	<label class="layui-form-label">代理状态</label>
+	            <div class="layui-input-inline">
+	              	  <select name="status">
+		                <option value="">全部</option>
+		                <option value="0">待审核</option>
+		                <option value="1">启用</option>
+		                <option value="2">禁用</option>
+		                <option value="3">审核不通过</option>
+		              </select>
+	            </div>
+	          </div>
+	          <div class="layui-inline">
+	            <button class="layui-btn layuiadmin-btn-admin" lay-submit lay-filter="table-search"><i class="layui-icon layui-icon-search layuiadmin-button-btn"></i>查找</button>
+	          </div>
+	        </div>
+	      </div>
+          <div class="layui-card-body">
+	          	<div class="layui-btn-container">
+			       <a class="layui-btn layui-btn-sm" href="{:my_url('addAgent')}">新增代理</a>
+			    </div>
+            <table class="layui-hide" id="table-block" lay-filter="table-block"></table>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="__JS__/channel.agent.index.js"></script>
+{/block}

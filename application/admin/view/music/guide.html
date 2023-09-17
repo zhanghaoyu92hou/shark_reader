@@ -1,0 +1,159 @@
+{extend name="public/base"} 
+{block name="title"}{$cur.book_name}{/block} 
+{block name="css"}
+<link rel="stylesheet" href="/static/common/css/page_mp_article.css">
+<link rel="stylesheet" href="/static/common/css/page_mp_article_improve_combo.css">
+<style type="text/css">
+.fixed-right{position:fixed;right:20px;;top:30%;border:1px solid #e6e6e6;border-radius:5px;box-shadow:4px 4px 10px #ccc;}
+.fixed-right .list-item{height:30px;line-height:30px;border-bottom:1px dashed #e6e6e6;padding:5px 20px 5px 20px;cursor:pointer;font-size:15px;position:relative;}
+.fixed-right .list-item:LAST-CHILD{border-bottom:none;}
+.fixed-right .list-item>a{color:#555;}
+.fixed-right .list-item>a:hover{color:#000;}
+.fixed-right .list-item .list-item-content{height:auto;max-height:400px;z-index:100;background-color:#fff;border:1px solid #e6e6e6;border-radius:4px;position:absolute;top:0;box-shadow:4px 4px 10px #ccc;overflow-y:scroll;}
+.fixed-right .list-item .style1{width:115px;left:-125px;}
+.fixed-right .list-item .style2{width:360px;left:-370px;}
+.fixed-right .list-item .style3{width:500px;left:-510px;}
+.fixed-right .list-item .style4{width:120px;left:-130px;}
+.fixed-right .list-item .list-item-content .option-content{overflow-x:hidden;}
+.fixed-right .list-item .list-item-content .option-content .pic-item{padding:10px 10px;border-bottom:1px dashed #e6e6e6;}
+.fixed-right .list-item .list-item-content .option-content .pic-item>img{max-height:40px;cursor:pointer;}
+.fixed-right .list-item .list-item-content .option-content .text-item{padding:5px 10px;border-bottom:1px dashed #e6e6e6;}
+.fixed-right .list-item .list-item-content .option-content .text-item:hover{color:#000;}
+.fixed-right .list-item .list-item-content .option-content .text-item:LAST-CHILD{border-bottom:none;}
+</style>
+{/block}
+{block name="jsValue"}
+<script type="text/javascript">
+var book_id = '{$cur.book_id}';
+</script>
+{/block}
+{block name="body"}
+<div class="layui-fluid">
+	<div class="layui-row">
+		<div class="layui-col-md4 layui-col-md-offset4">
+			<div class="rich_media_inner">
+				<div class="rich_media_area_primary">
+					<h1 id="wx-article-title" class="rich_media_title">{$cur_title}</h1>
+					<div class="rich_media_content" id="wx-copy-content">
+						<div class="article-cover">
+							<img style="width:100%;display:block;margin-bottom:20px;" src="{$cur_cover}" id="wx-article-cover">
+						</div>
+						<div>
+							<div id="wx-article-content">
+								<section>
+									<section style="max-width: 100%;margin: 0.8em 0px 0.5em; overflow: hidden; ">
+										<section style="box-sizing: border-box !important; height:36px;display: inline-block;color: #FFF; font-size: 16px;font-weight:bold; padding:0 10px;line-height: 36px;float: left; vertical-align: top; background-color: rgb(249, 110, 87); "></section>
+										<section style="box-sizing: border-box !important; height:36px;display: inline-block;color: #FFF; font-size: 16px;font-weight:bold; padding:0 10px;line-height: 36px;float: left; vertical-align: top; background-color: rgb(249, 110, 87); "></section>
+										<section style="box-sizing: border-box !important; height:36px;display: inline-block;color: #FFF; font-size: 16px;font-weight:bold; padding:0 10px;line-height: 36px;float: left; vertical-align: top; background-color: rgb(249, 110, 87);overflow: hidden;text-overflow: ellipsis;white-space: nowrap;max-width: 79%!important; ">
+											<span style="color: rgb(254, 255, 253); font-size: 15.6px; text-align: center;" class="ztitle" _chaps="{$cur.number}" _title="{$cur.name}">{$cur.name}</span>
+										</section>
+										<section style="box-sizing: border-box !important; height:36px;display: inline-block;color: #FFF; font-size: 16px;font-weight:bold; padding:0 10px;line-height: 36px;float: left; vertical-align: top; background-color: rgb(249, 110, 87); "></section>
+										<section style="box-sizing: border-box !important; display: inline-block;height:36px; vertical-align: top; border-left-width: 9px; border-left-style: solid; border-left-color: rgb(249, 110, 87); border-top-width: 18px !important; border-top-style: solid !important; border-top-color: transparent !important; border-bottom-width: 18px !important; border-bottom-style: solid !important; border-bottom-color: transparent !important;"></section>
+									</section>
+									<fieldset style="border: 0px; margin: 5px 0px; box-sizing: border-box; padding: 0px;">
+										<section style="height: 1em; box-sizing: border-box;">
+											<section style="height: 100%; width: 1.5em; float: left; border-top-width: 0.4em; border-top-style: solid; border-color: rgb(249, 110, 87); border-left-width: 0.4em; border-left-style: solid; box-sizing: border-box;"></section>
+											<section style="height: 100%; width: 1.5em; float: right; border-top-width: 0.4em; border-top-style: solid; border-color: rgb(249, 110, 87); border-right-width: 0.4em; border-right-style: solid; box-sizing: border-box;"></section>
+											<section style="display: inline-block; color: transparent; clear: both; box-sizing: border-box;"></section>
+										</section>
+										<section style="margin: -0.8em 0.1em -0.8em 0.2em; padding: 0.8em; border: 1px solid rgb(249, 110, 87); border-radius: 0.3em; box-sizing: border-box;">
+											<section style="color: rgb(51, 51, 51);line-height: 1.7em; word-break: break-all; word-wrap: break-word;" class="wweibrush">
+												<div style="color: rgb(110, 101, 95); font-size: 16px; text-align: justify;background-color: rgb(255, 255, 255);text-indent:2em;">
+													{$cur.content|raw}
+												</div>
+											</section>
+										</section>
+										<section style="height: 1em; box-sizing: border-box;">
+											<section style="height: 100%; width: 1.5em; float: left; border-bottom-width: 0.4em; border-bottom-style: solid; border-color: rgb(249, 110, 87); border-left-width: 0.4em; border-left-style: solid; box-sizing: border-box;"></section>
+											<section style="height: 100%; width: 1.5em; float: right; border-bottom-width: 0.4em; border-bottom-style: solid; border-color: rgb(249, 110, 87); border-right-width: 0.4em; border-right-style: solid; box-sizing: border-box;"></section>
+										</section>
+									</fieldset>
+								</section>
+							</div>
+							<div>
+								<div style="white-space: normal; color: rgb(70, 70, 72); line-height: 22.72px; font-family: Arial;">
+									<p style="margin-top: 0px; margin-bottom: 0px;">
+										<strong><span style="color: rgb(255, 76, 65);">未完待续……</span></strong>
+									</p>
+									<p style="margin-top: 0px; margin-bottom: 0px;">
+										<strong><span style="color: rgb(255, 76, 65);">微信篇幅有限，后续内容和情节更加精彩！</span></strong>
+									</p>
+									<p style="margin-top: 0px; margin-bottom: 0px;">
+										<strong><span style="color: rgb(255, 76, 65);">点击下方【阅读原文】继续阅读哦~~~</span></strong>
+									</p>
+									<p style="margin-top: 0px; margin-bottom: 0px;">
+										<strong>
+											<img src="{$readpic[0]}" width="auto" id="wx-article-footer">
+										</strong>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="fixed-right">
+	<div class="list-item">
+		<a><i class="layui-icon layui-icon-picture"></i>文案图片</a>
+		<div class="list-item-content style1 layui-hide">
+			{volist name="cover" id="cv"}
+				<div class="option-content">
+					<p class="pic-item">
+						<img src="{$cv}" class="list-item-option" event="cover" />
+					</p>
+				</div>
+			{/volist}
+		</div>
+	</div>
+	<div class="list-item">
+		<a><i class="layui-icon layui-icon-fonts-clear"></i>文案标题</a>
+		<div class="list-item-content style3 layui-hide">
+			<div class="option-content">
+				{volist name="title" id="tv"}
+					<p class="list-item-option text-item" event="title" >{$tv}</p>
+				{/volist}
+			</div>
+		</div>
+	</div>
+	<div class="list-item">
+		<a><i class="layui-icon layui-icon-template"></i>引导模版</a>
+		<div class="list-item-content style2 layui-hide">
+			{volist name="readpic" id="pv"}
+				<div class="option-content">
+					<p class="pic-item">
+						<img src="{$pv}" class="list-item-option" event="readpic"  />
+					</p>
+				</div>
+			{/volist}
+		</div>
+	</div>
+	<div class="list-item">
+		<a><i class="layui-icon layui-icon-form"></i>书籍章节</a>
+		<div class="list-item-content style3 layui-hide">
+			<div class="option-content">
+				{volist name="chapters" id="cv"}
+					<p class="list-item-option text-item" data-number="{$cv.number}" event="chapter" >{$cv.name}</p>
+				{/volist}
+			</div>
+		</div>
+	</div>
+	<div class="list-item">
+		<a><i class="layui-icon layui-icon-util"></i>其他操作</a>
+		<div class="list-item-content style4 layui-hide">
+			<div class="option-content">
+				<p class="text-item" id="btn-copy-title" data-clipboard-target="#wx-article-title">复制标题</p>
+				<p class="text-item" id="btn-copy-content" data-clipboard-target="#wx-copy-content">复制正文</p>
+				<p class="text-item" id="createPicture">生成图片</p>
+			</div>
+		</div>
+	</div>
+</div>
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="/static/common/js/clipboard.min.js"></script>
+<script type="text/javascript" src="/static/common/js/html2canvas.min.js"></script>
+<script type="text/javascript" src="__JS__/admin.music.guide.js"></script>
+{/block}

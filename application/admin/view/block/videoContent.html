@@ -1,0 +1,113 @@
+{notempty name="hot"}
+<div class="cartoonHot cartoonTop">
+    <div class="hotTitle">
+        <span>
+            <img src="/static/index/images/cartoon_hot_left.jpg" alt="">&nbsp;
+            热门视频
+            &nbsp;<img src="/static/index/images/cartoon_hot_right.jpg" alt="">
+        </span>
+    </div><!--/hotTitle-->
+
+    <div class="swiperHot">
+        <div class="swiper-container swiper-Hot">
+            <div class="swiper-wrapper">
+                {volist name="hot" id="hv"}
+                <div class="swiper-slide hotslide wx_dingwei">
+                    <a href="/index/Video/info.html?video_id={$hv.id}">
+                        <img src="{$hv.cover}" alt="">
+                        <p>{$hv.name}</p>
+                    </a>
+                    {if condition="$hv['free_type'] eq '2'"}
+                    <div class="isvip">
+                        <img src="/static/index/images/wx_vip.png">
+                    </div>
+                    {/if}
+                </div>
+                {/volist}
+            </div>
+        </div>
+    </div>
+</div>
+<!--<div style="height: 5px;width: 100%;background-color: #ddd"></div>
+<div class="">
+    <div class="advertisement">{:htmlspecialchars_decode($text1)}</div>
+</div>-->
+{/notempty}
+{notempty name="area"}
+{volist name="area" id="av"}
+<div class="cartoonChoiceness cartoonTop">
+    <div class="choicenessTitle">
+        <span class="jxStyle">
+            <img src="/static/index/images/cartoon_jx_left.jpg" alt="">
+            {$av.name}
+            <img src="/static/index/images/cartoon_jx_right.jpg" alt="">
+        </span>
+
+        <a href="{$av.url}" class="blue_a">
+            <em>更多</em>
+            <img src="/static/index/images/arrowRadius_blue.png" alt="">
+        </a>
+    </div>
+    <div class="choicenessCount">
+        <ul>
+            {volist name="av.child" id="cv"}
+            <li class="wx_dingwei">
+                <a href="/index/Video/info.html?video_id={$cv.id}">
+                    <div>
+                        <img src="{$cv.cover}">
+                    </div>
+                    <h4>{$cv.name}</h4>
+                    <p>{$cv.summary}</p>
+                </a>
+                {if condition="$cv['free_type'] eq '2'"}
+                <div class="isvip">
+                    <img src="/static/index/images/wx_vip.png">
+                </div>
+                {/if}
+            </li>
+            {/volist}
+        </ul>
+    </div>
+</div>
+{/volist}
+{/notempty}
+{notempty name="foot_hot"}
+<div class="cartoonRecommend cartoonTop">
+    <div class="choicenessTitle ">
+        <span class="tjStyle">
+            <img src="/static/index/images/cartoon_rm_left.jpg" alt="">
+            热门推荐
+            <img src="/static/index/images/cartoon_rm_right.jpg" alt="">
+        </span>
+
+        <a href="/index/Video/more.html?is_hot=1" class="yellow_a">
+            <em>更多</em>
+            <img src="/static/index/images/arrowRadius_yellow.png" alt="">
+        </a>
+    </div>
+    <div class="choicenessCount">
+        <ul>
+            {volist name="foot_hot" id="fv"}
+            <li class="wx_dingwei">
+                <a href="/index/Video/info.html?video_id={$fv.id}">
+                    <div>
+                        <img src="{$fv.cover}">
+                    </div>
+                    <h4>{$fv.name}</h4>
+                    <p>{$fv.summary}</p>
+                </a>
+                {if condition="$fv['free_type'] eq '2'"}
+                <div class="isvip">
+                    <img src="/static/index/images/wx_vip.png">
+                </div>
+                {/if}
+            </li>
+            {/volist}
+        </ul>
+    </div>
+</div>
+<!--<div style="height: 5px;width: 100%;background-color: #ddd"></div>
+<div class="">
+    <div class="advertisement">{:htmlspecialchars_decode($text2)}</div>
+</div>-->
+{/notempty}

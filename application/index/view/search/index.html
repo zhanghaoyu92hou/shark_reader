@@ -1,0 +1,38 @@
+{extend name="public/base"}
+{block name="title"}{$site_title}{/block}
+{block name="css"}
+<style type="text/css">
+   html,body{ background:#fff}
+</style>
+{/block}
+{block name="body"}
+<div class="searchFixed">
+    <div class="search">
+        <div class="searchAuto">
+            <div class="searchFl">
+                <img src="/static/index/images/search.png" alt="">
+                <div>
+                    <input type="text" id="keyword" placeholder="请输入作者或者作品或主角">
+                </div>
+            </div>
+            <a href="javascript:void(0);" class="searchCancel" onclick="doSearch('');">搜索</a>
+        </div>
+    </div>
+</div>
+
+<div class="searchHistory" style="display:none;">
+   <div class="searchTitle">
+       <span>历史记录</span>
+       <a href="javascript:;" onclick="javascript:delAll();"><img src="/static/index/images/del.png" alt=""></a>
+   </div>
+  		<div class="searchList">
+          <ul></ul>
+       </div>
+</div>
+<div class="cartoonRecommend" style="margin:60px auto auto auto">
+     <div class="recommendList"></div>
+</div>
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="__IJS__/search_index.min.js"></script>
+{/block}

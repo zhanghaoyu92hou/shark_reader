@@ -1,0 +1,47 @@
+{extend name="public/base"} 
+{block name="title"}更新章节{/block} 
+{block name="body"}
+<div class="layui-fluid">
+	<div class="layui-row">
+		<div class="layui-card">
+			<div class="layui-card-header">
+				章节信息 
+			</div>
+			<div class="layui-card-body">
+				<div class="layui-form">
+					<div class="layui-form-item">
+						<label class="layui-form-label">章节名称：</label>
+						<div class="layui-input-block">
+							<input type="text" name="name" value="{$cur.name}" class="layui-input" />
+						</div>
+					</div>
+					<div class="layui-form-item layui-form-text">
+						<label class="layui-form-label">章节数:</label>
+						<div class="layui-input-block">
+							<input type="text" name="number" value="{$cur.number}" class="layui-input" />
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">章节内容：</label>
+						<div class="layui-input-block">
+							<textarea class="layui-hide" id="content">{$cur.content}</textarea>
+						</div>
+					</div>
+					<div class="layui-form-item">
+		                <div class="layui-input-block">
+		                	<input type="hidden" value="{$cur.id}" name="id" />
+		                	<input type="hidden" value="{$cur.book_id}" name="book_id" />
+		                  	<button class="layui-btn" lay-submit lay-filter="dosubmit">保存</button>
+		                  	<button type="reset" class="layui-btn layui-btn-primary" onclick="javascript:location.href='{:my_url('chapter',['book_id'=>$cur['book_id']])}';">返回</button>
+		                </div>
+		            </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="/static/plugins/ace/ace.js"></script>
+<script type="text/javascript" src="__JS__/admin.music.dochapter.js"></script>
+{/block}

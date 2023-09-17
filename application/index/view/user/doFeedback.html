@@ -1,0 +1,27 @@
+{extend name="public/base"}
+{block name="title"}{$site_title}{/block}
+{block name="body"}
+    <div class="commodityNav commodityline" style="	border-bottom: 1px solid #e8e8e8;">
+        <a href="javascript:history.go(-1);" class="back" title="返回"></a>
+        <span class="activeNone" style="font-size: 1.5rem" >反馈意见</span>
+    </div>
+ <div class="write">
+      <div class="writeTextarea">
+          <textarea id="content" placeholder="亲，写下你的意见或建议，我们好做的更好哟~"></textarea>
+      </div>
+
+      <div class="writeTel">
+          <p>亲，为了更好的接受意见，请你留下您的联系方式</p>
+          <div class="writeInput">
+              <input type="text" id="phone" placeholder="请输入您的电话号码">
+          </div>
+      </div>
+ </div>
+
+ <div class="promptly" style="margin: 10% auto">
+     <a href="javascript:;" class="ripple" onclick="javascript:doFeedback();">反馈意见</a>
+ </div>
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="__IJS__/user_dofeedback.min.js"></script>
+{/block}

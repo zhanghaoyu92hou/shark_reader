@@ -1,0 +1,119 @@
+{extend name="public/base"} 
+{block name="title"}公众号参数信息{/block} 
+{block name="body"}
+<div class="layui-fluid">
+	<div class="layui-row">
+		<div class="layui-card">
+			<div class="layui-card-header">
+				参数信息 
+			</div>
+			<div class="layui-card-body">
+				<div class="layui-form">
+					<div class="layui-form-item">
+						<div class="layui-col-lg3">
+							<label class="layui-form-label">APPID：</label>
+							<div class="layui-input-block">
+								<input type="text" name="appid" value="{$cur.appid}" class="layui-input" />
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg5">
+							<label class="layui-form-label">SECRET：</label>
+							<div class="layui-input-block">
+								<input type="text" name="appsecret" value="{$cur.appsecret}" class="layui-input" />
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg5">
+							<label class="layui-form-label">TOKEN：</label>
+							<div class="layui-input-block">
+								<input type="text" name="apptoken" value="{$cur.apptoken}" class="layui-input" />
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">公众号二维码：</label>
+						<div class="layui-input-block">
+							<div class="image-div">
+								<div class="image-box size-200x200" title="点击上传二维码" onclick="javascript:cropImage('上传公众号二维码','200x200',this);">
+									{empty name="cur.qrcode"}
+										<img src="/static/common/images/300x300.png" class="showimg"/>
+									{else /}
+										<img src="{$cur.qrcode}" class="showimg"/>
+									{/empty}
+									<input type="hidden" class="hideval" name="qrcode" value="{$cur.qrcode}"/>
+								</div>
+								<div class="image-remark">点击可更换二维码</div>
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+		                <div class="layui-input-block">
+		                  	<button class="layui-btn" lay-submit lay-filter="dosubmit">保存</button>
+		                </div>
+		            </div>
+				</div>
+			</div>
+		</div>
+		<div class="layui-card">
+			<div class="layui-card-header">
+				域名信息 
+			</div>
+			<div class="layui-card-body">
+				<div class="layui-form">
+					<div class="layui-form-item">
+						<label class="layui-form-label">业务域名：</label>
+						<div class="layui-input-block" style="margin-left:150px;">
+							<div class="text-line">{empty name="url"}<font class="text-red">未配置</font>{else /}{$url}{/empty}</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">JS安全域名：</label>
+						<div class="layui-input-block" style="margin-left:150px;">
+							<div class="text-line">{empty name="url"}<font class="text-red">未配置</font>{else /}{$url}{/empty}</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">网页授权域名：</label>
+						<div class="layui-input-block" style="margin-left:150px;">
+							<div class="text-line">{empty name="url"}<font class="text-red">未配置</font>{else /}{$url}{/empty}</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="layui-card">
+			<div class="layui-card-header">
+				开发者配置信息 
+			</div>
+			<div class="layui-card-body">
+				<div class="layui-form">
+					<div class="layui-form-item">
+						<label class="layui-form-label">回调地址：</label>
+						<div class="layui-input-block" style="margin-left:280px;">
+							<div class="text-line">{empty name="callback"}<font class="text-red">未配置</font>{else /}{$callback}{/empty}</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">EncodingAESKey(消息加解密密钥)：</label>
+						<div class="layui-input-block" style="margin-left:280px;">
+							<div class="text-line">随机生成</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">消息加解密方式：</label>
+						<div class="layui-input-block" style="margin-left:280px;">
+							<div class="text-line">明文模式</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="__JS__/common.update.js"></script>
+{/block}

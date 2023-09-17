@@ -1,0 +1,36 @@
+{extend name="public/base"}
+{block name="title"}{$site_title}{/block}
+{block name="jsValue"}
+<script type="text/javascript">
+var book_id = '{$book_id}';
+</script>
+{/block}
+{block name="body"}
+<div class="commodityNav commodityline" >
+    <a href="javascript:void(0);" class="back" title="返回" onclick="javascript:history.go(-1);"></a>
+    <span class="activeNone" style="font-size: 1.5rem; color: #FF6600" >举报中心</span>
+</div>
+
+<div class="report">
+     <ul>
+        <li class="ripple" data-type="1"><a href="javascript:;">色情</a></li>
+        <li class="ripple" data-type="2"><a href="javascript:;">血腥</a></li>
+        <li class="ripple" data-type="3"><a href="javascript:;">暴力</a></li>
+        <li class="ripple" data-type="4"><a href="javascript:;">违法</a></li>
+        <li class="ripple" data-type="5"><a href="javascript:;">盗版</a></li>
+        <li class="ripple" data-type="6"><a href="javascript:;">其他</a></li>
+     </ul>
+</div>
+{:getBlock('common_footer','other')}
+<div class="report-proup">
+     <div class="reportCenter">
+         <a href="javscript:;"><img src="/static/index/images/close.png" alt=""></a>
+          <img src="/static/index/images/report.png" alt="">
+          <p>举报成功！</p>
+          <p>小编收到啦！马上处理！</p>
+     </div>
+</div>
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="__IJS__/com_complaint.min.js"></script>
+{/block}

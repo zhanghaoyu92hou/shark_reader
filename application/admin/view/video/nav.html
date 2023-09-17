@@ -1,0 +1,77 @@
+{extend name="public/base"} 
+{block name="title"}{$title}{/block} 
+{block name="css"}
+<style type="text/css">
+.icon-input-div{border:1px solid #e6e6e6;padding:10px 20px 0 20px;position:relative;}
+.icon-input-div .delete-btn{position:absolute;right:10px;top:10px;}
+</style>
+{/block} 
+{block name="jsValue"}
+<script type="text/javascript">
+var $up_url = '{:my_url("Upload/doUploadIcon")}';
+</script>
+{/block} 
+{block name="body"}
+<div class="layui-fluid">
+	<div class="layui-row">
+		<div class="layui-card">
+			<div class="layui-card-header">
+				{$title}
+			</div>
+			<div class="layui-card-body">
+				<div class="layui-btn-container">
+		       		<a class="layui-btn layui-btn-sm" id="addInput">添加导航菜单</a>
+		    	</div>
+				<div class="layui-form">
+					<div class="layui-block">
+						<div class="layui-row layui-col-space20" id="iconBox" style="min-height:100px;">
+							{empty name="cur"}
+								<div class="layui-col-md6 layui-col-sm6">
+									<div class="icon-input-div">
+										<a href="javascript:void(0);" class="layui-btn layui-btn-sm layui-btn-danger delete-btn"><i class="layui-icon layui-icon-delete"></i>删除</a>
+										<div class="layui-form-item">
+											<div class="layui-inline">
+												<input type="text" class="layui-input" name="text[]" placeholder="请输入图标标题"/>
+											</div>
+										</div>
+										<div class="layui-form-item">
+											<input type="text" class="layui-input" name="link[]" placeholder="请输入跳转链接"/>
+										</div>
+									</div>
+								</div>
+							{else /}
+								{volist name="cur" id="v"}
+									<div class="layui-col-md6 layui-col-sm6">
+										<div class="icon-input-div">
+											<a href="javascript:void(0);" class="layui-btn layui-btn-sm layui-btn-danger delete-btn"><i class="layui-icon layui-icon-delete"></i>删除</a>
+											<div class="layui-form-item">
+												<div class="layui-inline">
+													<input type="text" class="layui-input" name="text[]" value="{$v.text}" placeholder="请输入图标标题"/>
+												</div>
+											</div>
+											<div class="layui-form-item">
+												<input type="text" class="layui-input" name="link[]" value="{$v.link}" placeholder="请输入跳转链接"/>
+											</div>
+										</div>
+									</div>
+								{/volist}
+							{/empty}
+						</div>
+					</div>
+					<div class="layui-form-item">
+		                <div class="layui-block">
+		                  	<a class="layui-btn" lay-submit lay-filter="dosubmit">保存配置</a>
+		                  	{notempty name="backUrl"}
+		                  		<a class="layui-btn layui-btn-primary" href="{$backUrl}">返回</a>
+		                  	{/notempty}
+		                </div>
+		            </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="__JS__/admin.video.nav.js"></script>
+{/block}

@@ -1,0 +1,115 @@
+{extend name="public/base"} 
+{block name="title"}更新活动{/block} 
+{block name="jsValue"}
+<script type="text/javascript">
+var $backUrl = '{$backUrl}';
+</script>
+{/block}
+{block name="body"}
+<div class="layui-fluid">
+	<div class="layui-row">
+		<div class="layui-card">
+			<div class="layui-card-header">
+				活动基础信息 
+			</div>
+			<div class="layui-card-body">
+				<div class="layui-form">
+					<div class="layui-form-item">
+						<div class="layui-col-lg3">
+							<label class="layui-form-label">活动标题：</label>
+							<div class="layui-input-block">
+								<input type="text" name="name" value="{$cur.name}" class="layui-input" />
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">充值金额：</label>
+							<div class="layui-input-block">
+								<input type="text" name="money" value="{$cur.money}" class="layui-input" />
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">赠送书币：</label>
+							<div class="layui-input-block">
+								<input type="text" name="send_money" value="{$cur.send_money}" class="layui-input" />
+							</div>
+						</div>
+						<div class="layui-form-mid layui-word-aux">充值成功后用户所得书币</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">活动时间：</label>
+						<div class="layui-input-block">
+							<div class="range-time">
+								<input type="text" id="start_time" name="start_time" value="{$cur.start_time}" class="layui-input" readonly="readonly" placeholder="请选择开始时间"/>
+								<div class="input-split">~</div>
+								<input type="text" id="end_time" name="end_time" value="{$cur.end_time}" class="layui-input" readonly="readonly" placeholder="请选择结束时间" />
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">充值限制：</label>
+							<div class="layui-input-block">
+								{:createRadioHtml($is_first,$cur['is_first'])}
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">活动状态：</label>
+							<div class="layui-input-block">
+								{:createRadioHtml($status,$cur['status'])}
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">活动背景：</label>
+						<div class="layui-input-block">
+							<div class="image-div">
+								<div class="image-box size-120x170" title="点击上传活动背景图片" onclick="javascript:cropImage('上传活动背景图片','960x1360',this);">
+									{empty name="cur.bg"}
+										<img src="/static/common/images/240x340.png" class="showimg"/>
+									{else /}
+										<img src="{$cur.bg}" class="showimg"/>
+									{/empty}
+									<input type="hidden" class="hideval" name="bg" value="{$cur.bg}"/>
+								</div>
+								<div class="image-remark">点击可更换活动背景图片</div>
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">推荐封面：</label>
+						<div class="layui-input-block">
+							<div class="image-div">
+								<div class="image-box  size-670x145" title="点击上传活动封面图片" onclick="javascript:cropImage('上传活动封面图片','670x145',this);">
+									{empty name="cur.cover"}
+										<img src="/static/common/images/670x145.png" class="showimg"/>
+									{else /}
+										<img src="{$cur.cover}" class="showimg"/>
+									{/empty}
+									<input type="hidden" class="hideval" name="cover" value="{$cur.cover}"/>
+								</div>
+								<div class="image-remark">设置后将在个人中心显示，如有多个活动，只显示最新的活动，点击图片可更换封面</div>
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+		                <div class="layui-input-block">
+		                	<input type="hidden" value="{$cur.id}" name="id" />
+		                  	<a class="layui-btn" lay-submit lay-filter="dosubmit">保存</a>
+		                  	<a class="layui-btn layui-btn-primary" href="{$backUrl}">返回</a>
+		                </div>
+		            </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="__JS__/admin.activity.doactivity.js"></script>
+{/block}

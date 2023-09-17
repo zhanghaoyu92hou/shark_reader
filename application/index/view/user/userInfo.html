@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>修改信息</title>
+  <link rel="stylesheet" href="__IJS__/layui-v2.5.4/layui/css/layui.css">
+</head>
+<body>
+ 
+<div class="layui-container-fluid">
+    <div class="layui-row" style="background-color:#F0F0F0;padding: 20px">
+        <div class="layui-col-xs2">
+            <i class="layui-icon layui-icon-left"></i>   
+        </div>
+        <div class="layui-col-xs10" style="text-align: center;margin-left: -30px">
+            <span>账户管理</span>
+        </div>
+    </div>
+    <div class="layui-row " style="background-color:#F0F0F0;padding: 5px;margin-top: 10px;">
+        <div class="layui-col-xs2">
+            <img src="{$cur.headimgurl}" width="100%" style="border-radius: 500px;" alt="">
+        </div>
+        <div class="layui-col-xs9" style="text-align: right;line-height: 4">
+            <span style="line-height: 10px">更换头像</span>
+        </div>
+        <div class="layui-col-xs1" style="line-height: 3.5">
+            <i class="layui-icon layui-icon-right"></i>   
+        </div>
+    </div>
+    <div class="layui-row " style="background-color:#F0F0F0;padding: 20px;margin-top: 10px;    border-bottom: #fff solid 2px;">
+        <div class="layui-col-xs2">
+            <span>昵称</span>
+        </div>
+        <div class="layui-col-xs9" style="text-align: right;">
+            <span style="line-height: 10px">{$cur.nickname}</span>
+        </div>
+        <div class="layui-col-xs1" style=""> 
+            <i class="layui-icon layui-icon-right"></i>   
+        </div>
+    </div>
+    <div class="layui-row " style="background-color:#F0F0F0;padding: 20px;    border-bottom: #fff solid 2px;">
+        <div class="layui-col-xs2">
+            <span>性别</span
+        </div>
+        <div class="layui-col-xs9" style="text-align: right;">
+            <span style="line-height: 10px">男</span>
+        </div>
+        <div class="layui-col-xs1" style="">
+            <i class="layui-icon layui-icon-right"></i>   
+        </div>
+    </div>
+    <div class="layui-row " style="background-color:#F0F0F0;padding: 20px;    border-bottom: #fff solid 2px;">
+        <div class="layui-col-xs2">
+            <span>手机号</span>
+        </div>
+        <div class="layui-col-xs9" style="text-align: right;">
+            <span style="line-height: 10px">{$cur.phone}</span>
+        </div>
+        <div class="layui-col-xs1" style="">
+            <i class="layui-icon layui-icon-right"></i>   
+        </div>
+    </div>
+    <div class="layui-row" style="padding: 10px;text-align: center">
+        <div class="layui-col-xs12">
+                <button class="layui-btn layui-btn-radius layui-btn-warm" style="width: 200px;" onclick="window.location.href='{:my_url(\'logout\')}'" >退出</button>
+        </div>
+    </div>
+</div>  
+ 
+<script src="__IJS__/layui-v2.5.4/layui/layui.js"></script>
+<script>
+//一般直接写在一个js文件中
+layui.use(['layer', 'form'], function(){
+  var layer = layui.layer
+  ,form = layui.form;
+  
+});
+</script> 
+</body>
+</html>

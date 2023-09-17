@@ -1,0 +1,31 @@
+{extend name="public/base"}
+{block name="title"}{$site_title}{/block}
+{block name="css"}
+<style type="text/css">
+html,body{background: #fff;}
+</style>
+{/block}
+{block name="jsValue"}
+<script type="text/javascript">
+var code = '{$code}';
+</script>
+{/block}
+{block name="body"}
+<div class="swiper-container swiper-history">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+             <div class="wxLoginBg" >
+                     <div class="wxImg">
+                         <img src="{$qrcode}" alt="">
+                     </div>
+                    <div class="wxTs">
+                         {:getBlock('qrcode_login_h5','other')}
+                    </div>
+             </div>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="__IJS__/login_pc.min.js"></script>
+{/block}

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>搜索结果页</title>
+    <link rel="stylesheet" href="/static/index/css/base.min.css" />
+    
+<style type="text/css">
+   html,body{ background:#fff}
+</style>
+
+    
+</head>
+<body>
+<div class="commodityNav commodityline" >
+    <a href="javascript:history.go(-1);" class="back" title="返回"></a>
+    <span class="active" style="font-size: 1.5rem" >搜索结果</span>
+</div>
+
+<style>
+  
+.recommendList {
+    margin: 15px 0 0 0;
+}
+.cartoonRecommend .recommendList > ul li {
+    margin: 0 0 10px 10px;
+    position: relative;
+}
+  
+		
+  </style>
+<div class="cartoonRecommend">
+     <div class="recommendList">
+       <?php if($list){ ?>
+		<ul>
+          <?php foreach($list as $key=>$value){ ?>
+          <li>
+                 <div class="recommendPos">
+                     <div class="recommendHotImg">
+                         <a href="<?php echo $value['info_url'] ?>">
+                             <img src="<?php echo $value['cover'] ?>" alt="">
+                         </a>
+                     </div>
+                     <div class="recommendFont">
+                         <h4 class="over"><a href="<?php echo $value['info_url'] ?>"><?php echo $value['name'] ?></a></h4>
+                         <p class="over2 read_p"><a href="<?php echo $value['info_url'] ?>"><?php echo $value['summary'] ?></a></p>
+                         <div class="historyNumber">
+                         	<div>
+                         		<span>
+                         			<img src="/static/index/images/cartoon_ico1.jpg" alt=""><em><?php echo $value['hot_num'] ?></em>
+                         		</span>
+                         	</div>
+                             <a href="<?php echo $value['info_url'] ?>" class="readStar ripple">开始阅读</a>
+                         </div>
+                     </div>
+                 </div>
+             </li>
+          <?php  } ?>
+         </ul>
+       <?php } ?>
+               <?php if(!$list){ ?><div class="recommendList">
+                     <div class="searchTs">
+                         <img src="/static/index/images/searchBg.png" alt=""><p>抱歉亲亲～</p><p>没有相关内容</p>
+                     </div>
+                     <div class="promptly" style="margin: 10% auto"><a href="/index/Book/novel.html" class="ripple">去找几本小说看看</a></div>
+                 </div>
+              </div>
+  
+  <?php } ?>
+</div>
+
+<div class="guidance-prop" style="display:none;">
+      <div class="guidanceBox">
+          <div class="topArrow">
+              <img src="/static/index/images/topArrow.png" alt="">
+          </div>
+          <div class="centerFont">
+              <img src="/static/index/images/centerFont.png" alt="">
+          </div>
+          <div class="botArrow">
+              <img src="/static/index/images/botArrow.png" alt="">
+          </div>
+          <div class="btnAn">
+              <img src="/static/index/images/btnImg.png" alt="">
+              <p>浮窗</p>
+          </div>
+          <div class="know" onclick="javascript:hideNotice();">
+              <a href="javascript:;"><img src="/static/index/images/know.png" alt=""></a>
+          </div>
+      </div>
+</div>
+<script type="text/javascript" src="/static/index/js/jquery.min.js"></script>
+<script type="text/javascript" src="/static/index/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="/static/plugins/layer_mobile/layer.js"></script>
+<script type="text/javascript" src="/static/index/js/common.min.js"></script>
+<script type="text/javascript" src="/static/index/js/swiper.min.js"></script>
+<script type="text/javascript" src="/static/index/page/book_index.min.js"></script>
+</body>
+</html>

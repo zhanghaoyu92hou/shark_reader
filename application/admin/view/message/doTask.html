@@ -1,0 +1,184 @@
+{extend name="public/base"} 
+{block name="title"}更新客服消息{/block} 
+{block name="jsValue"}
+<script type="text/javascript">
+var $countUrl = '{:my_url("getUserCount")}';
+var $testUrl = '{:my_url("testSend")}';
+var $backUrl = '{$backUrl}';
+</script>
+{/block}
+{block name="body"}
+<div class="layui-fluid">
+	<div class="layui-row">
+		<div class="layui-card">
+			<div class="layui-card-header">
+				客服消息 
+			</div>
+			<div class="layui-card-body">
+				<div class="layui-form">
+					<div class="layui-form-item">
+						<div class="layui-col-lg5">
+							<label class="layui-form-label">任务名称：</label>
+							<div class="layui-input-block">
+								<input type="text" name="name" value="{$cur.name}" class="layui-input" />
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">消息内容：</label>
+						<div class="layui-input-block">
+							<div class="custom-msg-box">
+								<p class="custom-msg-title">{$cur.material.title}</p>
+								<div class="custom-msg-detail">
+									<div class="custom-msg-summary">{empty name="cur.material.description"}请输入图文简介信息，否则简介部分将显示链接地址{else /}{$cur.material.description}{/empty}</div>
+									<div class="custom-msg-cover">
+										<img src="{$cur.material.picurl}" />
+									</div>
+								</div>
+								<div class="custom-msg-input-box">
+									<span class="triangle"></span>
+									<div class="layui-fluid">
+										<div class="layui-card">
+											<div class="layui-card-body">
+												<div class="layui-form-item">
+													<label class="layui-form-label">封面：</label>
+													<div class="layui-input-block mg80">
+														<a href="javascript:void(0);" class="layui-btn layui-btn-sm layui-btn-primary chooseCover">选择素材</a>
+														<a href="javascript:void(0);" class="layui-btn layui-btn-sm layui-btn-primary doUpload" data-size="300x300">重新上传</a>
+														<input type="hidden" class="hide-cover" name="message_cover" value="{$cur.material.picurl}" />
+													</div>
+												</div>
+												<div class="layui-form-item">
+													<label class="layui-form-label">标题：</label>
+													<div class="layui-input-block mg80 message-title-block">
+														<input type="text" name="message_title" value="{$cur.material.title}" class="layui-input input-title"/>
+														<a class="layui-btn layui-btn-sm layui-btn-primary chooseTitle">选择</a>
+													</div>
+												</div>
+												<div class="layui-form-item">
+													<label class="layui-form-label">链接：</label>
+													<div class="layui-input-block mg80">
+														<input type="text" name="message_link" value="{$cur.material.url}" class="layui-input" />
+													</div>
+												</div>
+												<div class="layui-form-item">
+													<label class="layui-form-label">简介：</label>
+													<div class="layui-input-block mg80">
+														<textarea class="layui-textarea input-summary" name="message_desc">{$cur.material.description}</textarea>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">接收用户：</label>
+							<div class="layui-input-block">
+								{:createRadioHtml($option['is_all'],$cur['is_all']);}
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item {eq name='cur.is_all' value='1'}layui-hide{/eq}" id="whereItem">
+						<div class="layui-input-block">
+							<div style="border-top:1px dashed #e6e6e6;border-bottom:1px dashed #e6e6e6;">
+								<div class="layui-form-item">
+									<label class="layui-form-label">用户性别：</label>
+									<div class="layui-inline">
+										{:createRadioHtml($option['sex'],$cur['condition']['sex']);}
+									</div>
+								</div>
+								<div class="layui-form-item">
+									<label class="layui-form-label">充值情况：</label>
+									<div class="layui-inline">
+										{:createRadioHtml($option['is_charge'],$cur['condition']['is_charge']);}
+									</div>
+								</div>
+								<div class="layui-form-item">
+									<label class="layui-form-label">书币余额：</label>
+									<div class="layui-inline">
+										{:createRadioHtml($option['money'],$cur['condition']['money']);}
+									</div>
+								</div>
+								<div class="layui-form-item">
+									<label class="layui-form-label">关注时间：</label>
+									<div class="layui-inline">
+										{:createRadioHtml($option['subscribe_time'],$cur['condition']['subscribe_time']);}
+									</div>
+								</div>
+								<div class="layui-form-item">
+									<label class="layui-form-label">预计人数：</label>
+									<div class="layui-inline">
+										<input type="text" value="0人" id="userCount" class="layui-input" disabled="disabled"/>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">发送时间：</label>
+							<div class="layui-input-block">
+								<input type="text" id="send_time" name="send_time" value="{$cur.send_time}" readonly="readonly" class="layui-input" />
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-input-block">
+							<a class="layui-btn layui-btn-sm layui-btn-primary get-near-time" data-min="10">十分钟后</a>
+							<a class="layui-btn layui-btn-sm layui-btn-primary get-near-time" data-min="30">半小时后</a>
+							<a class="layui-btn layui-btn-sm layui-btn-primary get-near-time" data-min="60">一小时后</a>
+							<a class="layui-btn layui-btn-sm layui-btn-primary get-near-time" data-min="120">两小时后</a>
+							<a class="layui-btn layui-btn-sm layui-btn-primary get-near-time" data-min="180">三小时后</a>
+
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg3">
+							<label class="layui-form-label">预览消息：</label>
+							<div class="layui-input-block">
+								<input type="text" name="member_id" class="layui-input" placeholder="请输入粉丝ID"/>
+							</div>
+						</div>
+						<a class="layui-btn layui-btn-primary" style="margin-left:10px;" lay-submit lay-filter="testsend">发送预览</a>
+					</div>
+					<div class="layui-form-item">
+		                <div class="layui-input-block">
+		                	<input type="hidden" value="{$cur.id}" name="id" />
+		                  	<a class="layui-btn" lay-submit lay-filter="dosubmit">保存</a>
+		                  	<a class="layui-btn layui-btn-primary" href="{$backUrl}">返回</a>
+		                </div>
+		            </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="coverLayer layui-hide">
+	<div class="layui-fluid">
+		<div class="cover-main">
+			{volist name="material.cover" id="cv"}
+				<div class="cover-item">
+					<img class="layCover" src="{$cv}">
+				</div>
+			{/volist}
+		</div>
+	</div>
+</div>
+<div class="titleLayer layui-hide">
+	<div class="layui-fluid">
+		<ul>
+			{volist name="material.title" id="tv"}
+				<li class="layTitle">{$tv}</li>
+			{/volist}
+		</ul>
+	</div>
+</div>
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="/static/common/js/custom.js"></script>
+<script type="text/javascript" src="__JS__/admin.message.dotask.js"></script>
+{/block}

@@ -1,0 +1,198 @@
+{extend name="public/base"}
+{block name="title"}更新视频{/block}
+{block name="jsValue"}
+<script type="text/javascript">
+    var file_url = '{:my_url("Upload/doUploadVideo")}';
+    var $free_type = parseInt('{$cur.free_type}');
+    var $backUrl = '{$backUrl}';
+</script>
+{/block}
+{block name="body"}
+<div class="layui-fluid">
+	<div class="layui-row">
+		<div class="layui-card">
+			<div class="layui-card-header">
+				视频基础信息
+			</div>
+			<div class="layui-card-body">
+				<div class="layui-form">
+					<div class="layui-form-item">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">视频名称：</label>
+							<div class="layui-input-block">
+								<input type="text" name="name" value="{$cur.name}" class="layui-input" />
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">状态：</label>
+							<div class="layui-input-block">
+								{:createRadioHtml($status,$cur['status'])}
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">封面：</label>
+						<div class="layui-input-block">
+							<div class="image-div">
+								<div class="image-box size-120x170" title="点击上传小说封面" onclick="javascript:cropImage('上传小说封面图片','210x290',this);">
+									{empty name="cur.cover"}
+									<img src="/static/common/images/240x340.png" class="showimg"/>
+									{else /}
+									<img src="{$cur.cover}" class="showimg"/>
+									{/empty}
+									<input type="hidden" class="hideval" name="cover" value="{$cur.cover}"/>
+								</div>
+								<div class="image-remark">点击可更换视频封面图片</div>
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg5">
+							<label class="layui-form-label">简介：</label>
+							<div class="layui-input-block">
+								<textarea class="layui-textarea" name="summary">{$cur.summary}</textarea>
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">发布区域：</label>
+							<div class="layui-input-block">
+								{:createCheckBoxHtml($area,'area',$cur['area'])}
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg3">
+							<label class="layui-form-label">排序权值：</label>
+							<div class="layui-input-block">
+								<input type="text" name="sort_num" value="{$cur.sort_num}" class="layui-input" />
+							</div>
+						</div>
+						<div class="layui-form-mid layui-word-aux">排序权值仅在各发布区域生效，由大到小排列</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">类型：</label>
+							<div class="layui-input-block">
+								{:createCheckBoxHtml($category,'category',$cur['category'])}
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">是否收费：</label>
+							<div class="layui-input-block">
+								{:createRadioHtml($free_type,$cur['free_type'])}
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item free-input-line">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">付费书币：</label>
+							<div class="layui-input-block">
+								<input type="text" name="money" value="{$cur.money}" class="layui-input" />
+							</div>
+						</div>
+						<div class="layui-form-mid layui-word-aux">观看该视频需收取多少书币</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">是否推荐：</label>
+							<div class="layui-input-block">
+								{:createRadioHtml($is_hot,$cur['is_hot'])}
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">初始化人气值：</label>
+							<div class="layui-input-block">
+								<input type="text" name="hot_num" value="{$cur.hot_num}" class="layui-input" />
+							</div>
+						</div>
+						<div class="layui-form-mid layui-word-aux">视频详情页展示,此后每当用户进入该页面，人气值+1</div>
+					</div>
+					<!--点赞-->
+					<div class="layui-form-item">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">点赞：</label>
+							<div class="layui-input-block">
+								<input type="text" name="zan" value="{$cur.zan}" class="layui-input" />
+							</div>
+						</div>
+					</div>
+					<!--踩-->
+					<div class="layui-form-item">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">踩：</label>
+							<div class="layui-input-block">
+								<input type="text" name="cai" value="{$cur.cai}" class="layui-input" />
+							</div>
+						</div>
+					</div>
+
+					<div class="layui-form-item">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">分享标题：</label>
+							<div class="layui-input-block">
+								<input type="text" name="share_title" value="{$cur.share_title}" class="layui-input" />
+							</div>
+						</div>
+						<div class="layui-form-mid layui-word-aux">分享视频时，标题为该项设定的值</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg5">
+							<label class="layui-form-label">分享简介：</label>
+							<div class="layui-input-block">
+								<textarea class="layui-textarea" name="share_desc">{$cur.share_desc}</textarea>
+							</div>
+						</div>
+						<div class="layui-form-mid layui-word-aux">分享视频时，简介为该项设定的值</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg5">
+							<label class="layui-form-label">视频地址：</label>
+							<div class="layui-input-block">
+								<input type="text" name="url" value="{$cur.url}" id="video_url" class="layui-input" readonly="readonly" />
+							</div>
+						</div>
+						<a class="layui-btn" style="margin-left:10px;" id="doUpload">上传视频</a>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-input-block">
+							<input type="hidden" value="{$cur.id}" name="id" />
+							<a class="layui-btn" lay-submit lay-filter="dosubmit">保存</a>
+							<a class="layui-btn layui-btn-primary" href="{$backUrl}">返回</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="zipLayer" style="display:none;">
+	<div class="layui-fluid">
+		<div class="zip-div">
+			<div class="zip-main">
+				<div class="zip-btn-div" id="doneUpload">
+					<img src="/static/common/images/upload.png" style="width:100%;" />
+				</div>
+				<p class="upload-remark">请选择小于500M的且为H264编码的mp4文件</p>
+				<div class="upload-loading">
+					<div class="upload-state-div">
+						<span></span>
+						<font>文件处理中...</font>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="/static/plugins/plupload/plupload.full.min.js"></script>
+<script type="text/javascript" src="__JS__/admin.video.dovideo.js"></script>
+{/block}

@@ -1,0 +1,133 @@
+{extend name="public/base"} 
+{block name="title"}{$title}{/block}
+{block name="jsValue"}
+<script type="text/javascript">
+var $free_type = parseInt('{$cur.free_type}');
+var $backUrl = '{$backUrl}';
+var $up_url = '{:my_url("Upload/doUploadFile")}';
+</script>
+{/block} 
+{block name="body"}
+<div class="layui-fluid">
+	<div class="layui-row">
+		<div class="layui-card">
+			<div class="layui-card-header">
+				{$title}
+			</div>
+			<div class="layui-card-body">
+				<div class="layui-form">
+					<div class="layui-form-item">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">状态：</label>
+							<div class="layui-input-block">
+								{:createRadioHtml($status,$cur['status'])}
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">发布区域：</label>
+							<div class="layui-input-block">
+								{:createCheckBoxHtml($area,'area',$cur['area'])}
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">类型：</label>
+							<div class="layui-input-block">
+								{:createCheckBoxHtml($category,'category',$cur['category'])}
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">书籍属性：</label>
+							<div class="layui-input-block">
+								{:createRadioHtml($free_type,$cur['free_type'])}
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item free-input-line">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">免费章节：</label>
+							<div class="layui-input-block">
+								<input type="text" name="free_chapter" value="{$cur.free_chapter}" class="layui-input" />
+							</div>
+						</div>
+						<div class="layui-form-mid layui-word-aux">设定值前的章节阅读免费</div>
+					</div>
+					<div class="layui-form-item free-input-line">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">付费书币：</label>
+							<div class="layui-input-block">
+								<input type="text" name="money" value="{$cur.money}" class="layui-input" />
+							</div>
+						</div>
+						<div class="layui-form-mid layui-word-aux">免费章节后每章节收取多少书币</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">书籍进度：</label>
+							<div class="layui-input-block">
+								{:createRadioHtml($over_type,$cur['over_type'])}
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">是否新书：</label>
+							<div class="layui-input-block">
+								{:createRadioHtml($new_type,$cur['new_type'])}
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">篇幅：</label>
+							<div class="layui-input-block">
+								{:createRadioHtml($long_type,$cur['long_type'])}
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">所属频道：</label>
+							<div class="layui-input-block">
+								{:createRadioHtml($gender_type,$cur['gender_type'])}
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">是否热门推荐：</label>
+							<div class="layui-input-block">
+								{:createRadioHtml($is_hot,$cur['is_hot'])}
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">上传书籍：</label>
+						<div class="layui-input-block">
+							<div class="layui-card">
+								<div class="layui-card-header"><a class="layui-btn layui-btn-sm" id="doUploadZip">上传小说zip压缩包</a>&nbsp;&nbsp;温馨提示：每本小说不超过20M,小说保存名称为压缩包名称,请等待所有小说上传完毕后再提交</div>
+								<div class="layui-card-body" id="zip-list-body"></div>
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+		                <div class="layui-input-block">
+		                  	<a class="layui-btn" lay-submit lay-filter="dosubmit">提交</a>
+		                  	<a type="reset" class="layui-btn layui-btn-primary" href="{$backUrl}">返回</a>
+		                </div>
+		            </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="/static/plugins/plupload/plupload.full.min.js"></script>
+<script type="text/javascript" src="__JS__/admin.novel.addmorebook.js"></script>
+{/block}

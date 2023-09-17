@@ -1,0 +1,293 @@
+{extend name="public/base"}
+{block name="title"}{$site_title}{/block}
+{block name="jsValue"}
+<script type="text/javascript">
+var is_sign = 2;
+{notempty name="sign_info"}
+is_sign = 1;
+{/notempty}
+</script>
+{/block}
+{block name="body"}
+<div class="person">
+        <div class="personBox">
+            <div class="personCenter">
+                <div class="personTX">
+                    <img src="/static/index/images/wx_nlogin.jpg" alt="">
+                </div>
+                <div class="personUser">
+                    <h4>{$good_str}！游客</h4>
+                    <a href="{:my_url('User/login')}" style="font-size: 1.4rem;color: #ffff;text-decoration:underline">点击登录</a>
+                    <div class="perA">
+                    	{gt name="cur.viptime" value="0"}
+                    		<a href="javascript:;">
+	                            <img src="/static/index/images/VIP.png" alt="">
+	                            {eq name="cur.viptime" value="1"}
+	                            	<em>到期时间：终身有效</em>
+	                            {else /}
+	                            	<em>到期时间：{:date('Y-m-d',$cur['viptime'])}</em>
+	                            {/eq}
+	                        </a>
+                    	{else /}
+                    		<a href="{:my_url('Charge/index')}">
+	                            <img src="/static/index/images/HG.png" alt="">
+	                            <em>开通VIP</em>
+	                        </a>
+                    	{/gt}
+                    </div>
+                </div><!--/personUser-->
+                <div class="perSign">
+                    <a href="javascript:;" onclick="javascript:showSign();">
+                        <img src="/static/index/images/QD.png" alt="">
+                        <p>签到</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+ </div>
+ {notempty name="activity"}
+ <div class="perBg">
+     <a href="{$activity.url}"><img src="{$activity.cover}" alt=""></a>
+ </div>
+ {/notempty}
+ <div class="personSelect">
+     <ul>
+        <li>
+            <a href="{:my_url('Charge/index')}" style="display:flex;justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;">
+                <div style="display:flex;align-items: center;">
+                    <div class="perImg">
+                    <img src="/static/index/images/per3.png" alt="">
+                    </div>
+                    <p>VIP解锁全站</p>
+                </div>
+                <div style="display:flex;align-items: center;">
+                    <span style="width:100px;color:red;font-size:1.5rem">立即开通</span>
+                    <div class="right-img" style="width:11px;height:16px;line-height:16px">
+                         <img src="/static/index/images/right.png" alt=""  style="width:100%;height:100%"/>
+                    </div>
+                </div>
+            </a>
+        </li>
+
+         <li>
+            <a href="{:my_url('User/message')}">
+                <div class="perImg">
+                    <img src="/static/index/images/per9.png" alt="">
+                </div>
+                <p>平台消息</p>
+            </a>
+            <div class="right-img" style="width:11px;height:16px;line-height:16px">
+                <img src="/static/index/images/right.png" alt=""  style="width:100%;height:100%"/>
+            </div>
+        </li>
+        <li>
+            <a href="javascript:;" style="display:flex;justify-content: space-between;">
+                  <div style="display:flex">
+                        <div class="perImg">
+                            <img src="/static/index/images/per1.png" alt="">
+                        </div>
+                        <p>书币余额</p>
+                    </div>
+                <p> <span></span></p>
+            </a>
+        </li>
+
+        <li>
+            {eq name="cur.is_auto" value="1"}
+            <a href="javascript:;" class="active" onclick="javascript:doSetAuto(this);" style="display:flex;justify-content: space-between;align-items: center;">
+                 <div style="display:flex">
+                    <div class="perImg">
+                    <img src="/static/index/images/per88.png" alt="">
+                </div>
+                <p>自动购买</p>
+                 </div>
+                <div class="autoDy">
+                    <input type="checkbox" checked="true">
+                    <span class="active"><i style="left:28px;"></i></span>
+                </div>
+            </a>
+            {else /}
+            <a href="javascript:;"  onclick="javascript:doSetAuto(this);" style="display:flex;justify-content: space-between;align-items: center;">
+                 <div style="display:flex">
+                    <div class="perImg">
+                    <img src="/static/index/images/per88.png" alt="">
+                </div>
+               <p>自动订阅</p>
+                 </div>
+                <div class="autoDy">
+                    <input type="checkbox">
+                    <span><i></i></span>
+                </div>
+            </a>
+            {/eq}
+        </li>
+        <li>
+            <a href="{:my_url('User/myCollect')}">
+                <div class="perImg">
+                    <img src="/static/index/images/per2.png" alt="">
+                </div>
+                <p>我的书架</p>
+            </a>
+            <div class="right-img" style="width:11px;height:16px;line-height:16px">
+                <img src="/static/index/images/right.png" alt=""  style="width:100%;height:100%"/>
+            </div>
+        </li>
+
+        <li>
+            <a href="{:my_url('User/myHistory')}">
+                <div class="perImg">
+                    <img src="/static/index/images/per5.png" alt="">
+                </div>
+                <p>阅读历史</p>
+            </a>
+            <div class="right-img" style="width:11px;height:16px;line-height:16px">
+                <img src="/static/index/images/right.png" alt=""  style="width:100%;height:100%"/>
+            </div>
+        </li>
+        
+        <li>
+            <a href="{:my_url('User/myOrder')}">
+                <div class="perImg">
+                    <img src="/static/index/images/per4.png" alt="">
+                </div>
+                <p>购物历史</p>
+            </a>
+            <div class="right-img" style="width:11px;height:16px;line-height:16px">
+                <img src="/static/index/images/right.png" alt=""  style="width:100%;height:100%"/>
+            </div>
+        </li>
+
+        <li>
+            <a href="{:my_url('User/videoHistory')}">
+                <div class="perImg">
+                    <img src="/static/index/images/per11.png" alt="">
+                </div>
+                <p>视频记录</p>
+            </a>
+            <div class="right-img" style="width:11px;height:16px;line-height:16px">
+                <img src="/static/index/images/right.png" alt=""  style="width:100%;height:100%"/>
+            </div>
+        </li>
+        
+        <li>
+            <a href="{:my_url('User/bindPhone')}">
+                <div class="perImg">
+                    <img src="/static/index/images/per8.png" alt="">
+                </div>
+                <p>{empty name="cur.phone"}绑定手机号{else /}更换手机号{/empty}</p>
+            </a>
+            <div class="right-img" style="width:11px;height:16px;line-height:16px">
+                <img src="/static/index/images/right.png" alt=""  style="width:100%;height:100%"/>
+            </div>
+        </li>
+        <li>
+            <a href="{:my_url('User/feedback')}">
+                <div class="perImg">
+                    <img src="/static/index/images/per7.png" alt="">
+                </div>
+                <p>意见反馈</p>
+            </a>
+            <div class="right-img" style="width:11px;height:16px;line-height:16px">
+                <img src="/static/index/images/right.png" alt=""  style="width:100%;height:100%"/>
+            </div>
+        </li>
+        <li>
+            <a href="javascript:;" onclick="javascript:contactUs();">
+                <div class="perImg">
+                    <img src="/static/index/images/per6.png" alt="">
+                </div>
+                <p>联系客服</p>
+            </a>
+            <div class="right-img" style="width:11px;height:16px;line-height:16px">
+                <img src="/static/index/images/right.png" alt=""  style="width:100%;height:100%"/>
+            </div>
+        </li>
+     </ul>
+ </div>
+{:getBlock('common_footer','other')}
+{notempty name="sign_info"}
+<div class="checkIn-prop">
+         <div class="checkIn">
+             <div class="checkInTitle">
+                 <div class="checkImg">
+                     <img src="/static/index/images/qdBg.png" alt="">
+                 </div>
+
+                 <div class="checkFont">
+                     <h4>{eq name="sign_info.cur_sign" value="yes"}今日已签到{else /}今日未签到{/eq}</h4>
+                     <p>连续签到7天合计得{$sign_info.total}书币</p>
+                 </div>
+                 <a href="javascript:;" onclick="javascript:layer.closeAll();"> <img src="/static/index/images/close.png" alt=""></a>
+             </div>
+              <div class="checkInBox">
+                 <div class="checkIn-B">
+                        <ul>
+                        	{volist name="sign_info.list" id="v"}
+                        		{eq name="v.is_sign" value="yes"}
+                        			<li class="active">
+		                                   <a href="javascript:;" onclick="doSign()">
+		                                       <div class="">
+		                                           <div class="checkInBg"></div>
+		                                           <p>{$v.money}书币</p>
+		                                       </div>
+		                                       <p>已签到</p>
+		                                   </a>
+		                            </li>
+		                        {else /}
+			                        <li>
+		                                <a href="javascript:;" onclick="doSign()">
+		                                    <div class="">
+		                                        <div class="checkInBg"></div>
+		                                        <p>{$v.money}书币</p>
+		                                    </div>
+		                                    <p>第{$v.day}天</p>
+		                                </a>
+		                            </li>
+                        		{/eq}
+                            {/volist}
+                        </ul>
+                     <div class="checkInSay">
+                         <p>签到说明：</p>
+                         <p>1.本签到为累积签到，用户若中途中断签到，签到记录将自动重新开始</p>
+                         <p>2.签到周期为七天</p>
+                     </div>
+                 </div>
+              </div>
+         </div>
+</div>
+{/notempty}
+ <div class="relation-prop">
+      <div class="relation">
+          <a href="javascript:;" onclick="javascript:layer.closeAll();"> <img src="/static/index/images/close.png" alt=""></a>
+           <h4>联系方式</h4>
+            <div class="relationNumber">
+                <div class="imgKf">
+                    <img src="/static/index/images/face.png" alt="">
+                </div>
+                {notempty name="contact.qq"}
+	                <p>
+	                    <img src="/static/index/images/QQ.png" alt="">
+	                    <span>QQ：{$contact.qq}</span>
+	                </p>
+                {/notempty}
+                {notempty name="contact.wx"}
+	                <p>
+	                    <img src="/static/index/images/mes.png" alt="">
+	                    <span>微信：{$contact.wx}</span>
+	                </p>
+                {/notempty}
+                {notempty name="contact.tel"}
+	                <p>
+	                    <img src="/static/index/images/tel.png" alt="">
+	                    <span>电话：{$contact.tel}</span>
+	                </p>
+                {/notempty}
+            </div>
+      </div>
+ </div>
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="__IJS__/user_center.min.js"></script>
+{/block}

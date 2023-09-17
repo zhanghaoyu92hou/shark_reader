@@ -1,0 +1,1 @@
+layui.use(["jquery","form"],function(){var b=layui.jquery,a=layui.form;a.on("submit(dosubmit)",function(d){var c=d.field;ajaxPost("",c,"确定要保存吗？",function(e){layOk("保存成功");b("#SiteName",window.parent.document).html(c.name);b("#ManageName",window.parent.document).html(c.name)})})});

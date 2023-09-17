@@ -1,0 +1,30 @@
+{extend name="public/base"}
+{block name="title"}{$site_title}{/block}
+{block name="body"}
+    <div class="commodityNav commodityline" style="	border-bottom: 1px solid #e8e8e8;">
+        <a href="javascript:history.go(-1);" class="back" title="返回"></a>
+        <span class="activeNone" style="font-size: 1.5rem" >更换绑定</span>
+    </div>
+ <div class="binging">
+    <ul>
+        <li>
+            <div  class="telNumber">
+                <input type="text" id="phone" value="{$cur.phone}" placeholder="请输入手机号">
+            </div>
+        </li>
+        <li>
+            <div  class="telYzm">
+                <input type="text" id="verify_code" placeholder="请输入验证码" >
+            </div>
+            <a href="javascript:;" class="ripple" onclick="javascript:getCode(this);">发送验证码</a>
+        </li>
+    </ul>
+
+    <div class="promptly">
+        <a href="javascript:;" class="ripple" onclick="javascript:doBind();">{empty name="cur.phone"}立即绑定{else /}更换绑定{/empty}</a>
+    </div>
+</div>
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="__IJS__/user_bindphone.min.js"></script>
+{/block}

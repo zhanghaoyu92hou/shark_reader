@@ -1,0 +1,1 @@
+layui.use(["jquery","element"],function(){var d=layui.jquery,b=layui.element;var a=1;d("#doChange").click(function(){c();var f="qrcode_pic_"+a+".png";var e=$path+f;d("#showImg").attr("src",e);d("#picdownload").attr("download",f);d("#picdownload").attr("href",e)});function c(){var e=getRandomNum(1,5);if(a==e){c()}else{a=e}}});

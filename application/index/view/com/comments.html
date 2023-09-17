@@ -1,0 +1,55 @@
+{extend name="public/base"}
+{block name="title"}{$site_title}{/block}
+{block name="css"}
+<style type="text/css">
+html,body{background: #fff;}
+</style>
+{/block}
+{block name="jsValue"}
+<script type="text/javascript">
+var data = {pid:'{$cur.pid}',type:'{$cur.type}'};
+</script>
+{/block}
+{block name="body"}
+<div class="commodityNav commodityline" style="	border-bottom: 1px solid #e8e8e8;">
+    <a href="javascript:history.go(-1);" class="back" title="返回"></a>
+    <span class="activeNone" style="font-size: 1.5rem" >精彩评论</span>
+</div>
+<div class="discuss">
+     <div class="discussAuto">
+          <div class="discussTx"><img src="{$user.headimgurl}" alt=""></div>
+          <div class="discussPl">
+               <h4>{$user.nickname}</h4>
+               <p>评论共0条</p>
+          </div>
+     </div>
+</div>
+<div class="evaluation cartoonTop">
+    <div class="evaluationTitle">
+         精彩评论
+    </div>
+    <div class="discussNo">
+            <p>暂时没有评论</p>
+            <p>快去下方评论吧！<img src="/static/index/images/arrowOrange.png" alt=""></p>
+    </div>
+	<div class="evaluationList" style="display:none;">
+         <ul></ul>
+    </div>
+</div>
+
+<div class="height_45"></div>
+<div class="discussBot">
+     <div class="discussBotCenter">
+         <div class="discussInput">
+             <div>
+                 <input type="text" id="content" placeholder="快快写下您的评论吧！">
+             </div>
+         </div>
+
+         <a href="javascript:;" class="ripple" onclick="javascript:doComments();">发表</a>
+     </div>
+</div>
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="__IJS__/com_comments.min.js?d=20190715"></script>
+{/block}

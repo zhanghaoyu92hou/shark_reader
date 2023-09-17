@@ -1,0 +1,168 @@
+{extend name="public/base"} 
+{block name="title"}更新商品{/block} 
+{block name="jsValue"}
+<script type="text/javascript">
+var $backUrl = '{$backUrl}';
+var $upUrl = '{:my_url("Upload/doUploadEditorImg")}';
+</script>
+{/block}
+{block name="body"}
+<div class="layui-fluid">
+	<div class="layui-row">
+		<div class="layui-card">
+			<div class="layui-card-header">
+				商品基础信息 
+			</div>
+			<div class="layui-card-body">
+				<div class="layui-form">
+					<div class="layui-form-item">
+						<label class="layui-form-label">商品封面：</label>
+						<div class="layui-input-block">
+							<div class="image-div">
+								<div class="image-box size-240x205" title="点击上传商品封面图片" onclick="javascript:cropImage('上传商品封面图片','750x642',this);">
+									{empty name="cur.cover"}
+										<img src="/static/common/images/240x205.png" class="showimg"/>
+									{else /}
+										<img src="{$cur.cover}" class="showimg"/>
+									{/empty}
+									<input type="hidden" class="hideval" name="cover" value="{$cur.cover}"/>
+								</div>
+								<div class="image-remark">点击可更换商品封面图片</div>
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg3">
+							<label class="layui-form-label">商品名称：</label>
+							<div class="layui-input-block">
+								<input type="text" name="name" value="{$cur.name}" class="layui-input" />
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">购买金额：</label>
+							<div class="layui-input-block">
+								<input type="text" name="money" value="{$cur.money}" class="layui-input" />
+							</div>
+						</div>
+						<div class="layui-form-mid layui-word-aux">单位：元</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">库存：</label>
+							<div class="layui-input-block">
+								<input type="text" name="stock" value="{$cur.stock}" class="layui-input" />
+							</div>
+						</div>
+						<div class="layui-form-mid layui-word-aux">当库存为0时将不能购买</div>
+					</div>
+						<div class="layui-form-item">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">前端数量：</label>
+							<div class="layui-input-block">
+								<input type="text" name="buy_num" value="{$cur.buy_num}" class="layui-input" />
+							</div>
+						</div>
+						<div class="layui-form-mid layui-word-aux">本数据为制造热销效果，非真实销售数据</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg5">
+							<label class="layui-form-label">商品简介：</label>
+							<div class="layui-input-block">
+								<textarea class="layui-textarea" name="summary">{$cur.summary}</textarea>
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg6">
+							<label class="layui-form-label">商品详情：</label>
+							<div class="layui-input-block">
+								<textarea class="layui-textarea" id="content">{$cur.content}</textarea>
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">发布区域：</label>
+							<div class="layui-input-block">
+								{:createCheckBoxHtml($area,'area',$cur['area'])}
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg3">
+							<label class="layui-form-label">排序权值：</label>
+							<div class="layui-input-block">
+								<input type="text" name="sort_num" value="{$cur.sort_num}" class="layui-input" />
+							</div>
+						</div>
+						<div class="layui-form-mid layui-word-aux">排序权值仅在各发布区域生效，由大到小排列</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">类型：</label>
+							<div class="layui-input-block">
+								{:createCheckBoxHtml($category,'category',$cur['category'])}
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">商品状态：</label>
+							<div class="layui-input-block">
+								{:createRadioHtml($status,$cur['status'])}
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">是否推荐：</label>
+							<div class="layui-input-block">
+								{:createRadioHtml($is_hot,$cur['is_hot'])}
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">人气值：</label>
+							<div class="layui-input-block">
+								<input type="text" name="hot_num" value="{$cur.hot_num}" class="layui-input" />
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg4">
+							<label class="layui-form-label">分享标题：</label>
+							<div class="layui-input-block">
+								<input type="text" name="share_title" value="{$cur.share_title}" class="layui-input" />
+							</div>
+						</div>
+						<div class="layui-form-mid layui-word-aux">分享商品时，标题为该项设定的值</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-col-lg5">
+							<label class="layui-form-label">分享简介：</label>
+							<div class="layui-input-block">
+								<textarea class="layui-textarea" name="share_desc">{$cur.share_desc}</textarea>
+							</div>
+						</div>
+						<div class="layui-form-mid layui-word-aux">分享商品时，简介为该项设定的值</div>
+					</div>
+					<div class="layui-form-item">
+		                <div class="layui-input-block">
+		                	<input type="hidden" value="{$cur.id}" name="id" />
+		                  	<a class="layui-btn" lay-submit lay-filter="dosubmit">保存</a>
+		                  	<a class="layui-btn layui-btn-primary" href="{$backUrl}">返回</a>
+		                </div>
+		            </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{/block}
+{block name="footJs"}
+<script type="text/javascript" src="/static/plugins/ace/ace.js"></script>
+<script type="text/javascript" src="__JS__/admin.product.doproduct.js"></script>
+{/block}

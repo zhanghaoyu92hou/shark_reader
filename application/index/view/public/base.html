@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>{block name="title"}{/block}</title>
+    <link rel="stylesheet" href="/static/index/css/base.min.css" />
+    {block name="css"}{/block}
+    {block name="jsValue"}{/block}
+</head>
+<body>
+{block name="body"}{/block}
+<div class="guidance-prop" style="display:none;">
+      <div class="guidanceBox">
+          <div class="topArrow">
+              <img src="/static/index/images/topArrow.png" alt="">
+          </div>
+          <div class="centerFont">
+              <img src="/static/index/images/centerFont.png" alt="">
+          </div>
+          <div class="botArrow">
+              <img src="/static/index/images/botArrow.png" alt="">
+          </div>
+          <div class="btnAn">
+              <img src="/static/index/images/btnImg.png" alt="">
+              <p>浮窗</p>
+          </div>
+          <div class="know" onclick="javascript:hideNotice();">
+              <a href="javascript:;"><img src="/static/index/images/know.png" alt=""></a>
+          </div>
+      </div>
+</div>
+<script type="text/javascript" src="/static/index/js/jquery.min.js"></script>
+<script type="text/javascript" src="/static/index/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="/static/plugins/layer_mobile/layer.js"></script>
+<script type="text/javascript" src="/static/index/js/common.min.js"></script>
+{block name="footJs"}{/block}
+</body>
+</html>

@@ -1,0 +1,10 @@
+{notempty name="list"}
+{volist name="list" id="v"}
+{notempty name="v.src"}
+<a href="{$v.link}">
+    <img src="{$v.src}" alt="">
+    <p>{$v.text}</p>
+</a>
+{/notempty}
+{/volist}
+{/notempty}

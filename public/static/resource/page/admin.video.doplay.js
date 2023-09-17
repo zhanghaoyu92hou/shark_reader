@@ -1,0 +1,1 @@
+layui.config({base:"/static/layadmin/lay_extend/ckplayer/"}).use(["jquery","ckplayer"],function(){var d=layui.jquery,c=layui.ckplayer;var e=d("#video").data("url"),b={container:"#video",loop:true,autoplay:true,video:[[e,"video/mp4"]]};var a=new c(b)});
